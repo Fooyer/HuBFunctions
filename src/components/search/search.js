@@ -4,7 +4,6 @@ import "./search.css"
 
 // Import Frameworks
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col } from 'react-bootstrap';
 
 // Import Images
@@ -17,21 +16,34 @@ function SearchBar(){
 
     return (
 
-        <form className="mainSearch">
+            <form className="mainSearch">
 
-            <Col xs="9" md="9" lg="6" className="Search-bar">
+                <Col xs="9" md="9" lg="4" className="Search-bar">
 
-                <input placeholder="Search a function"/>
+                    <input placeholder="Search a function"/>
 
-		    </Col>
+                </Col>
 
-            <Col xs="1" md="1" lg="1" className="Search-image">
+                <Col xs="3" md="4" lg="2">
 
-                <img src={imgSearch} id="img-search" alt="" />
-                
-            </Col>
+                    <select className="language-programming">
 
-        </form>
+                        <option>Javascript</option>
+                        <option>Python</option>
+                        <option>Php</option>
+                        <option>C#</option>
+
+                    </select>
+
+                </Col>
+
+                <Col xs="1" md="1" lg="1" className="Search-image">
+
+                    <img src={imgSearch} id="img-search" alt="function search" />
+                    
+                </Col>
+
+            </form>
 
     )
 
