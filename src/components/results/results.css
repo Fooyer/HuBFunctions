@@ -1,0 +1,7 @@
+.Results-Box{
+    min-height: 80vh;
+    max-height: 250vh;
+    height: auto;
+    background-color: gray;
+    width: 70vw;
+}
