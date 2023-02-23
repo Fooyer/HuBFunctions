@@ -19,8 +19,10 @@ function SearchBar(){
 
         <form className="mainSearch">
 
-            <Col xs="9" md="9" lg="7" className="Search-bar">
-                <input />
+            <Col xs="9" md="9" lg="6" className="Search-bar">
+
+                <input placeholder="Search a function"/>
+
 		    </Col>
 
             <Col xs="1" md="1" lg="1" className="Search-image">
