@@ -3,6 +3,8 @@ import './App.css';
 // Frameworks imports
 
 import { Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // Components Imports
 
@@ -24,7 +26,6 @@ function App() {
       </div>
 
       <Footer />
-
     </div>
   );
 }
