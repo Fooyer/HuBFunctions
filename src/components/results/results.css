@@ -2,6 +2,13 @@
     min-height: 80vh;
     max-height: 250vh;
     height: auto;
-    background-color: gray;
-    width: 70vw;
+    background-color: rgb(183, 184, 196);
+    border: 1px solid rgb(26, 26, 51);
+    border-radius: 15px;
+}
+
+.maincontent{
+    justify-content: center;
+    display: flex;
+    margin-top: 15vh;
 }

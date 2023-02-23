@@ -2,7 +2,7 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import { Row, Col } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 

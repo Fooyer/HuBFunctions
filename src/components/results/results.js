@@ -4,8 +4,7 @@ import "./results.css"
 
 // Import Frameworks
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 // Component Funciton
 
@@ -15,11 +14,13 @@ function Results(){
 
     return (
 
-        <Row className="Results-Box">
+        <div className="maincontent">
+            <Col xs="12" md="10" lg="8" className="Results-Box">
 			
-            
 
-		</Row>
+
+		    </Col>
+        </div>
 
     )
 
