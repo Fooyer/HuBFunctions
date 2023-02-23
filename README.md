@@ -1,4 +1,4 @@
 # HUB Functions
 
-HUB Functions is a project for create a HUB of functions in various programming languages, so it can be found more easily.
+HUB Functions is a project to create a HUB of functions in several programming languages, so that functions can be found more easily.
 
