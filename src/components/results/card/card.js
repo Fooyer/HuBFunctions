@@ -12,7 +12,19 @@ function Card(title){
 
         <div className="card">
             
-           <h1>{title.title}</h1>
+            <div className="artigo-funcao">
+
+                <h2>{title.title}</h2>
+
+                <div className="artigo-code">
+
+                    <p style={{ whiteSpace: "pre-wrap" }}>{title.dfunction}</p>
+                    
+                </div>
+
+                <p>{title.description}</p>
+
+            </div>
 
         </div>
 

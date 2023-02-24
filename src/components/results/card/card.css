@@ -1,8 +1,21 @@
 .card{
-    height: 20vh;
+    height: auto;
     background-color: rgb(59, 59, 59);
     border: 1px solid black;
     border-radius: 10px;
     margin: 10px;
     color: white;
+}
+.artigo-funcao{
+    margin: 10px;
+}
+.artigo-code{
+    margin-top: 20px;
+    background-color: rgb(109, 109, 109);
+    height: auto;
+    border-radius: 5px;
+}
+.artigo-code p{
+    padding: 10px;
+
 }
