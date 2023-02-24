@@ -14,8 +14,6 @@ import Card from "./card/card";
 
 function Results(dados){
 
-    console.log(dados)
-
     return (
 
         <div className="maincontent">

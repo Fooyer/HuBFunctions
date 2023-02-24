@@ -54,7 +54,6 @@ function SearchBar(setSearched){
         }
 
         let languageSearch = document.getElementById('language-programming').value
-        console.log(languageSearch)
 
         let { data: functions, error } = await supabase.from('allfunctions').select('*').eq('planguage', languageSearch)
 
