@@ -74,8 +74,7 @@ function SearchBar(setSearched){
 
                     {Languages.map((element) => (
                         
-                        // precisa criar uma coisa na data base pra fazer tipo JS, PY, quando tiver no modo celular
-                        <option value={element.id}>{element.planguage}</option>
+                        <option value={element.planguage}>{element.planguage}</option>
 
                     ))}
 
