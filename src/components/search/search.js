@@ -41,17 +41,24 @@ function SearchBar(setSearched){
 
     // Função de Pesquisa
 
-    function search(event){
+    async function search(event){
         
         event.preventDefault()
 
         if (document.getElementById('searchContent').value === ""){
 
+            setSearched.setDados([])
             setSearched.setSearched('')
 
             return 0
         }
 
+        let languageSearch = document.getElementById('language-programming').value
+        console.log(languageSearch)
+
+        let { data: functions, error } = await supabase.from('allfunctions').select('*').eq('planguage', languageSearch)
+
+        setSearched.setDados(functions)
         setSearched.setSearched('searched')
 
     }
@@ -70,7 +77,7 @@ function SearchBar(setSearched){
 
                 <Col xs="2" md="4" lg="2">
 
-                    <select className="language-programming">
+                    <select className="language-programming" id="language-programming">
 
                     {Languages.map((element) => (
                         

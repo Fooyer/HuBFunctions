@@ -20,15 +20,16 @@ import Description from "../../components/description/description";
 function Home(){
 
     const [Searched, setSearched] = useState('');
+    const [Dados, setDados] = useState([]);
 
     return (
         <div className="App">
 
             <Header />
 
-            <SearchBar setSearched={setSearched} />
+            <SearchBar setSearched={setSearched} setDados={setDados} />
         
-            {(Searched === 'searched')  && <Results /> }
+            {(Searched === 'searched')  && <Results dados={Dados} /> }
             {(Searched === '')  && <Description /> }
     
             <Footer />
