@@ -62,18 +62,19 @@ function SearchBar(setSearched){
 
             <form className="mainSearch" onSubmit={search} action="" >
 
-                <Col xs="9" md="9" lg="4" className="Search-bar">
+                <Col xs="8" md="9" lg="4" className="Search-bar">
 
                     <input placeholder="Search a function" id="searchContent" />
 
                 </Col>
 
-                <Col xs="3" md="4" lg="2">
+                <Col xs="2" md="4" lg="2">
 
                     <select className="language-programming">
 
                     {Languages.map((element) => (
-
+                        
+                        // precisa criar uma coisa na data base pra fazer tipo JS, PY, quando tiver no modo celular
                         <option value={element.id}>{element.planguage}</option>
 
                     ))}
@@ -82,7 +83,7 @@ function SearchBar(setSearched){
 
                 </Col>
 
-                <Col xs="1" md="1" lg="1" className="Search-image">
+                <Col xs="2" md="1" lg="1" className="Search-image">
 
                     <img src={imgSearch} id="img-search" alt="function search" onClick={search} />
                     
