@@ -1,5 +1,5 @@
 .Results-Box{
-    min-height: 80vh;
+    min-height: 50vh;
     max-height: 250vh;
     height: auto;
     background-color: rgb(183, 184, 196);
@@ -10,5 +10,5 @@
 .maincontent{
     justify-content: center;
     display: flex;
-    margin-top: 15vh;
+    margin-top: 10vh;
 }

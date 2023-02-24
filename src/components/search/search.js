@@ -28,12 +28,17 @@ function SearchBar(){
     // Obter as opções de linguages diretamente do banco
 
     const [Languages, setLanguages] = useState([]);
+    let languages;
 
     useEffect(() => {
         const fetchLanguages = async () => {
+            
+            if (!languages){
 
-            let { data: languages, error } = await supabase.from('planguages').select('planguage')
-            setLanguages(languages);
+                let { data: languages, error } = await supabase.from('planguages').select('planguage')
+                setLanguages(languages);
+
+            }
 
         };
         fetchLanguages();

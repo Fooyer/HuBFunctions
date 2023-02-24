@@ -1,35 +1,17 @@
-// Style Imports
-
-import './App.css';
-
 // Frameworks Imports
+import React from "react";
 
-//import { Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// Import Routes
 
+import PageRoutes from "./routes";
 
-// Components Imports
-
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
-import Results from './components/results/results';
-import SearchBar from './components/search/search';
-
-// App code
+// App Code
 
 function App() {
   return (
-    <div className="App">
 
-      <Header />
+    <PageRoutes />
 
-      <SearchBar />
-
-      <Results />
-
-      <Footer />
-      
-    </div>
   );
 }
 
