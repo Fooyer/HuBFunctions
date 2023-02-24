@@ -17,7 +17,7 @@ import imgSearch from "../../images/lupa.svg"
 
 // Component Funciton
 
-function SearchBar(){
+function SearchBar(setSearched){
 
     // Cria um cliente de conexão com o banco de dados
 
@@ -28,31 +28,43 @@ function SearchBar(){
     // Obter as opções de linguages diretamente do banco
 
     const [Languages, setLanguages] = useState([]);
-    let languages;
 
     useEffect(() => {
-        const fetchLanguages = async () => {
-            
-            if (!languages){
+        async function fetchLanguages(){
 
-                let { data: languages, error } = await supabase.from('planguages').select('planguage')
+                let { data: languages, error } = await supabase.from('planguages').select('*')
                 setLanguages(languages);
-
-            }
 
         };
         fetchLanguages();
-      }, []);
+    }, []);
 
-      // HTML do site
+    // Função de Pesquisa
+
+    function search(event){
+        
+        event.preventDefault()
+
+        if (document.getElementById('searchContent').value === ""){
+
+            setSearched.setSearched('')
+
+            return 0
+        }
+
+        setSearched.setSearched('searched')
+
+    }
+
+    // HTML do site
 
     return (
 
-            <form className="mainSearch">
+            <form className="mainSearch" onSubmit={search} action="" >
 
                 <Col xs="9" md="9" lg="4" className="Search-bar">
 
-                    <input placeholder="Search a function"/>
+                    <input placeholder="Search a function" id="searchContent" />
 
                 </Col>
 
@@ -62,7 +74,7 @@ function SearchBar(){
 
                     {Languages.map((element) => (
 
-                        <option>{element.planguage}</option>
+                        <option value={element.id}>{element.planguage}</option>
 
                     ))}
 
@@ -72,7 +84,7 @@ function SearchBar(){
 
                 <Col xs="1" md="1" lg="1" className="Search-image">
 
-                    <img src={imgSearch} id="img-search" alt="function search"/>
+                    <img src={imgSearch} id="img-search" alt="function search" onClick={search} />
                     
                 </Col>
 
