@@ -37,7 +37,7 @@ function Header() {
 
   return (
     <>
-      <Navbar collapseOnSelect fixed='top' expand='sm' className={(navbar ? "navbar active py-3" : "navbar navbar-dark") + " fixed-top"}>
+      <Navbar collapseOnSelect fixed='top' expand='sm' className={(navbar ? "navbar active py-1" : "navbar navbar-dark") + " fixed-top"}>
           <Container>
 
             <Navbar.Brand href="/" ><h1  className='ms-5 pt-2'>HUBFUNCTIONS</h1> </Navbar.Brand>

@@ -15,8 +15,8 @@
 
 /* css da navbar quando vc scrolla p baixo é tudo que tem o .active*/
 .navbar.active{
-  border-bottom: 2px solid var(--primarycolor) !important;
-  background-color:var(--white) !important;
+  border-bottom: 2px solid white !important;
+  background-color:rgb(37, 37, 37) !important;
   border-bottom: 0;
   transition: 0.5s;
 }
@@ -28,7 +28,7 @@
 }
 
 .navbar.active a, .navbar.active span{
-  color: var(--primarycolor) !important;
+  color: var(--white) !important;
   transition: 0.1s;
 }
 
@@ -40,7 +40,7 @@
 
 .navbar.active .dropdown-menu.show{
   border-color: var(--white);
-  background-color: var(--white) !important;
+  background-color: rgb(37, 37, 37) !important;
 }
 
 .nav-link{
@@ -71,7 +71,7 @@
 
 .navbar.active h1{
   font-weight: 500;
-  color: var(--primarycolor) !important
+  color: var(--white) !important
 }
 
 .navbar .links {
@@ -92,5 +92,5 @@
 
 .navbar a:hover {
   transition: .2s;
-  color: var(--primarycolor);
+  color: var(--white);
 }
