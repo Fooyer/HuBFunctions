@@ -17,7 +17,7 @@ import imgSearch from "../../images/lupa.svg"
 
 // Component Funciton
 
-function SearchBar(setSearched){
+function SearchBar({setSearched,setDados}){
 
     // Cria um cliente de conexão com o banco de dados
 
@@ -47,8 +47,8 @@ function SearchBar(setSearched){
 
         if (document.getElementById('searchContent').value === ""){
 
-            setSearched.setDados([])
-            setSearched.setSearched('')
+            setDados([])
+            setSearched('')
 
             return 0
         }
@@ -57,8 +57,8 @@ function SearchBar(setSearched){
 
         let { data: functions, error } = await supabase.from('allfunctions').select('*').eq('planguage', languageSearch)
 
-        setSearched.setDados(functions)
-        setSearched.setSearched('searched')
+        setDados(functions)
+        setSearched('searched')
 
     }
 

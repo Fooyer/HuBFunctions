@@ -6,7 +6,7 @@ import "./card.css"
 
 // Component Funciton
 
-function Card(title){
+function Card({title,dfunction,description,planguage}){
 
     return (
 
@@ -14,15 +14,15 @@ function Card(title){
             
             <div className="artigo-funcao">
 
-                <h2>{title.title}</h2>
+                <h2>{title}</h2>
 
                 <div className="artigo-code">
 
-                    <p style={{ whiteSpace: "pre-wrap" }}>{title.dfunction}</p>
+                    <p style={{ whiteSpace: "pre-wrap" }}>{dfunction}</p>
                     
                 </div>
 
-                <p>{title.description}</p>
+                <p>{description}</p>
 
             </div>
 
