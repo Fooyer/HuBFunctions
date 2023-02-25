@@ -82,7 +82,7 @@ function SearchBar({setSearched,setDados}){
 
                     {Languages.map((element) => (
                         
-                        <option value={element.sigla}>{element.planguage}</option>
+                        <option value={element.id}>{element.planguage}</option>
 
                     ))}
 
