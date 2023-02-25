@@ -33,7 +33,7 @@
 }
 
 .navbar .dropdown-menu.show{
-  background-color: transparent !important;
+  background-color: rgb(68, 68, 68) !important;
   border-color: transparent;
   transition: .1s;
 }
@@ -60,7 +60,7 @@
   border: 0;
   font-size: 20pt;
   line-height: 0 !important;
-  --bs-navbar-color: transparent !important;
+  --bs-navbar-color: black !important;
 } 
 
 .navbar h1 {

@@ -2,13 +2,10 @@
     min-height: 50vh;
     max-height: 250vh;
     height: auto;
-    background-color: rgb(183, 184, 196);
-    border: 1px solid black;
-    box-shadow: 0px 0px 10px black;
-    border-radius: 10px;
 }
 
 .maincontent{
+    width: 100%;
     justify-content: center;
     display: flex;
     margin-top: 10vh;

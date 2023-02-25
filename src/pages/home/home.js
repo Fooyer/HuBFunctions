@@ -31,6 +31,7 @@ function Home(){
         
             {(Searched === 'searched')  && <Results dados={Dados} /> }
             {(Searched === '')  && <Description /> }
+            {(Searched === 'null')  && <Description /> }
     
             <Footer />
 

@@ -16,13 +16,11 @@ function Card(){
 
 
     return (
-
-        <div id="card">
+        <div>
 
             
 
         </div>
-
     )
 
 }

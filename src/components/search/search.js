@@ -2,12 +2,9 @@
 
 import "./search.css"
 
-// Importar Conexão com Banco
-
-import { createClient } from '@supabase/supabase-js'
-
 // Import Frameworks
 
+import { createClient } from '@supabase/supabase-js'
 import { Col } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
 
@@ -48,7 +45,7 @@ function SearchBar({setSearched,setDados}){
         if (document.getElementById('searchContent').value === ""){
 
             setDados([])
-            setSearched('')
+            setSearched('null')
 
             return 0
         }

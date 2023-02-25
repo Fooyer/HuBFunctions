@@ -4,7 +4,7 @@ import "./results.css"
 
 // Import Frameworks
 
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 // Import Components
 
@@ -16,7 +16,7 @@ function Results(dados){
 
     return (
 
-        <div className="maincontent">
+        <Row className="maincontent">
             <Col xs="12" md="10" lg="8" className="Results-Box">
 			
                 {dados.dados.map((element) => (
@@ -26,7 +26,7 @@ function Results(dados){
                 ))}
 
 		    </Col>
-        </div>
+        </Row>
 
     )
 

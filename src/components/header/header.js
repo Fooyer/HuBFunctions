@@ -40,7 +40,7 @@ function Header() {
       <Navbar collapseOnSelect fixed='top' expand='sm' className={(navbar ? "navbar active py-3" : "navbar navbar-dark") + " fixed-top"}>
           <Container>
 
-            <Navbar.Brand href="#" ><h1  className='ms-5 pt-2'>HUBFUNCTIONS</h1> </Navbar.Brand>
+            <Navbar.Brand href="/" ><h1  className='ms-5 pt-2'>HUBFUNCTIONS</h1> </Navbar.Brand>
             
             <Navbar.Toggle className='humburger me-5 custom-toggler' aria-controls="navbarHamburger" data-bs-toggle="collapse" data-bs-target="#navbarHamburger" />
             <Navbar.Offcanvas
@@ -54,34 +54,14 @@ function Header() {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body className='me-5 justify-content-end'>
-            
-            <Nav class="navbar-nav" >
-                <Nav.Link href='#' target='__blank' className='pe-3'>
-                    Placeholder1
-                </Nav.Link>
-                <Nav.Link href='https://www.linkedin.com/in/arthur-eduardo-fary-199346213/' target='__blank' className='pe-3'>
-                    Placeholder1
-                </Nav.Link>
-                <NavDropdown title='placeholderdropdown' id='nav-dropdown' className='pe-3'> 
-                  <NavDropdown.Item href='#' target='__blank'>
-                    Placeholder2
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href='#'>
-                    Placeholder3
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href='#' target='__blank'>
-                    Placeholder4
-                  </NavDropdown.Item>
-              
-                </NavDropdown>
-                
+            <Nav class="navbar-nav" >          
                 <Col >
-                  <NavDropdown title='placeholderlang' id='nav-dropdown' className='pe-5 '> 
+                  <NavDropdown title='Language' id='nav-dropdown' className='pe-5 '> 
                           <NavDropdown.Item >
-                            Placeholder5
+                            pt-br
                           </NavDropdown.Item>
                           <NavDropdown.Item >
-                            Placeholder6
+                            en
                           </NavDropdown.Item>
                   </NavDropdown>
                 </Col>
