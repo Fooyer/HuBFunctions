@@ -54,8 +54,10 @@ function SearchBar({setSearched,setDados}){
         }
 
         let languageSearch = document.getElementById('language-programming').value
+        let SearchText = "%"+document.getElementById('searchContent').value.replace(" ","%")+"%"
+        languageSearch = languageSearch+"functions"
 
-        let { data: functions, error } = await supabase.from('allfunctions').select('*').eq('planguage', languageSearch)
+        let { data: functions, error } = await supabase.from(languageSearch).select('*').ilike('title', SearchText)
 
         setDados(functions)
         setSearched('searched')
@@ -80,7 +82,7 @@ function SearchBar({setSearched,setDados}){
 
                     {Languages.map((element) => (
                         
-                        <option value={element.planguage}>{element.planguage}</option>
+                        <option value={element.sigla}>{element.planguage}</option>
 
                     ))}
 
