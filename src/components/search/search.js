@@ -78,8 +78,11 @@ function SearchBar({setSearched,setDados}){
                     <select className="language-programming" id="language-programming">
 
                     {Languages.map((element) => (
-                        
-                        <option value={element.id}>{element.planguage}</option>
+                        // melhor solução que encontrei, funciona se vc iniciar a page em mobile, 
+                        // mas se vc transformar ela no F12 não da
+                        // pra testar bota no mobile no F12 e atualiza a page
+                        // 768 pq é xs do bootstrap
+                        <option value={element.id} className='text-center'>{window.innerWidth > 768 ? element.planguage : element.sigla}</option>
 
                     ))}
 

@@ -56,14 +56,14 @@ function Header() {
               <Offcanvas.Body className='me-5 justify-content-end'>
             <Nav class="navbar-nav" >          
                 <Col >
-                  <NavDropdown title='Language' id='nav-dropdown' className='pe-5 '> 
-                          <NavDropdown.Item >
-                            pt-br
-                          </NavDropdown.Item>
-                          <NavDropdown.Item >
-                            en
-                          </NavDropdown.Item>
-                  </NavDropdown>
+                    <NavDropdown title='Language' id='nav-dropdown' className='pe-5 '> 
+                        <NavDropdown.Item className='mx-0 px-2'>
+                          pt-br
+                        </NavDropdown.Item>
+                        <NavDropdown.Item className='mx-0  px-2'>
+                          en
+                        </NavDropdown.Item>
+                    </NavDropdown>
                 </Col>
             </Nav>
             </Offcanvas.Body>
