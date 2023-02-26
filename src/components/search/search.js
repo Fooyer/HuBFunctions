@@ -5,7 +5,7 @@ import "./search.css"
 // Import Frameworks
 
 import { createClient } from '@supabase/supabase-js'
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
 
 // Import Images
@@ -66,40 +66,41 @@ function SearchBar({setSearched,setDados}){
     // HTML do site
 
     return (
-
+        <Row className="mx-lg-5 mx-md-0 mx-1">
             <form className="mainSearch" onSubmit={search} action="" >
+                
+                    <Col xs="8" md="5" lg="4" className="Search-bar">
 
-                <Col xs="8" md="9" lg="4" className="Search-bar">
+                        <input placeholder="Search a function" id="searchContent" />
 
-                    <input placeholder="Search a function" id="searchContent" />
+                    </Col>
 
-                </Col>
+                    <Col xs="2" md="5" lg="2">
 
-                <Col xs="2" md="4" lg="2">
+                        <select className="language-programming" id="language-programming">
 
-                    <select className="language-programming" id="language-programming">
+                        {Languages.map((element) => (
+                            // melhor solução que encontrei, funciona se vc iniciar a page em mobile, 
+                            // mas se vc transformar ela no F12 não da
+                            // pra testar bota no mobile no F12 e atualiza a page
+                            // 768 pq é xs do bootstrap
+                            <option value={element.id} className='text-center'>{window.innerWidth > 768 ? element.planguage : element.sigla}</option>
 
-                    {Languages.map((element) => (
-                        // melhor solução que encontrei, funciona se vc iniciar a page em mobile, 
-                        // mas se vc transformar ela no F12 não da
-                        // pra testar bota no mobile no F12 e atualiza a page
-                        // 768 pq é xs do bootstrap
-                        <option value={element.id} className='text-center'>{window.innerWidth > 768 ? element.planguage : element.sigla}</option>
+                        ))}
 
-                    ))}
+                        </select>
 
-                    </select>
+                    </Col>
 
-                </Col>
+                    <Col xs="2" md="2" lg="1" className="Search-image">
 
-                <Col xs="2" md="1" lg="1" className="Search-image">
-
-                    <img src={imgSearch} id="img-search" alt="function search" onClick={search} />
-                    
-                </Col>
-
+                        <img src={imgSearch} id="img-search" alt="function search" onClick={search} />
+                        
+                    </Col>
+                        
+                
             </form>
-
+        </Row>
     )
 
 }
