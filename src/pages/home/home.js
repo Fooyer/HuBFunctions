@@ -14,6 +14,7 @@ import Footer from '../../components/footer/footer';
 import Results from '../../components/results/results';
 import SearchBar from '../../components/search/search';
 import Description from "../../components/description/description";
+import NoData from "../../components/search/nodata/nodata";
 
 // Page Home HTML Code
 
@@ -31,7 +32,7 @@ function Home(){
         
             {(Searched === 'searched')  && <Results dados={Dados} /> }
             {(Searched === '')  && <Description /> }
-            {(Searched === 'null')  && <Description /> }
+            {(Searched === 'null')  && <NoData /> }
     
             <Footer />
 
