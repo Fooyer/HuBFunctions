@@ -45,7 +45,7 @@ function SearchBar({setSearched,setDados}){
         if (document.getElementById('searchContent').value === ""){
 
             setDados([])
-            setSearched('null')
+            setSearched('')
 
             return 0
         }
@@ -55,6 +55,8 @@ function SearchBar({setSearched,setDados}){
         languageSearch = languageSearch+"functions"
 
         let { data: functions, error } = await supabase.from(languageSearch).select('*').ilike('title', SearchText)
+
+        if (functions.length===0){setSearched('null'); setDados(functions); return 0}
 
         setDados(functions)
         setSearched('searched')
