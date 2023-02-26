@@ -1,0 +1,15 @@
+{
+    "routes": [
+      {
+        "src": "/static/.*",
+        "dest": "./static",
+        "headers": [
+          {
+            "key": "X-SourceMap",
+            "value": "false"
+          }
+        ],
+        "handle": "serve-handler"
+      }
+    ]
+  }
