@@ -15,7 +15,7 @@ function Description(){
         <Row id="descriptionDivision">
             <Col xs="12" md="10" lg="8" id="container">
                 
-                <h1>Home</h1>
+                <h1>Homes</h1>
                 
             </Col>
         </Row>
