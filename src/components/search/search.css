@@ -31,3 +31,24 @@
     height: 100%;
     font-size: 20pt;
 }
+
+.addImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkblue;
+    cursor: pointer;
+}
+
+.addImage a{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+#addContent{
+    width: 90%;
+    height: 90%;
+}

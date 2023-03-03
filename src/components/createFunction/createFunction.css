@@ -1,5 +1,23 @@
 .screenCreateFunction{
     width: 100vw;
     height: 80.9vh;
-    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+.formBox{
+    background-color: rgb(161, 161, 161);
+    margin-top: 15vh;
+    min-height: 40vh;
+    height: auto;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+.formAddNewFunction{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.formAddNewFunction textarea{
+    resize: none;
 }

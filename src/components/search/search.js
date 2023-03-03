@@ -11,6 +11,7 @@ import React, { useState, useEffect } from 'react';
 // Import Images
 
 import imgSearch from "../../images/lupa.svg"
+import imgAdd from "../../images/plus.svg"
 
 // Component Funciton
 
@@ -69,6 +70,12 @@ function SearchBar({setSearched,setDados}){
         <Row className="mx-lg-5 mx-md-0 mx-1">
             <form className="mainSearch" onSubmit={search} action="" >
                 
+                    <Col xs="2" md="2" lg="1" className="addImage">
+
+                        <a href="/criar-funcao"><img src={imgAdd} alt="function Add" id="addContent" /></a>
+
+                    </Col>
+
                     <Col xs="8" md="5" lg="4" className="Search-bar">
 
                         <input placeholder="Search a function" id="searchContent" />
