@@ -76,7 +76,7 @@ function SearchBar({setSearched,setDados}){
 
                     </Col>
 
-                    <Col xs="8" md="5" lg="4" className="Search-bar">
+                    <Col xs="7" md="5" lg="4" className="Search-bar">
 
                         <input placeholder="Search a function" id="searchContent" />
 

@@ -4,10 +4,10 @@ import "./createFunction.css"
 
 // Import Frameworks
 
+import { useEffect,useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import AceEditor from "react-ace";
 
-import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/ext-language_tools";
 
@@ -15,12 +15,25 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 function CreateFunction(){
 
+    const [descFunction, setDescFunction] = useState('');
+
+    // Salva a função no Session Storage
+
     function onChange(newValue) {
-        console.log(newValue);
+        sessionStorage.setItem('function', newValue);
     }
 
-    // HTML Code
+    // Se tiver função gravada no session storage ele recupera os dados
 
+    useEffect(() => {
+
+        let funcao = sessionStorage.getItem('function')
+        setDescFunction(funcao)
+        
+    }, []);
+
+    // HTML Code
+    
     return (
         <>
             <Row className="screenCreateFunction">
@@ -38,7 +51,7 @@ function CreateFunction(){
                         </select>
                     </div>
 
-                        <AceEditor enableLiveAutocompletion={true} enableSnippets={true} mode="javascript" theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} height="auto" className="textEditorFunction" />
+                        <AceEditor value={descFunction} enableLiveAutocompletion={true} enableSnippets={true} mode="javascript" theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} className="textEditorFunction" />
                         
                         <textarea />
 

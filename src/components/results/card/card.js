@@ -25,7 +25,7 @@ function Card({title,dfunction,description,planguage}){
 
                 <div className="artigo-code">
 
-                    <AceEditor showGutter={false} highlightActiveLine={false} mode="javascript" theme="tomorrow_night_eighties" value={dfunction} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} className="textEditorFunction" readOnly={true} />
+                    <AceEditor showGutter={false} highlightActiveLine={false} mode="javascript" theme="tomorrow_night_eighties" value={dfunction} editorProps={{ $blockScrolling: true }} fontSize={15} className="cardEditorFunction" readOnly={true} />
                     
                 </div>
 
