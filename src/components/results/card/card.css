@@ -12,11 +12,13 @@
 }
 .artigo-code{
     margin-top: 20px;
-    background-color: rgb(109, 109, 109);
     height: auto;
     border-radius: 5px;
 }
 .artigo-code p{
     padding: 10px;
 
+}
+.textEditorFunction{
+    padding: 10px;
 }

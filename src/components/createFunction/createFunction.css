@@ -20,4 +20,15 @@
 }
 .formAddNewFunction textarea{
     resize: none;
+    padding: 5px;
+}
+.formAddNewFunction textarea:focus-visible{
+    border: 1px solid black !important;
+    outline: none;
+}
+.textEditorFunction{
+    width: 40vw !important;
+    height: 30vh !important;
+    border: 2px solid black;
+    border-radius: 15px;
 }

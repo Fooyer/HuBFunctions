@@ -5,10 +5,19 @@ import "./createFunction.css"
 // Import Frameworks
 
 import { Col, Row } from "react-bootstrap";
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
+import "ace-builds/src-noconflict/ext-language_tools";
 
 // Component Description HTML Code
 
 function CreateFunction(){
+
+    function onChange(newValue) {
+        console.log(newValue);
+    }
 
     // HTML Code
 
@@ -21,15 +30,17 @@ function CreateFunction(){
 
 
                     <div>
-                        <input required />
+                        <label for="title">Título:</label>
+                        <input name="tituloNewFunction" required />
 
                         <select required>
                             <option></option>
                         </select>
                     </div>
 
-                        <textarea rows="10" cols="150" required />
-                        <textarea rows="5" cols="150"  required />
+                        <AceEditor enableLiveAutocompletion={true} enableSnippets={true} mode="javascript" theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} height="auto" className="textEditorFunction" />
+                        
+                        <textarea />
 
                     </form>
 
