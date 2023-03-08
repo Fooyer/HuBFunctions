@@ -7,7 +7,6 @@ import "./createFunction.css"
 import { useEffect,useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import AceEditor from "react-ace";
-import { useState } from "react";
 
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
