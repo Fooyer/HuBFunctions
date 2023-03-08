@@ -53,7 +53,7 @@ function CreateFunction(){
             <Row className="screenCreateFunction">
                 <Col xs="12" md="10" lg="8" className="formBox">
 
-                        <form className="formAddNewFunction">
+                    <form className="formAddNewFunction">
 
 
                         <div>
