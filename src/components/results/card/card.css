@@ -19,6 +19,13 @@
     padding: 10px;
 
 }
-.textEditorFunction{
+
+.cardEditorFunction{
     padding: 10px;
+    border: 0;
+    height: auto;
+    max-height: 20vh;
+    border-radius: 10px;
+    width: 45vw !important;
+    border: 8px solid rgb(45 45 45);
 }
