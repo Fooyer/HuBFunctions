@@ -4,6 +4,7 @@ import "./createFunction.css"
 
 // Import Frameworks
 
+import { createClient } from '@supabase/supabase-js'
 import { useEffect,useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import AceEditor from "react-ace";
@@ -17,9 +18,17 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 function CreateFunction(){
 
-    const [mainLanguage, setmainLanguage] = useState('javascript');
+    // Cria um cliente de conexão com o banco de dados
 
+    const supabaseUrl = "https://bfgjcqecgspzgfsfaawj.supabase.co"
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmZ2pjcWVjZ3Nwemdmc2ZhYXdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxODM3ODUsImV4cCI6MTk5Mjc1OTc4NX0.xsBsrZfNTc5huqPX2bBIGYgSfurupRzdSeW-H_OnuRQ"
+    const supabase = createClient(supabaseUrl, supabaseKey)
+    
+    // Consts de linguagem e função
+
+    const [mainLanguage, setmainLanguage] = useState('javascript');
     const [descFunction, setDescFunction] = useState('');
+    const [codeLanguage, setCodeLanguage] = useState('1');
 
     // Salva a função no Session Storage
 
@@ -27,10 +36,13 @@ function CreateFunction(){
         sessionStorage.setItem('function', newValue);
     }
 
-    function changeLanguage(){
+    async function changeLanguage(){
 
         let linguagem = document.getElementById('selectionLanguage').value
 
+        let { data: languages, error } = await supabase.from('planguages').select('id').eq('planguage',linguagem)
+
+        setCodeLanguage(languages.id)
         setmainLanguage(linguagem)
         let funcao = sessionStorage.getItem('function')
         setDescFunction(funcao)
@@ -46,6 +58,27 @@ function CreateFunction(){
         
     }, []);
 
+    // Função de gravação no sistema
+
+    async function adicionarFuncao(event){
+
+        event.preventDefault()
+
+        let tituloFuncao = document.getElementById('titleNewFunction').value
+        let codefuncao = descFunction
+        let descricao = document.getElementById('descriptionNewFunction').value
+        let languageValue = codeLanguage // Testar, mas em tese funciona
+
+        const { error } = await supabase.from(languageValue+'function').insert({ title: tituloFuncao, function: codefuncao, description: descricao })
+
+        if (error!=null){
+            alert(error)
+        }
+
+        alert("sucess")
+
+    }
+
     // HTML Code
     
     return (
@@ -53,7 +86,7 @@ function CreateFunction(){
             <Row className="screenCreateFunction">
                 <Col xs="12" md="10" lg="8" className="formBox">
 
-                    <form className="formAddNewFunction">
+                    <form className="formAddNewFunction" onSubmit={adicionarFuncao}>
 
 
                         <div>
@@ -73,7 +106,7 @@ function CreateFunction(){
                             <textarea name="description" id="descriptionNewFunction" />
                         </div>
                         
-                        <button type="submit"></button>
+                        <button type="submit" id="botaoSubmit" > Submit </button>
 
                     </form>
 

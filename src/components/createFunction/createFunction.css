@@ -52,3 +52,7 @@
 #divDescricao{
     display: flex;
 }
+#botaoSubmit{
+    width: 10vw;
+    height: 5vh;
+}
