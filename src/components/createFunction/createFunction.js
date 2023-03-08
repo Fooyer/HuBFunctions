@@ -31,9 +31,9 @@ function CreateFunction(){
 
         let linguagem = document.getElementById('selectionLanguage').value
 
-        console.log(linguagem)
-
         setmainLanguage(linguagem)
+        let funcao = sessionStorage.getItem('function')
+        setDescFunction(funcao)
 
     }
 
@@ -53,22 +53,27 @@ function CreateFunction(){
             <Row className="screenCreateFunction">
                 <Col xs="12" md="10" lg="8" className="formBox">
 
-                    <form className="formAddNewFunction">
+                        <form className="formAddNewFunction">
 
 
-                    <div>
-                        <label for="title">Título:</label>
-                        <input name="tituloNewFunction" required />
+                        <div>
+                            <label for="title" id="labelTitleNewFunction">Título: </label>
+                            <input name="tituloNewFunction" id="titleNewFunction" required />
 
-                        <select onChange={changeLanguage} id="selectionLanguage" required>
-                            <option value="javascript">javascript</option>
-                            <option value="python">python</option>
-                        </select>
-                    </div>
+                            <select onChange={changeLanguage} id="selectionLanguage" required>
+                                <option value="javascript">javascript</option>
+                                <option value="python">python</option>
+                            </select>
+                        </div>
 
-                        <AceEditor value={descFunction} enableLiveAutocompletion={false} enableSnippets={false} mode={mainLanguage} theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} height="auto" className="textEditorFunction" />
+                            <AceEditor value={descFunction} enableLiveAutocompletion={false} enableSnippets={false} mode={mainLanguage} theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} height="auto" className="textEditorFunction" />
+                            
+                        <div id="divDescricao">
+                            <label for="description" id="labelTitleNewFunction" >Descrição: </label>
+                            <textarea name="description" id="descriptionNewFunction" />
+                        </div>
                         
-                        <textarea />
+                        <button type="submit"></button>
 
                     </form>
 
