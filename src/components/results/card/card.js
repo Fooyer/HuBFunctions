@@ -6,6 +6,7 @@ import "./card.css"
 
 import AceEditor from "react-ace";
 
+import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/ext-language_tools";
@@ -25,7 +26,7 @@ function Card({title,dfunction,description,planguage}){
 
                 <div className="artigo-code">
 
-                    <AceEditor showGutter={false} highlightActiveLine={false} mode="javascript" theme="tomorrow_night_eighties" value={dfunction} editorProps={{ $blockScrolling: true }} fontSize={15} className="cardEditorFunction" readOnly={true} />
+                    <AceEditor showGutter={false} highlightActiveLine={false} mode={planguage} theme="tomorrow_night_eighties" value={dfunction} editorProps={{ $blockScrolling: true }} fontSize={15} className="cardEditorFunction" readOnly={true} />
                     
                 </div>
 

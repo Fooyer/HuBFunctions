@@ -22,15 +22,16 @@ function Home(){
 
     const [Searched, setSearched] = useState('');
     const [Dados, setDados] = useState([]);
+    const [LanguageProg, setLanguageProg] = useState('javascript');
 
     return (
         <div className="App">
 
             <Header />
 
-            <SearchBar setSearched={setSearched} setDados={setDados} />
+            <SearchBar setSearched={setSearched} setDados={setDados} setLanguageProg={setLanguageProg} />
         
-            {(Searched === 'searched')  && <Results dados={Dados} /> }
+            {(Searched === 'searched')  && <Results dados={Dados} LanguageProg={LanguageProg} /> }
             {(Searched === '')  && <Description /> }
             {(Searched === 'null')  && <NoData /> }
     

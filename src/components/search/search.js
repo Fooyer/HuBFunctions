@@ -15,7 +15,7 @@ import imgAdd from "../../images/plus.svg"
 
 // Component Funciton
 
-function SearchBar({setSearched,setDados}){
+function SearchBar({setSearched,setDados,setLanguageProg}){
 
     // Cria um cliente de conexão com o banco de dados
 
@@ -64,6 +64,16 @@ function SearchBar({setSearched,setDados}){
 
     }
 
+    async function mudarLinguagem(){
+        
+        let linguagemProg = document.getElementById('language-programming').value
+
+        let { data: languages, error } = await supabase.from('planguages').select('planguage').eq('id',linguagemProg)
+
+        setLanguageProg(languages[0].planguage)
+        setSearched('')
+    }
+
     // HTML do site
 
     return (
@@ -84,7 +94,7 @@ function SearchBar({setSearched,setDados}){
 
                     <Col xs="2" md="5" lg="2">
 
-                        <select className="language-programming" id="language-programming">
+                        <select className="language-programming" id="language-programming" onChange={mudarLinguagem}>
 
                         {Languages.map((element) => (
                             // melhor solução que encontrei, funciona se vc iniciar a page em mobile, 
