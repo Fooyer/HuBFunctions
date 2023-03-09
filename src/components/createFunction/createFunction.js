@@ -34,6 +34,7 @@ function CreateFunction(){
 
     function onChange(newValue) {
         sessionStorage.setItem('function', newValue);
+        setDescFunction(newValue)
     }
 
     async function changeLanguage(){
@@ -42,7 +43,7 @@ function CreateFunction(){
 
         let { data: languages, error } = await supabase.from('planguages').select('id').eq('planguage',linguagem)
 
-        setCodeLanguage(languages.id)
+        setCodeLanguage(languages[0].id)
         setmainLanguage(linguagem)
         let funcao = sessionStorage.getItem('function')
         setDescFunction(funcao)
@@ -69,13 +70,14 @@ function CreateFunction(){
         let descricao = document.getElementById('descriptionNewFunction').value
         let languageValue = codeLanguage // Testar, mas em tese funciona
 
-        const { error } = await supabase.from(languageValue+'function').insert({ title: tituloFuncao, function: codefuncao, description: descricao })
+        const { error } = await supabase.from(languageValue+'functions').insert({ title: tituloFuncao, function: codefuncao, description: descricao })
 
         if (error!=null){
-            alert(error)
+            console.log(error)
+        } else{
+            alert("sucess")
+            sessionStorage.removeItem('function')
         }
-
-        alert("sucess")
 
     }
 
