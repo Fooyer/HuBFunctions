@@ -32,3 +32,13 @@
     border: 2px solid black;
     border-radius: 15px;
 }
+.cadastroCampoDescricao{
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#buttonConfirm{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: lightgreen;
+}
