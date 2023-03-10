@@ -8,7 +8,6 @@ import { createClient } from '@supabase/supabase-js'
 import { useEffect,useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import AceEditor from "react-ace";
-import { createClient } from '@supabase/supabase-js'
 
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
@@ -39,11 +38,7 @@ function CreateFunction(){
         fetchLanguages();
     }, []);
 
-    // Cria um cliente de conexão com o banco de dados
 
-    const supabaseUrl = "https://bfgjcqecgspzgfsfaawj.supabase.co"
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmZ2pjcWVjZ3Nwemdmc2ZhYXdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxODM3ODUsImV4cCI6MTk5Mjc1OTc4NX0.xsBsrZfNTc5huqPX2bBIGYgSfurupRzdSeW-H_OnuRQ"
-    const supabase = createClient(supabaseUrl, supabaseKey)
     
     // Consts de linguagem e função
 
@@ -85,7 +80,7 @@ function CreateFunction(){
     async function adicionarFuncao(event){
 
         event.preventDefault()
-
+        
         let tituloFuncao = document.getElementById('titleNewFunction').value
         let codefuncao = descFunction
         let descricao = document.getElementById('descriptionNewFunction').value
@@ -112,23 +107,23 @@ function CreateFunction(){
                     <form className="formAddNewFunction" onSubmit={adicionarFuncao}>
 
 
-                        <div>
+                    <div>
                             <label for="title" id="labelTitleNewFunction">Título: </label>
-                            <input name="tituloNewFunction" id="titleNewFunction" required />
+                        <input name="tituloNewFunction" id="titleNewFunction" required />
 
                             <select onChange={changeLanguage} id="selectionLanguage" required>
                                 <option value="javascript">javascript</option>
                                 <option value="python">python</option>
-                            </select>
-                        </div>
+                        </select>
+                    </div>
 
                             <AceEditor value={descFunction} enableLiveAutocompletion={false} enableSnippets={false} mode={mainLanguage} theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} height="auto" className="textEditorFunction" />
-                            
+                        
                         <div id="divDescricao">
                             <label for="description" id="labelTitleNewFunction" >Descrição: </label>
                             <textarea name="description" id="descriptionNewFunction" />
                         </div>
-                        
+
                         <button type="submit" id="botaoSubmit" > Submit </button>
 
                     </form>
