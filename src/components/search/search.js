@@ -41,6 +41,8 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
 
     async function search(event){
         
+        setSearched('loading')
+
         event.preventDefault()
 
         if (document.getElementById('searchContent').value === ""){
