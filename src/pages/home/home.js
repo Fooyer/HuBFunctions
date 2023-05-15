@@ -9,8 +9,6 @@ import { useState } from "react";
 
 // Components Imports
 
-import Header from '../../components/header/header'
-import Footer from '../../components/footer/footer';
 import Results from '../../components/results/results';
 import SearchBar from '../../components/search/search';
 import Description from "../../components/description/description";
@@ -29,16 +27,20 @@ function Home(){
     return (
         <div className="App">
 
-            <Header />
-
             <SearchBar setSearched={setSearched} setDados={setDados} setLanguageProg={setLanguageProg} />
         
             {(Searched === 'searched')  && <Results dados={Dados} LanguageProg={LanguageProg} /> }
             {(Searched === '')  && <Description /> }
             {(Searched === 'null')  && <NoData /> }
-            {(Searched === 'loading' && <div id="loadingDiv"><Col xs="12" md="10" lg="8" className="loadingCol"><ReactLoading type="spin" color="black" width={'10%'} height={'10%'} className="loadingComponent" /></Col></div>)}
-    
-            <Footer />
+            {(Searched === 'loading' &&
+
+                <div id="loadingDiv">
+                    <Col xs="12" md="10" lg="8" className="loadingCol">
+                        <ReactLoading type="spin" color="black" width={'10%'} height={'10%'} className="loadingComponent" />
+                    </Col>
+                </div>
+                
+            )}
 
         </div>
     )

@@ -1,6 +1,6 @@
 .card{
     height: auto;
-    background-color: rgb(59, 59, 59);
+    background-color: rgb(26, 26, 26);
     box-shadow: 0px 0px 15px black;
     border: 1px solid black;
     border-radius: 10px;
@@ -26,6 +26,6 @@
     height: auto;
     max-height: 20vh;
     border-radius: 10px;
-    width: 45vw !important;
+    width: 100% !important;
     border: 8px solid rgb(45 45 45);
 }

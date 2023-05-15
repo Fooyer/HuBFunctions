@@ -7,11 +7,18 @@ import "./search.css"
 import { createClient } from '@supabase/supabase-js'
 import { Col, Row } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
+import Select from 'react-select'
 
 // Import Images
 
 import imgSearch from "../../images/lupa.svg"
 import imgAdd from "../../images/plus.svg"
+
+const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+]
 
 // Component Funciton
 
@@ -88,26 +95,15 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
 
                     </Col>
 
-                    <Col xs="7" md="5" lg="4" className="Search-bar">
+                    <Col xs="6" md="5" lg="4" className="Search-bar">
 
                         <input placeholder="Search a function" id="searchContent" />
 
                     </Col>
 
-                    <Col xs="2" md="5" lg="2">
+                    <Col xs="2" md="3" lg="2">
 
-                        <select className="language-programming" id="language-programming" onChange={mudarLinguagem}>
-
-                        {Languages.map((element) => (
-                            // melhor solução que encontrei, funciona se vc iniciar a page em mobile, 
-                            // mas se vc transformar ela no F12 não da
-                            // pra testar bota no mobile no F12 e atualiza a page
-                            // 768 pq é xs do bootstrap
-                            <option value={element.id} className='text-center'>{window.innerWidth > 768 ? element.planguage : element.sigla}</option>
-
-                        ))}
-
-                        </select>
+                        <Select options={options} className="language-programming" />
 
                     </Col>
 

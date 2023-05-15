@@ -5,13 +5,24 @@ import React from "react";
 
 import PageRoutes from "./routes";
 
+// Import static Components
+
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
+
 // App Code
 
 function App() {
   return (
+    <>
 
-    <PageRoutes />
+      <Header />
 
+      <PageRoutes />
+
+      <Footer />
+
+    </>
   );
 }
 

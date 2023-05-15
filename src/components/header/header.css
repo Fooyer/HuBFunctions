@@ -11,6 +11,7 @@
   margin: 0 auto;
   z-index: 10;
   transition: 0.5s;
+  box-shadow: 0px 0px 15px black;
 }
 
 /* css da navbar quando vc scrolla p baixo é tudo que tem o .active*/
