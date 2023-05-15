@@ -17,7 +17,6 @@
 /* css da navbar quando vc scrolla p baixo é tudo que tem o .active*/
 .navbar.active{
   border-bottom: 2px solid white !important;
-  background-color:rgb(37, 37, 37) !important;
   border-bottom: 0;
   transition: 0.5s;
 }

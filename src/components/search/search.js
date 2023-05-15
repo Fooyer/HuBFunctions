@@ -7,18 +7,11 @@ import "./search.css"
 import { createClient } from '@supabase/supabase-js'
 import { Col, Row } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
-import Select from 'react-select'
 
 // Import Images
 
 import imgSearch from "../../images/lupa.svg"
 import imgAdd from "../../images/plus.svg"
-
-const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' }
-]
 
 // Component Funciton
 
@@ -33,6 +26,7 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
     // Obter as opções de linguages diretamente do banco
 
     const [Languages, setLanguages] = useState([]);
+    const [value, setValue] = useState([])
 
     useEffect(() => {
         async function fetchLanguages(){
@@ -47,10 +41,9 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
     // Função de Pesquisa
 
     async function search(event){
-        
-        setSearched('loading')
 
         event.preventDefault()
+        setSearched('loading')
 
         if (document.getElementById('searchContent').value === ""){
 
@@ -87,7 +80,7 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
 
     return (
         <Row className="mx-lg-5 mx-md-0 mx-1">
-            <form className="mainSearch" onSubmit={search} action="" >
+            <form className="mainSearch" onSubmit={search} >
                 
                     <Col xs="2" md="2" lg="1" className="addImage">
 
@@ -103,13 +96,21 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
 
                     <Col xs="2" md="3" lg="2">
 
-                        <Select options={options} className="language-programming" />
+                        <select className="language-programming" id="language-programming" onChange={mudarLinguagem}>
+
+                            {Languages.map((element) => (
+  
+                                <option value={element.id} className='text-center'>{window.innerWidth > 768 ? element.planguage : element.sigla}</option>
+
+                            ))}
+
+                        </select>
 
                     </Col>
 
                     <Col xs="2" md="2" lg="1" className="Search-image">
 
-                        <img src={imgSearch} id="img-search" alt="function search" onClick={search} />
+                        <img src={imgSearch} id="img-search" alt="function search" onClick={search}/>
                         
                     </Col>
                         

@@ -15,7 +15,7 @@ function NoData(){
         <Row className="noDataContent">
             <Col xs="12" md="10" lg="8" className="Nodata-Box">
 			
-                <h1>Nenhum dado foi encontrado</h1>
+                <h1>Nenhuma função foi encontrada</h1>
 
 		    </Col>
         </Row>
