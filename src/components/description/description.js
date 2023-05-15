@@ -13,9 +13,9 @@ function Description(){
     return (
         
         <Row id="descriptionDivision">
-            <Col xs="12" md="10" lg="8" id="container">
+            <Col xs="11" md="10" lg="8" id="container">
                 
-                <h1>Homes</h1>
+                <h1>Pesquise a função que você precisa!</h1>
                 
             </Col>
         </Row>

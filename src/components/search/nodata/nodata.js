@@ -13,7 +13,7 @@ function NoData(){
     return (
 
         <Row className="noDataContent">
-            <Col xs="12" md="10" lg="8" className="Nodata-Box">
+            <Col xs="11" md="10" lg="8" className="Nodata-Box">
 			
                 <h1>Nenhuma função foi encontrada</h1>
 

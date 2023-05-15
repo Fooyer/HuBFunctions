@@ -101,19 +101,20 @@ function CreateFunction(){
     
     return (
         <>
-            <Row className="screenCreateFunction">
-                <Col xs="12" md="10" lg="8" className="formBox">
+            <div className="screenCreateFunction">
+                <div xs="11" md="10" lg="8" className="formBox">
+
+                    <h1>Crie uma função e ajude a comunidade!</h1>
 
                     <form className="formAddNewFunction" onSubmit={adicionarFuncao}>
 
-
                     <div>
-                            <label for="title" id="labelTitleNewFunction">Título: </label>
+                        <label for="title" id="labelTitleNewFunction">Título: </label>
                         <input name="tituloNewFunction" id="titleNewFunction" required />
 
-                            <select onChange={changeLanguage} id="selectionLanguage" required>
-                                <option value="javascript">javascript</option>
-                                <option value="python">python</option>
+                        <select onChange={changeLanguage} id="selectionLanguage" required>
+                            <option value="javascript">javascript</option>
+                            <option value="python">python</option>
                         </select>
                     </div>
 
@@ -128,8 +129,8 @@ function CreateFunction(){
 
                     </form>
 
-                </Col>
-            </Row>
+                </div>
+            </div>
         </>
     )
 

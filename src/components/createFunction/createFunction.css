@@ -1,23 +1,27 @@
 .screenCreateFunction{
-    width: 100vw;
-    height: 80.9vh;
     display: flex;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 .formBox{
-    background-color: rgb(161, 161, 161);
+    background-color: var(--gray);
     margin-top: 15vh;
-    min-height: 40vh;
-    height: auto;
     border-radius: 15px;
+    color: #fff;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    width: 80%;
 }
 .formAddNewFunction{
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
+    align-items: start;
+    width: 100%;
+    padding: 50px;
 }
 .formAddNewFunction textarea{
     resize: none;
@@ -35,7 +39,8 @@
 }
 #titleNewFunction{
     padding: 5px;
-    width: 25vw;
+    height: 40px;
+    width: 500px;
 }
 #labelTitleNewFunction{
     font-weight: 500;
@@ -43,10 +48,12 @@
 }
 #selectionLanguage{
     padding: 5px;
+    height: 40px;
+    width: 150px;
 }
 #descriptionNewFunction{
-    width: 45vw;
-    height: 20vh;
+    width: 800px;
+    height: 300px;
     border-radius: 10px;
 }
 #divDescricao{
