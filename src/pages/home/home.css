@@ -2,13 +2,10 @@
     width: 100%;
     background-color: rgb(212, 212, 212) !important;
 }
-.loadingComponent{
-  height: 50vh;
-}
+
 
 .loadingCol{
-  margin-bottom: 20vh;
-  height: 40vh;
+  height: 350px;
   justify-content: center;
   align-items: center;
   display: flex;
