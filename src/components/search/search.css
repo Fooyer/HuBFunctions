@@ -1,8 +1,8 @@
 .mainSearch{
-    margin-top: 14.9vh;
+    margin-top: 150px;
     justify-content: center;
     display: flex;
-    height: 6vh;
+    height: 60px;
 }
 .Search-bar{
     background-color: black;

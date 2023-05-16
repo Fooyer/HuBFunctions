@@ -18,7 +18,7 @@ function Card({title,dfunction,description,planguage}){
 
     return (
 
-        <div className="card">
+        <div key={title} className="card">
             
             <div className="artigo-funcao">
 

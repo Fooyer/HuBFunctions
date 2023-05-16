@@ -7,6 +7,7 @@ import "./search.css"
 import { createClient } from '@supabase/supabase-js'
 import { Col, Row } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 // Import Images
 
@@ -84,7 +85,7 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
                 
                     <Col xs="2" md="2" lg="1" className="addImage">
 
-                        <a href="/criar-funcao"><img src={imgAdd} alt="function Add" id="addContent" /></a>
+                        <Link to="/criar-funcao"><img src={imgAdd} alt="function Add" id="addContent" /></Link>
 
                     </Col>
 
@@ -100,7 +101,7 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
 
                             {Languages.map((element) => (
   
-                                <option value={element.id} className='text-center'>{window.innerWidth > 768 ? element.planguage : element.sigla}</option>
+                                <option key={element.id} value={element.id} className='text-center'>{window.innerWidth > 768 ? element.planguage : element.sigla}</option>
 
                             ))}
 
