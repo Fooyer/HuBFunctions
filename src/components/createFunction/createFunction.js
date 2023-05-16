@@ -106,28 +106,39 @@ function CreateFunction(){
 
                     <h1>Crie uma função e ajude a comunidade!</h1>
 
-                    <form className="formAddNewFunction" onSubmit={adicionarFuncao}>
+                    <div className="sectionForm">
 
-                    <div>
-                        <label for="title" id="labelTitleNewFunction">Título: </label>
-                        <input name="tituloNewFunction" id="titleNewFunction" required />
+                        <form className="formAddNewFunction" onSubmit={adicionarFuncao}>
 
-                        <select onChange={changeLanguage} id="selectionLanguage" required>
-                            <option value="javascript">javascript</option>
-                            <option value="python">python</option>
-                        </select>
+                            <div className="inputandlabel">
+                                <label for="title" id="labelTitleNewFunction">Título: </label>
+                                <input name="tituloNewFunction" id="titleNewFunction" required />
+                            </div>
+
+                            <div className="inputandlabel">
+                                <label for="" id="labelTitleNewFunction">Linguagem: </label>
+                                <select onChange={changeLanguage} id="selectionLanguage" required>
+                                    <option value="javascript">javascript</option>
+                                    <option value="python">python</option>
+                                </select>
+                            </div>
+
+                            <div id="divDescricao" className="inputandlabel">
+                                <label for="description" id="labelTitleNewFunction" >Descrição: </label>
+                                <textarea name="description" id="descriptionNewFunction" />
+                            </div>
+
+                        </form>
+
+                        <div className="inputandlabel">
+                            <label id="labelTitleNewFunction">Código:</label>
+                            <AceEditor value={descFunction} enableLiveAutocompletion={false} enableSnippets={false} mode={mainLanguage} theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} height="auto" className="textEditorFunction" />
+                        </div>
                     </div>
 
-                            <AceEditor value={descFunction} enableLiveAutocompletion={false} enableSnippets={false} mode={mainLanguage} theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} height="auto" className="textEditorFunction" />
-                        
-                        <div id="divDescricao">
-                            <label for="description" id="labelTitleNewFunction" >Descrição: </label>
-                            <textarea name="description" id="descriptionNewFunction" />
-                        </div>
-
-                        <button type="submit" id="botaoSubmit" > Submit </button>
-
-                    </form>
+                    <div className="buttonSubmit">
+                        <button onClick={adicionarFuncao} id="botaoSubmit" > Publicar Função </button>
+                    </div>
 
                 </div>
             </div>
