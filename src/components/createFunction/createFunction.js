@@ -7,6 +7,7 @@ import "./createFunction.css"
 import { createClient } from '@supabase/supabase-js'
 import { useEffect,useState } from "react";
 import AceEditor from "react-ace";
+import { useNavigate } from "react-router-dom";
 
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";
@@ -16,6 +17,8 @@ import "ace-builds/src-noconflict/ext-language_tools";
 // Component Description HTML Code
 
 function CreateFunction(){
+
+    const navigate = useNavigate();
 
     // Cria um cliente com o banco
 
@@ -92,6 +95,7 @@ function CreateFunction(){
         } else{
             alert("Função enviada para aprovação")
             sessionStorage.removeItem('function')
+            navigate("/")
         }
 
     }
