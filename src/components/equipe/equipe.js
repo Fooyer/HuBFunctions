@@ -42,29 +42,28 @@ function Equipe(){
 
     return ( <>
 
-        <Row id="titlePosition">
+        <div id="titlePosition">
 
-            <Col xs="10" md="5" lg="3" id="boxTitle">
+            <div id="boxTitle">
 
-                <h1 id="titleTeam">Time</h1>
+                <h1 id="titleTeam">Team</h1>
 
-            </Col>
+            </div>
+        </div>
 
-        </Row>
+        <section id="grid">
 
-        <Row id="grid">
+                {Participantes.map((participante) => (
 
-                {Participantes.map((element) => (
+                    <div id="card">
 
-                    <Col xs="10" md="5" lg="3" id="card">
-
-                        <Card />
+                        <Card participante={participante} />
                         
-                    </Col>
+                    </div>
     
                 ))}
 
-        </Row>
+        </section>
 
     </> )
 
