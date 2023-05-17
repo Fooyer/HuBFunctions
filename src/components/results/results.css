@@ -1,0 +1,12 @@
+.Results-Box{
+    min-height: 50vh;
+    max-height: 250vh;
+    height: auto;
+}
+
+.maincontent{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    margin-top: 100px;
+}

@@ -1,31 +1,28 @@
-import './App.css';
+// Frameworks Imports
+import React from "react";
 
-// Frameworks imports
+// Import Routes
 
-import { Row, Col } from 'react-bootstrap';
+import PageRoutes from "./routes";
 
-// Components Imports
+// Import static Components
 
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 
-// App code
+// App Code
 
 function App() {
   return (
-    <div className="App">
+    <>
 
-        <Header />
+      <Header />
 
-      <div className="Conteudo">
-
-        
-
-      </div>
+      <PageRoutes />
 
       <Footer />
 
-    </div>
+    </>
   );
 }
 

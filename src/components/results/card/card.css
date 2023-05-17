@@ -1,0 +1,31 @@
+.card{
+    height: auto;
+    background-color: rgb(26, 26, 26);
+    box-shadow: 0px 0px 15px black;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    color: white;
+}
+.artigo-funcao{
+    margin: 10px;
+}
+.artigo-code{
+    margin-top: 20px;
+    height: auto;
+    border-radius: 5px;
+}
+.artigo-code p{
+    padding: 10px;
+
+}
+
+.cardEditorFunction{
+    padding: 10px;
+    border: 0;
+    height: auto;
+    max-height: 20vh;
+    border-radius: 10px;
+    width: 100% !important;
+    border: 8px solid rgb(45 45 45);
+}
