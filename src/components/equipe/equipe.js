@@ -31,7 +31,6 @@ function Equipe(){
 
             let { data: participantes, error } = await supabase.from('participantes').select('*')
             setParticipantes(participantes);
-            console.log(participantes)
 
         };
         fetchParticipantes();
