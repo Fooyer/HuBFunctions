@@ -7,7 +7,6 @@ import "./equipe.css"
 import { createClient } from '@supabase/supabase-js'
 import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Col, Row } from "react-bootstrap";
 
 // Components Imports
 

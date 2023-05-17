@@ -6,7 +6,6 @@ import "./createFunction.css"
 
 import { createClient } from '@supabase/supabase-js'
 import { useEffect,useState } from "react";
-import { Col, Row } from "react-bootstrap";
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-javascript";
@@ -75,7 +74,7 @@ function CreateFunction(){
         
     }, []);
 
-    // Função de gravação no sistema
+    // Função de gravação no sistema para aprovação
 
     async function adicionarFuncao(event){
 
@@ -84,14 +83,14 @@ function CreateFunction(){
         let tituloFuncao = document.getElementById('titleNewFunction').value
         let codefuncao = descFunction
         let descricao = document.getElementById('descriptionNewFunction').value
-        let languageValue = codeLanguage // Testar, mas em tese funciona
+        let languageValue = codeLanguage
 
-        const { error } = await supabase.from(languageValue+'functions').insert({ title: tituloFuncao, function: codefuncao, description: descricao })
+        const { error } = await supabase.from('foraprove').insert({ title: tituloFuncao, function: codefuncao, description: descricao, language: languageValue })
 
         if (error!=null){
             console.log(error)
         } else{
-            alert("sucess")
+            alert("Função enviada para aprovação")
             sessionStorage.removeItem('function')
         }
 

@@ -1,0 +1,46 @@
+.area_restrita{
+    padding-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card_approve{
+    width: 95%;
+    padding: 15px;
+    background-color: black;
+    color: #FFFFFF;
+    margin: 10px;
+    border-radius: 10px;
+}
+.card_approve button{
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+#button_aprovar{
+    background-color: rgb(167, 255, 167);
+}
+#button_reprovar{
+    background-color: rgb(255, 141, 141);
+}
+.approve_login{
+    background-color: black;
+    color: white;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px black;
+}
+.approve_login form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.approve_login button{
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
