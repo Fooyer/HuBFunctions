@@ -5,7 +5,7 @@
     height: 100%;
 }
 .formBox{
-    margin-top: 150px;
+    margin-top: 100px;
     border-radius: 15px;
     color: #fff;
     display: flex;
@@ -42,13 +42,12 @@
     margin: 10px;
 }
 .artigo-code{
-    margin-top: 20px;
     height: auto;
     border-radius: 5px;
+    margin-top: 0;
 }
 .artigo-code p{
     padding: 10px;
-
 }
 .textEditorFunction{
     padding: 10px;
@@ -58,13 +57,16 @@
 }
 .artigo-funcao input, .artigo-funcao textarea{
     width: 100%;
-    background-color: rgb(45 45 45);
+    background-color: transparent;
+    border: 1px solid #f2f2f2;
+    padding: 8px;
     color: #f2f2f2;
-    border: 0;
-    padding: 5px;
     border-radius: 5px;
-    height: auto;
     resize: none;
+}
+.artigo-funcao textarea{
+    margin-top: 15px;
+    overflow: hidden;
 }
 @media (max-width: 800px) {
     .formBox{
@@ -77,4 +79,75 @@
     .sectionForm{
         width: 100%;
     }
+    .confirmationDiv{
+        width: 98%;
+    }
+}
+
+.radio-selector {
+    display: flex;
+    align-items: center;
+}
+
+.radio-selector input[type="radio"] {
+    display: none;
+}
+
+.radio-selector label {
+    display: inline-block;
+    border-radius: 3px;
+    border: 2px solid white;
+    padding: 5px 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.radio-selector input[type="radio"]:checked + label {
+    background-color: whitesmoke;
+    color: black;
+}
+.submitCreateFunction{
+    padding: 5px 50px;
+    border-radius: 5px;
+    margin-top: 15px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-weight: 490;
+    border: 2px solid white;
+}
+.submitCreateFunction:focus{
+    background-color: white;
+    color: black;
+}
+.divConfirmaCriacao{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.confirmationDiv{
+    width: 750px;
+    background-color: black;
+    height: 500px;
+    border: 1px solid white;
+    border-radius: 15px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.confirmationDiv button{
+    margin: 5px;
+    width: 150px;
+    height: 40px;
+    font-weight: 490;
+    border: 0;
+    border-radius: 5px;
 }
