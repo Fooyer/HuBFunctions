@@ -85,13 +85,13 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
                 
                     <Col xs="2" md="2" lg="1" className="addImage">
 
-                        <Link to="/criar-funcao"><img src={imgAdd} alt="function Add" id="addContent" /></Link>
+                        <Link to="/criar-funcao" className="linkCriarFuncao"><img src={imgAdd} alt="function Add" id="addContent" /></Link>
 
                     </Col>
 
                     <Col xs="6" md="5" lg="4" className="Search-bar">
 
-                        <input placeholder="Pesquise uma função" id="searchContent" />
+                        <input placeholder="Pesquise uma função" id="searchContent" autocomplete="off" />
 
                     </Col>
 
@@ -110,8 +110,9 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
                     </Col>
 
                     <Col xs="2" md="2" lg="1" className="Search-image">
-
-                        <img src={imgSearch} id="img-search" alt="function search" onClick={search}/>
+                        <button onClick={search}>
+                            <img src={imgSearch} id="img-search" alt="function search"/>
+                        </button>
                         
                     </Col>
                         

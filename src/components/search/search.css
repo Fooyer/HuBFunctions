@@ -13,6 +13,10 @@
     font-size: 20pt;
     padding-left: 10px;
     padding-right: 10px;
+    border: 2px solid black;
+}
+.Search-bar input:focus{
+    outline: 1px solid white;
 }
 
 #img-search{
@@ -23,7 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(29, 29, 29);
+    background-color: black;
     border-radius: 0 100vmax 100vmax 0;
     box-shadow: 0px 0px 5px black;
     cursor: pointer;
@@ -33,28 +37,38 @@
     height: 100%;
     text-align: center;
     font-size: 20pt;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 .addImage{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(29, 29, 29);
+    background-color: black;
     box-shadow: 0px 0px 5px black;
     cursor: pointer;
     border-radius: 100vmax 0 0 100vmax;
 }
 
 .addImage a{
-    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90%;
 }
 
 #addContent{
     width: 90%;
     height: 90%;
+}
+.Search-image button{
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 100vmax 100vmax 0;
+    border: 0;
+}
+.linkCriarFuncao{
+    border-radius: 100vmax 0 0 100vmax;
+    width: 100% !important;
+    height: 100% !important;
 }

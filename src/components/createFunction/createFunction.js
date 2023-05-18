@@ -100,49 +100,47 @@ function CreateFunction(){
 
     }
 
+    const [textareaValue, setTextareaValue] = useState('');
+
+    const handleChange = (event) => {
+        setTextareaValue(event.target.value);
+    };
+
+    const handleResize = (event) => {
+        event.target.style.height = 'auto';
+        event.target.style.height = event.target.scrollHeight + 'px';
+    };
+
     // HTML Code
     
     return (
         <>
             <div className="screenCreateFunction">
-                <div xs="11" md="10" lg="8" className="formBox">
+                <div className="formBox">
 
-                    <h1>Crie uma função e ajude a comunidade!</h1>
+                    <div className="sectionTitleCreate">
+                        <h1>Crie uma função e ajude a comunidade!</h1>
+                    </div>
 
                     <div className="sectionForm">
 
-                        <form className="formAddNewFunction" onSubmit={adicionarFuncao}>
+                        <div className="card">
+                
+                            <div className="artigo-funcao">
 
-                            <div className="inputandlabel">
-                                <label for="title" id="labelTitleNewFunction">Título: </label>
-                                <input name="tituloNewFunction" id="titleNewFunction" required />
+                                <input type="text" placeholder="Título" maxLength={70} />
+
+                                <div className="artigo-code">
+
+                                    <AceEditor wrapEnabled={true} setOptions={{wrapBehavioursEnabled: true}} value={descFunction} enableLiveAutocompletion={false} enableSnippets={false} mode={mainLanguage} theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} className="textEditorFunction" />
+                                    
+                                </div>
+
+                                <textarea value={textareaValue} onChange={handleChange} onInput={handleResize} rows={1} placeholder="Descrição" />
+
                             </div>
-
-                            <div className="inputandlabel">
-                                <label for="" id="labelTitleNewFunction">Linguagem: </label>
-                                <select onChange={changeLanguage} id="selectionLanguage" required>
-                                    <option value="javascript">javascript</option>
-                                    <option value="python">python</option>
-                                </select>
-                            </div>
-
-                            <div id="divDescricao" className="inputandlabel">
-                                <label for="description" id="labelTitleNewFunction" >Descrição: </label>
-                                <textarea name="description" id="descriptionNewFunction" />
-                            </div>
-
-                        </form>
-
-                        <div className="inputandlabel">
-                            <label id="labelTitleNewFunction">Código:</label>
-                            <AceEditor value={descFunction} enableLiveAutocompletion={false} enableSnippets={false} mode={mainLanguage} theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} height="auto" className="textEditorFunction" />
                         </div>
                     </div>
-
-                    <div className="buttonSubmit">
-                        <button onClick={adicionarFuncao} id="botaoSubmit" > Publicar Função </button>
-                    </div>
-
                 </div>
             </div>
         </>
