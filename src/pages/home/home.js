@@ -11,7 +11,7 @@ import { useState } from "react";
 
 import Results from '../../components/results/results';
 import SearchBar from '../../components/search/search';
-import Description from "../../components/description/description";
+import LandingPage from "../../components/landing/landing";
 import NoData from "../../components/search/nodata/nodata";
 import ReactLoading from 'react-loading';
 import { Col } from "react-bootstrap";
@@ -30,7 +30,7 @@ function Home(){
             <SearchBar setSearched={setSearched} setDados={setDados} setLanguageProg={setLanguageProg} />
         
             {(Searched === 'searched')  && <Results dados={Dados} LanguageProg={LanguageProg} /> }
-            {(Searched === '')  && <Description /> }
+            {(Searched === '')  && <LandingPage /> }
             {(Searched === 'null')  && <NoData /> }
             {(Searched === 'loading' &&
 
