@@ -1,24 +1,47 @@
 // Import Styles
 
+import { useEffect, useState } from "react";
 import "./card.css"
 
 // Import Frameworks
 
-import AceEditor from "react-ace";
-
-import "ace-builds/src-noconflict/mode-python";
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
-import "ace-builds/src-noconflict/ext-language_tools";
-
+import Highlight from "react-highlight";
 
 // Component Funciton
 
 function Card({title,dfunction,description,planguage}){
 
+    const [funct, setFunc] = useState('')
+    const [complete, setComplete] = useState(false)
+    const [contentIncomplete, setContentIncomplete] = useState('')
+    const [menos, setMenos]= useState(false)
+
+    useEffect(() => {
+        let content = dfunction.split('\n').slice(0, 15).join('\n')
+
+        if (content!==dfunction){
+            setComplete(true)
+            setContentIncomplete(content)
+        }
+
+        setFunc(content)
+    },[])
+
+    function mostrarTudo(){
+        setFunc(dfunction)
+        setComplete(false)
+        setMenos(true)
+    }
+
+    function verMenos(){
+        setFunc(contentIncomplete)
+        setMenos(false)
+        setComplete(true)
+    }
+
     return (
 
-        <div key={title} className="card">
+        <div key={title} className="cardResult">
             
             <div className="artigo-funcao">
 
@@ -26,8 +49,11 @@ function Card({title,dfunction,description,planguage}){
 
                 <div className="artigo-code">
 
-                    <AceEditor showGutter={false} highlightActiveLine={false} mode={planguage} theme="tomorrow_night_eighties" value={dfunction} editorProps={{ $blockScrolling: true }} fontSize={15} className="cardEditorFunction" readOnly={true} />
-                    
+                    <Highlight className={planguage} >{funct}</Highlight>
+
+                    {complete && <button className="buttonvermais" onClick={mostrarTudo} >Ver Código Completo</button>}
+                    {menos && <button className="buttonvermais" onClick={verMenos} >Mostrar Menos</button>}
+
                 </div>
 
                 <p>{description}</p>

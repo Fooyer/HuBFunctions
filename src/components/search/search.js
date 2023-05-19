@@ -91,7 +91,7 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
 
                     <Col xs="6" md="5" lg="4" className="Search-bar">
 
-                        <input placeholder="Pesquise uma função" id="searchContent" autocomplete="off" />
+                        <input placeholder="Pesquise uma função" id="searchContent" />
 
                     </Col>
 
