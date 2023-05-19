@@ -5,107 +5,149 @@
     height: 100%;
 }
 .formBox{
-    background-color: var(--gray);
-    margin-top: 150px;
+    margin-top: 100px;
     border-radius: 15px;
     color: #fff;
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 15px;
     width: 80%;
 }
-.formBox h1{
-    padding-bottom: 50px;
-}
-.formAddNewFunction{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-}
-.formAddNewFunction textarea{
-    resize: none;
-    padding: 10px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 470;
-}
-.formAddNewFunction textarea:focus-visible{
-    border: 1px solid black !important;
-    outline: none;
-}
-.textEditorFunction{
-    width: 600px !important;
-    height: 400px !important;
-    border: 2px solid black;
-    border-radius: 15px;
-}
-#titleNewFunction{
-    padding: 5px;
-    height: 40px;
-    width: 440px;
-}
-#labelTitleNewFunction{
-    font-weight: 500;
-    font-size: 15pt;
-}
-#selectionLanguage{
-    padding: 5px;
-    height: 40px;
-    width: 130px;
-}
-#descriptionNewFunction{
-    width: 600px;
-    height: 280px;
-    border-radius: 10px;
-}
-#divDescricao{
-    display: flex;
-}
-#botaoSubmit{
-    margin-top: 20px;
-    width: 250px;
-    height: 50px;
-}
-.sectionForm{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-}
-.inputandlabel{
-    display: flex;
-    flex-direction: column;
-}
-.buttonSubmit{
-    width: 100%;
+
+.sectionTitleCreate{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
-}
-.buttonSubmit button{
+    width: 800px;
     border-radius: 5px;
-    background-color: #d1d1d1;
-    box-shadow: 0px 0px 10px rgba(66, 66, 66, .7);
-    transition: .2s;
+    transform: skew(-5deg);
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 3px 5px 5px black;
+    margin-bottom: 20px;
 }
-.buttonSubmit button:hover{
-    border-radius: 7px;
-    background-color: #bbbbbb;
+.sectionForm{
+    width: 100%;
+}
+.card{
+    background-color: black;
+    box-shadow: 0px 0px 15px black;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+}
+.artigo-funcao{
+    margin: 10px;
+}
+.artigo-code{
+    height: auto;
+    border-radius: 5px;
+    margin-top: 0;
+}
+.artigo-code p{
+    padding: 10px;
+}
+.textEditorFunction{
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    width: 100% !important;
+}
+.artigo-funcao input, .artigo-funcao textarea{
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid #f2f2f2;
+    padding: 8px;
+    color: #f2f2f2;
+    border-radius: 5px;
+    resize: none;
+}
+.artigo-funcao textarea{
+    margin-top: 15px;
+    overflow: hidden;
 }
 @media (max-width: 800px) {
     .formBox{
-        width: 95%;
+        width: 98%;
+        padding: 0;
     }
-    .textEditorFunction{
-        width: 90vw !important;
+    .sectionTitleCreate{
+        width: 90%;
     }
-    #descriptionNewFunction{
-        width: 90vw;
+    .sectionForm{
+        width: 100%;
     }
-    #titleNewFunction{
-        width: 90vw;
+    .confirmationDiv{
+        width: 98%;
     }
-  }
+}
+
+.radio-selector {
+    display: flex;
+    align-items: center;
+}
+
+.radio-selector input[type="radio"] {
+    display: none;
+}
+
+.radio-selector label {
+    display: inline-block;
+    border-radius: 3px;
+    border: 2px solid white;
+    padding: 5px 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.radio-selector input[type="radio"]:checked + label {
+    background-color: whitesmoke;
+    color: black;
+}
+.submitCreateFunction{
+    padding: 5px 50px;
+    border-radius: 5px;
+    margin-top: 15px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-weight: 490;
+    border: 2px solid white;
+}
+.submitCreateFunction:focus{
+    background-color: white;
+    color: black;
+}
+.divConfirmaCriacao{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.confirmationDiv{
+    width: 750px;
+    background-color: black;
+    height: 500px;
+    border: 1px solid white;
+    border-radius: 15px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.confirmationDiv button{
+    margin: 5px;
+    width: 150px;
+    height: 40px;
+    font-weight: 490;
+    border: 0;
+    border-radius: 5px;
+}

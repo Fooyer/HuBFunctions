@@ -29,6 +29,7 @@ function CreateFunction(){
     // Obter as opções de linguages diretamente do banco
 
     const [Languages, setLanguages] = useState([]);
+    const [confirmacao, setConfirmacao] = useState(false)
 
     useEffect(() => {
         async function fetchLanguages(){
@@ -44,7 +45,7 @@ function CreateFunction(){
     
     // Consts de linguagem e função
 
-    const [mainLanguage, setmainLanguage] = useState('javascript');
+    const [mainLanguage, setmainLanguage] = useState('');
     const [descFunction, setDescFunction] = useState('');
     const [codeLanguage, setCodeLanguage] = useState('1');
 
@@ -57,15 +58,19 @@ function CreateFunction(){
 
     async function changeLanguage(){
 
-        let linguagem = document.getElementById('selectionLanguage').value
+        var language = document.getElementsByName('selector')
+        for (var i = 0; i < language.length; i++) {
+            if (language[i].checked) {
+              var linguagem = language[i].value
+              let { data: languages, error } = await supabase.from('planguages').select('id').eq('planguage',linguagem)
 
-        let { data: languages, error } = await supabase.from('planguages').select('id').eq('planguage',linguagem)
-
-        setCodeLanguage(languages[0].id)
-        setmainLanguage(linguagem)
-        let funcao = sessionStorage.getItem('function')
-        setDescFunction(funcao)
-
+              setCodeLanguage(languages[0].id)
+              setmainLanguage(linguagem)
+              let funcao = sessionStorage.getItem('function')
+              setDescFunction(funcao)
+              break
+            }
+        }
     }
 
     // Se tiver função gravada no session storage ele recupera os dados
@@ -79,10 +84,27 @@ function CreateFunction(){
 
     // Função de gravação no sistema para aprovação
 
-    async function adicionarFuncao(event){
+    function adicionarFuncao(event){
 
         event.preventDefault()
         
+        if (mainLanguage===''){
+            alert("Escolha uma linguagem!")
+            return 0
+        }
+        console.log(descFunction)
+        if (descFunction === '' || descFunction === null || descFunction.replace(/\s/g, "") === ''){
+            alert("Escreva uma função!")
+            return 0 
+        }
+
+        setConfirmacao(true)
+
+    }
+    async function efetuarAdicao(){
+
+        setConfirmacao(false)
+
         let tituloFuncao = document.getElementById('titleNewFunction').value
         let codefuncao = descFunction
         let descricao = document.getElementById('descriptionNewFunction').value
@@ -100,49 +122,72 @@ function CreateFunction(){
 
     }
 
+    // Campo responsivo
+
+    function handleResize (event){
+        event.target.style.height = 'auto';
+        event.target.style.height = event.target.scrollHeight + 'px';
+    };
+
     // HTML Code
     
     return (
         <>
-            <div className="screenCreateFunction">
-                <div xs="11" md="10" lg="8" className="formBox">
+            {confirmacao && 
+                <div className="divConfirmaCriacao">
+                    <div className="confirmationDiv">
 
-                    <h1>Crie uma função e ajude a comunidade!</h1>
+                        <h1>Você aceita os Termos?</h1>
 
-                    <div className="sectionForm">
+                        <ul>
+                            <li>Declaro que aceito a exposição pública no site HUBFUNCTIONS da função criada por mim.</li>
+                            <li>Estou ciente de que minha função pode ser excluída pelos administradores a qualquer momento.</li>
+                            <li>Estou ciente de que o título da postagem pode ser alterado pelos administradores para eventuais melhoras na busca.</li>
+                        </ul>
 
-                        <form className="formAddNewFunction" onSubmit={adicionarFuncao}>
-
-                            <div className="inputandlabel">
-                                <label for="title" id="labelTitleNewFunction">Título: </label>
-                                <input name="tituloNewFunction" id="titleNewFunction" required />
-                            </div>
-
-                            <div className="inputandlabel">
-                                <label for="" id="labelTitleNewFunction">Linguagem: </label>
-                                <select onChange={changeLanguage} id="selectionLanguage" required>
-                                    <option value="javascript">javascript</option>
-                                    <option value="python">python</option>
-                                </select>
-                            </div>
-
-                            <div id="divDescricao" className="inputandlabel">
-                                <label for="description" id="labelTitleNewFunction" >Descrição: </label>
-                                <textarea name="description" id="descriptionNewFunction" />
-                            </div>
-
-                        </form>
-
-                        <div className="inputandlabel">
-                            <label id="labelTitleNewFunction">Código:</label>
-                            <AceEditor value={descFunction} enableLiveAutocompletion={false} enableSnippets={false} mode={mainLanguage} theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} width={800} height="auto" className="textEditorFunction" />
+                        <div>
+                            <button onClick={efetuarAdicao}>Aceito</button>
+                            <button onClick={() => setConfirmacao(false)}>Rejeito</button>
                         </div>
+
+                    </div>
+                </div>
+            }
+            <div className="screenCreateFunction">
+                <div className="formBox">
+
+                    <div className="sectionTitleCreate">
+                        <h1>Crie uma função e ajude a comunidade!</h1>
                     </div>
 
-                    <div className="buttonSubmit">
-                        <button onClick={adicionarFuncao} id="botaoSubmit" > Publicar Função </button>
-                    </div>
+                    <form className="sectionForm" onSubmit={adicionarFuncao}>
 
+                        <div className="card">
+                
+                            <div className="artigo-funcao">
+
+                                <input id="titleNewFunction" type="text" placeholder="Título" maxLength={70} required/>
+
+                                <div class="radio-selector">
+                                    <input type="radio" id="option1" name="selector" value="javascript" onChange={changeLanguage} />
+                                    <label for="option1">javascript</label>
+                                    <input type="radio" id="option2" name="selector" value="python" onChange={changeLanguage} />
+                                    <label for="option2">python</label>
+                                </div>
+
+                                <div className="artigo-code">
+
+                                    <AceEditor enableBasicAutocompletion={true} enableLiveAutocompletion={true} height={450} value={descFunction} enableSnippets={false} mode={mainLanguage} theme="tomorrow_night_eighties" onChange={onChange} editorProps={{ $blockScrolling: true }} fontSize={15} className="textEditorFunction" />
+                                    
+                                </div>
+
+                                <textarea id="descriptionNewFunction" onInput={handleResize} rows={1} placeholder="Descrição" required/>
+
+                                <button type="submit" className="submitCreateFunction">Publicar Função</button>
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </>
