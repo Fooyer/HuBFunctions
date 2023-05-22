@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import "./style.css"
-import { createClient } from "@supabase/supabase-js";
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-python";
@@ -12,9 +11,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 // Cria um cliente com o banco
 
-const supabaseUrl = "https://bfgjcqecgspzgfsfaawj.supabase.co"
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJmZ2pjcWVjZ3Nwemdmc2ZhYXdqIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzcxODM3ODUsImV4cCI6MTk5Mjc1OTc4NX0.xsBsrZfNTc5huqPX2bBIGYgSfurupRzdSeW-H_OnuRQ"
-const supabase = createClient(supabaseUrl, supabaseKey)
+import { supabase } from "../../providers/supabase";
 
 // Page Home HTML Code
 

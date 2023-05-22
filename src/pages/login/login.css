@@ -1,0 +1,16 @@
+.AppLogin{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.loginContainer{
+    width: 500px;
+    height: 500px;
+    border: 1px solid transparent;
+    box-shadow: 0px 0px 10px black;
+    background-color: black;
+    border-radius: 5px;
+}
