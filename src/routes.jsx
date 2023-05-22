@@ -8,6 +8,7 @@ import Home from './pages/home/home';
 import Sobre from "./pages/sobre/sobre";
 import NewFunction from "./pages/newFunction/newFunction";
 import AreaRestrita from "./pages/areaRestrita";
+import Login from "./pages/login/login";
 
 // App code
 
@@ -21,6 +22,7 @@ function PageRoutes() {
             <Route element={<Sobre />} path="/sobre" exact />
             <Route element={<NewFunction />} path="/criar-funcao" exact />
             <Route element={<AreaRestrita />} path="/area-restrita" exact />
+            <Route element={<Login />} path="/login" exact />
 
         </Routes>
     </BrowserRouter>

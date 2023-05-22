@@ -4,7 +4,7 @@
 /* VARIAVEIS DAS CORES EM index.css */
 
 .navbar {
-  background-color: var(--gray) !important;
+  background-color: black !important;
   display: block; 
   align-items: center;
   max-width: 100%;
