@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js"
 
-const supabaseUrl = process.env.API_KEY
-const supabaseKey = process.env.URL_BANCO
+const supabaseUrl = process.env.REACT_APP_URL_BANCO
+const supabaseKey = process.env.REACT_APP_API_KEY
+
 export const supabase = createClient(supabaseUrl, supabaseKey)
