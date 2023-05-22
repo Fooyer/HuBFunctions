@@ -14,6 +14,12 @@ function Login(){
             
             <div className="loginContainer">
 
+                <form>
+                    <input type="text" name="email" id="emailLogin" placeholder="E-Mail" />
+                    <input type="password" name="senha" id="senhaLogin" placeholder="Senha" />
+                    <button type="submit">Entrar</button>
+                </form>
+
             </div>
 
         </section>
