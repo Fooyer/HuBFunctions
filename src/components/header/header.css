@@ -1,96 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
-/* MUDA O TAMANHO DA NAVBAR USANDO BOOTSTRAP NO JS */
-/* VARIAVEIS DAS CORES EM index.css */
-
-.navbar {
-  background-color: black !important;
-  display: block; 
+header{
+  background-color: black;
+  width: 100%;
+  padding: 10px;
+  position: fixed;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
-  max-width: 100%;
-  margin: 0 auto;
-  z-index: 10;
-  transition: 0.5s;
   box-shadow: 0px 0px 15px black;
+  border-bottom: 1px solid white;
 }
-
-/* css da navbar quando vc scrolla p baixo é tudo que tem o .active*/
-.navbar.active{
-  border-bottom: 2px solid white !important;
-  border-bottom: 0;
-  transition: 0.5s;
-}
-
-.navbar a , .navbar span{
-  color: var(--white) !important;
-  font-weight: 500;
-  transition: 0.1s;
-}
-
-.navbar.active a, .navbar.active span{
-  color: var(--white) !important;
-  transition: 0.1s;
-}
-
-.navbar .dropdown-menu.show{
-  background-color: rgb(68, 68, 68) !important;
-  border-color: transparent;
-  transition: .1s;
-}
-
-.navbar.active .dropdown-menu.show{
-  border-color: var(--white);
-  background-color: rgb(37, 37, 37) !important;
-}
-
-.nav-link{
-  color: #333 !important;
-}
-
-.navbar .custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='15' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.navbar.active .custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(36, 203, 155, 1)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='15' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-
-.custom-toggler.navbar-toggler {
-  border: 0;
-  font-size: 20pt;
-  line-height: 0 !important;
-  --bs-navbar-color: black !important;
-} 
-
-.navbar h1 {
-  font-weight: 500;
-  color: var(--white) !important;
-  transition: 0.5s;
-}
-
-.navbar.active h1{
-  font-weight: 500;
-  color: var(--white) !important
-}
-
-.navbar .links {
-  font-size: 20pt;
-  margin-left: auto;
-}
-.navbar a {
-  font-family: 'Quicksand';
-  font-size: 18pt;
-  margin-left: 16px;
+.linkHeader{
   text-decoration: none;
-  padding: 6px;
+  color: #fff;
 }
-
-.navbar-brand h1{
-  font-size: 20pt !important;
+.linkHeader:hover{
+  color: #fff;
 }
-
-.navbar a:hover {
-  transition: .2s;
-  color: var(--white);
+header ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+header ul li{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

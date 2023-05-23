@@ -9,6 +9,7 @@ import Sobre from "./pages/sobre/sobre";
 import NewFunction from "./pages/newFunction/newFunction";
 import AreaRestrita from "./pages/areaRestrita";
 import Login from "./pages/login/login";
+import Register from "./pages/register/register";
 
 // App code
 
@@ -23,6 +24,7 @@ function PageRoutes() {
             <Route element={<NewFunction />} path="/criar-funcao" exact />
             <Route element={<AreaRestrita />} path="/area-restrita" exact />
             <Route element={<Login />} path="/login" exact />
+            <Route element={<Register />} path="/register" exact />
 
         </Routes>
     </BrowserRouter>
