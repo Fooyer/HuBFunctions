@@ -6,6 +6,10 @@ import { supabase } from "../../providers/supabase"
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 
+// Page imports
+
+import DadosConta from "../../components/dadosConta/dadosConta";
+
 // Page Home HTML Code
 
 function Perfil(){
@@ -42,19 +46,23 @@ function Perfil(){
                     <aside className="menuOptionsPerfil">
                         <h4>{user}</h4>
                         <ul>
-                            <li onClick={() => setPage('dados')}><a onClick={() => setPage('dados')}>Dados da Conta</a></li>
-                            <li onClick={() => setPage('funcoesalvas')}><a onClick={() => setPage('funcoesalvas')}>Funções Salvas</a></li>
-                            <li onClick={() => setPage('funcoescriadas')}><a onClick={() => setPage('funcoescriadas')}>Funções Criadas</a></li>
-                            <li onClick={logout}><a onClick={logout}>Logout</a></li>
+                            <li onClick={() => setPage('dados')}><button onClick={() => setPage('dados')}>Dados da Conta</button></li>
+                            <li onClick={() => setPage('funcoesalvas')}><button onClick={() => setPage('funcoesalvas')}>Funções Salvas</button></li>
+                            <li onClick={() => setPage('funcoescriadas')}><button onClick={() => setPage('funcoescriadas')}>Funções Criadas</button></li>
+                            <li onClick={logout}><button onClick={logout}>Logout</button></li>
                         </ul>
                     </aside>
                     
                     <section className="contentPerfil">
 
                         {page === 'dados' &&
-                            <div className="contentPerfilTitle">
-                                <h1>Dados</h1>
-                            </div>
+                            <>
+                                <div className="contentPerfilTitle">
+                                    <h1>Dados</h1>
+                                    
+                                </div>
+                                <DadosConta />
+                            </>
                         }
                         {page === 'funcoesalvas' &&
                             <div className="contentPerfilTitle">

@@ -1,7 +1,6 @@
 .AppPerfil{
     width: 100%;
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     height: 100%;
     padding-top: 100px;
@@ -14,6 +13,7 @@
 }
 .menuOptionsPerfil{
     width: 200px;
+    text-align: center;
 }
 .menuOptionsPerfil li:hover{
     background-color: rgb(54, 54, 54);
@@ -23,7 +23,11 @@
     padding: 10px 15px;
     background-color: black;
 }
-.menuOptionsPerfil a,.menuOptionsPerfil li{
+.menuOptionsPerfil button{
+    background-color: transparent;
+    border: transparent;
+}
+.menuOptionsPerfil button,.menuOptionsPerfil li{
     width: 100%;
     margin-left: 0;
     color: white;
@@ -56,6 +60,7 @@
     margin-left: 5%;
     align-self: flex-start;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -69,4 +74,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media screen and (max-width: 820px) {
+
+   .contentPerfil{
+        width: 98%;
+        margin-left: 1%;
+   } 
+
 }
