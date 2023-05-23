@@ -1,12 +1,27 @@
 import "./header.css"
 
-function Header() {
+function Header({errorAuth}) {
 
   return (
     <header>
         <a href='/' className="linkHeader"><h2>HUBFUNCTIONS</h2></a>
         <ul>
-          <li><a className="linkHeader" href="/perfil">Perfil</a></li>
+          <li className="buttonDesignHeader">
+            {errorAuth != null &&
+              <a className="linkHeaderBut" href="/login">
+                <div id="normalizer">
+                  Login
+                </div>
+              </a>
+            }
+            {errorAuth === null &&
+              <a className="linkHeaderBut" href="/perfil">
+                <div id="normalizer">
+                  Perfil
+                </div>
+              </a>
+            }
+          </li>
         </ul>
     </header>
   );

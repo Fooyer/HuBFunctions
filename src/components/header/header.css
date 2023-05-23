@@ -9,6 +9,7 @@ header{
   align-items: center;
   box-shadow: 0px 0px 15px black;
   border-bottom: 1px solid white;
+  z-index: 999;
 }
 .linkHeader{
   text-decoration: none;
@@ -28,4 +29,27 @@ header ul li{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.linkHeaderBut{
+  background-color: #fff;
+  padding: 5px 20px;
+  border-radius: 3px;
+  user-select: none;
+  font-size: 14pt;
+  transform: skew(-5deg);
+}
+.linkHeaderBut{
+  text-decoration: none;
+  transition: .2s;
+  color: #000;
+}
+.linkHeaderBut:hover{
+  color: #000;
+}
+.linkHeaderBut:active{
+  padding: 4px 18px;
+  margin: 1px 2px;
+}
+#normalizer{
+  transform: skew(5deg);
 }

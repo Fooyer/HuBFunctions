@@ -3,11 +3,13 @@
 import "./login.css"
 
 import { supabase } from "../../providers/supabase"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 // Page Home HTML Code
 
 function Login(){
+
+    const navigate = useNavigate()
 
     async function validarLogin(event){
         event.preventDefault()
@@ -23,6 +25,8 @@ function Login(){
         if (error){alert("Credenciais inválidas"); return}
 
         alert("Logado com sucesso!")
+        window.location.href = '/'
+
     }
 
     return (
