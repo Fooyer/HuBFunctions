@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 // Page imports
 
 import DadosConta from "../../components/dadosConta/dadosConta";
+import SavedFunctions from "../../components/savedFunctions/savedFunctions";
 
 // Page Home HTML Code
 
@@ -65,9 +66,12 @@ function Perfil(){
                             </>
                         }
                         {page === 'funcoesalvas' &&
+                        <>
                             <div className="contentPerfilTitle">
                                 <h1>Funções Salvas</h1>
                             </div>
+                            <SavedFunctions />
+                        </>
                         }
                         {page === 'funcoescriadas' &&
                             <div className="contentPerfilTitle">

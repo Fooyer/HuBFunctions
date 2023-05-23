@@ -21,7 +21,7 @@ function Results({dados,LanguageProg}){
 			
                 {dados.map((element) => (
                         
-                    <Card title={element.title} description={element.description} dfunction={element.function} planguage={LanguageProg} />
+                    <Card id={element.id} title={element.title} description={element.description} dfunction={element.function} planguage={LanguageProg} />
 
                 ))}
 

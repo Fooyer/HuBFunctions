@@ -12,14 +12,12 @@ function DadosConta(){
 
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
-    const [emailAtual, setEmailAtual] = useState('')
 
     useEffect(()=>{
       async function obterUsuarioSessao(){
         const { data, error } = await supabase.auth.getSession()
         setEmail(data.session.user.email)
         setUsername(data.session.user.user_metadata.username)
-        setEmailAtual(data.session.user.email)
       }
       obterUsuarioSessao()
     },[])

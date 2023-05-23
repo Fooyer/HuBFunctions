@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import "./card.css"
+import { supabase } from "../../../providers/supabase";
 
 // Import Frameworks
 
@@ -9,7 +10,7 @@ import Highlight from "react-highlight";
 
 // Component Funciton
 
-function Card({title,dfunction,description,planguage}){
+function Card({id,title,dfunction,description,planguage}){
 
     const [funct, setFunc] = useState('')
     const [complete, setComplete] = useState(false)
@@ -39,10 +40,33 @@ function Card({title,dfunction,description,planguage}){
         setComplete(true)
     }
 
+    async function salvarFuncaoUsuario(idFunction){
+
+        const { data: user, error } = await supabase.auth.getSession()
+
+        if (!user.session.user.user_metadata.salvas){
+            let first = [idFunction]
+            const { data, error } = await supabase.auth.updateUser({data: { salvas: first }})
+
+        } else{
+
+            let jaExiste = user.session.user.user_metadata.salvas.includes(idFunction)
+            if (jaExiste === true){alert("Você já salvou essa função"); return}
+
+            user.session.user.user_metadata.salvas.push(idFunction)
+            let aux = user.session.user.user_metadata.salvas
+
+            const { data, error } = await supabase.auth.updateUser({data: { salvas: aux }})
+
+        }
+        
+        alert('Salvo com Sucesso!')
+    }
+
     return (
 
         <div key={title} className="cardResult">
-            
+
             <div className="artigo-funcao">
 
                 <h2>{title}</h2>
@@ -51,6 +75,7 @@ function Card({title,dfunction,description,planguage}){
 
                     <Highlight className={planguage} >{funct}</Highlight>
 
+                    <button id="buttonSalvarFunction" className="buttonvermais" onClick={() => salvarFuncaoUsuario(id)}>Salvar Função</button>
                     {complete && <button className="buttonvermais" onClick={mostrarTudo} >Ver Código Completo</button>}
                     {menos && <button className="buttonvermais" onClick={verMenos} >Mostrar Menos</button>}
 
