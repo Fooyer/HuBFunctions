@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import DadosConta from "../../components/dadosConta/dadosConta";
 import SavedFunctions from "../../components/savedFunctions/savedFunctions";
+import CreatedFunctions from "../../components/createdFunctions/createdFunctions";
 
 // Page Home HTML Code
 
@@ -66,17 +67,20 @@ function Perfil(){
                             </>
                         }
                         {page === 'funcoesalvas' &&
-                        <>
-                            <div className="contentPerfilTitle">
-                                <h1>Funções Salvas</h1>
-                            </div>
-                            <SavedFunctions />
-                        </>
+                            <>
+                                <div className="contentPerfilTitle">
+                                    <h1>Funções Salvas</h1>
+                                </div>
+                                <SavedFunctions />
+                            </>
                         }
                         {page === 'funcoescriadas' &&
-                            <div className="contentPerfilTitle">
-                                <h1>Funções Criadas</h1>
-                            </div>
+                            <>
+                                <div className="contentPerfilTitle">
+                                    <h1>Funções Criadas</h1>
+                                </div>
+                                <CreatedFunctions />
+                            </>
                         }
 
                     </section>
