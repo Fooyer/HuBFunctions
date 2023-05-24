@@ -44,6 +44,8 @@ function Card({id,title,dfunction,description,planguage}){
 
         const { data: user, error } = await supabase.auth.getSession()
 
+        if (!user.session){alert("Você precisa logar para salvar.");return}
+
         if (!user.session.user.user_metadata.salvas){
             let first = [idFunction]
             const { data, error } = await supabase.auth.updateUser({data: { salvas: first }})
