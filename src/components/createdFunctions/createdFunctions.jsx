@@ -18,8 +18,6 @@ function CreatedFunctions(){
             setDataSecao(data)
 
             const { data: data2, error: error2 } = await supabase.from('1functions').select('*').in('id', data.session.user.user_metadata.criadas)
-            console.log(data2)
-
             setFunctions(data2)
         }
         obterUsuarioSessao()
