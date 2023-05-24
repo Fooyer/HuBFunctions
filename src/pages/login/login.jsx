@@ -44,7 +44,6 @@ function Login(){
                     <button type="submit">Entrar</button>
                     <Link to="/register">Não tenho uma conta</Link>
                 </form>
-
             </div>
 
         </section>

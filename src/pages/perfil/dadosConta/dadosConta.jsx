@@ -55,7 +55,7 @@ function DadosConta(){
 
         const { data, error } = await supabase.auth.updateUser({password: senhaNova})
 
-        if (error){alert(error)}
+        if (error){alert(error); return}
         
         alert('Senha Alterada com Sucesso!')
     }
