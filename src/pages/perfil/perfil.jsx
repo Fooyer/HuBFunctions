@@ -60,8 +60,7 @@ function Perfil(){
                         {page === 'dados' &&
                             <>
                                 <div className="contentPerfilTitle">
-                                    <h1>Dados</h1>
-                                    
+                                    <h1>Dados</h1>  
                                 </div>
                                 <DadosConta />
                             </>
@@ -81,6 +80,11 @@ function Perfil(){
                                 </div>
                                 <CreatedFunctions />
                             </>
+                        }
+                        {page === '' &&
+                        <>
+
+                        </>
                         }
 
                     </section>

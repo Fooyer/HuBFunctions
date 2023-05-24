@@ -10,7 +10,7 @@ import Highlight from "react-highlight";
 
 // Component Funciton
 
-function Card({id,title,dfunction,description,planguage}){
+function Card({autor,id,title,dfunction,description,planguage}){
 
     const [funct, setFunc] = useState('')
     const [complete, setComplete] = useState(false)
@@ -84,6 +84,8 @@ function Card({id,title,dfunction,description,planguage}){
                 </div>
 
                 <p>{description}</p>
+
+                <p>Autor: {autor}</p>
 
             </div>
 

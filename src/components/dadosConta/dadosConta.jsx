@@ -25,6 +25,9 @@ function DadosConta(){
     async function salvarInformacoes(event){
         event.preventDefault()
 
+        const { data: data2, error: error2 } = await supabase.from('profiles').update({ username: username }).eq('email', email)
+        if (error2){alert("Nome inválido ou já ultilizado"); return}
+
         const { data, error } = await supabase.auth.updateUser({email: email, data: { username: username }})
 
         if (error){alert(error)}

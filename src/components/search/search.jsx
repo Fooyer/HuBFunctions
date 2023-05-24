@@ -52,8 +52,7 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
         let SearchText = "%"+document.getElementById('searchContent').value.replace(" ","%")+"%"
         languageSearch = languageSearch+"functions"
 
-        let { data: functions, error } = await supabase.from(languageSearch).select('*').ilike('title', SearchText)
-
+        let { data: functions, error } = await supabase.from(languageSearch).select('*, profiles(username)').ilike('title', SearchText)
         if (functions.length===0){setSearched('null'); setDados(functions); return 0}
 
         setDados(functions)
