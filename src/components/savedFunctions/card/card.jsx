@@ -10,33 +10,17 @@ import { supabase } from "../../../providers/supabase"
 
 // Component Funciton
 
-function Card({idFunction}){
-    const planguage = 'javascript'
-    const [ functions, setFunctions ] = useState([])
+function Card({functionData, language}){
 
-    useEffect(() => {
-        async function obterUsuarioSessao(){
-          
-            let { data: functions, error } = await supabase.from('1functions').select('*').eq('id',idFunction)
-            setFunctions(functions[0])
-            console.log(error)
-        }
-        obterUsuarioSessao()
-      },[])
-
-    return functions ? (
-        <div className="functionCardSaved">
+    return (
+        <div className="functionCardSaved" key={functionData.id}>
             
-            <h1>{functions.title}</h1>
-            <p>{functions.description}</p>
-            <Highlight className={planguage} >{functions.function}</Highlight>
+            <h1>{functionData.title}</h1>
+            <p>{functionData.description}</p>
+            <Highlight className={language} >{functionData.function}</Highlight>
             
 
         </div>
-    ) : (
-        <>
-
-        </>
     )
 
 }

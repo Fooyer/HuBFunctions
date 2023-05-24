@@ -11,7 +11,7 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 // Cria um cliente com o banco
 
-import { supabase } from "../../providers/supabase";
+import { supabase } from "../../providers/adminsupabase";
 
 // Page Home HTML Code
 
@@ -44,17 +44,26 @@ function AreaRestrita(){
 
     async function aprovar(item){
 
-        const { error } = await supabase.from(item.language+'functions').insert({
+        const { error5 } = await supabase.from(item.language+'functions').insert({
             id: item.id,
             title: item.title,
             function: item.function,
             description: item.description,
             autor: item.autor
         })
-        
-        let { data: profiles, error4 } = await supabase.from('profiles').select('email').eq('id',item.autor)
 
-        const { data3, error3 } = await supabase.auth.updateUser(profiles[0].email, {data: { criadas: item.id }})
+        const { data: user, error } = await supabase.auth.admin.getUserById(item.autor)
+
+        let metadata = user.user.user_metadata.criadas
+
+        if (!metadata) {
+            metadata = [item.id]
+        } else{
+            metadata.push(item.id)
+        }
+
+        const { data3, error3 } = await supabase.auth.updateUser({data: { criadas: metadata }, user_id: item.autor})
+
         const { data, error2 } = await supabase.from('foraprove').delete().eq('id', item.id)
 
         alert("Aprovada com sucesso!")
