@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Components Imports
 
-import CreateFunction from "../../components/createFunction/createFunction";
+import CreateFunction from "./createFunction/createFunction";
 
 // Page Home HTML Code
 

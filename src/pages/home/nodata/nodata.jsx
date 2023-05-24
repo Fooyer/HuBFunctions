@@ -6,9 +6,11 @@ import "./nodata.css"
 
 import { Col, Row } from 'react-bootstrap';
 
-// Component Funciton
+// Section Code
 
 function NoData(){
+
+    // HTML Code
 
     return (
 

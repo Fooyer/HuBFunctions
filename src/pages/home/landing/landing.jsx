@@ -2,14 +2,16 @@
 
 import "./landing.css"
 
-// Import Frameworks
+// Media Imports
 
-import imgHow from '../../images/howToSearch.gif'
-import imgCreate from '../../images/imgCreate.gif'
+import imgHow from '../../../images/howToSearch.gif'
+import imgCreate from '../../../images/imgCreate.gif'
 
-// Component Description HTML Code
+// Section Code
 
 function LandingPage(){
+
+    // HTML Code
 
     return (
         

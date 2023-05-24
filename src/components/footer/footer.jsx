@@ -1,6 +1,12 @@
+// Import Styles
+
 import "./footer.css"
 
+// Component Funciton
+
 function Footer(){
+
+    // HTML Code
 
     return (
         <footer className="Main-Footer">
@@ -8,7 +14,6 @@ function Footer(){
             <p>
                 <a href="/sobre">Quem Somos?</a>
             </p>
-
 		</footer>
     )
 

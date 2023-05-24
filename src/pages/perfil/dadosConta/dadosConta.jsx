@@ -1,17 +1,23 @@
 // Import Styles
 
-import { useEffect } from "react"
 import "./dadosConta.css"
 
-import { supabase } from "../../providers/supabase"
+// Framework Imports
+
+import { useEffect } from "react"
+import { supabase } from "../../../providers/supabase"
 import { useState } from "react"
 
-// Page Home HTML Code
+// Section Code
 
 function DadosConta(){
 
+    // Initialize useState Variables
+
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
+
+    // Take data from session user
 
     useEffect(()=>{
       async function obterUsuarioSessao(){
@@ -21,6 +27,8 @@ function DadosConta(){
       }
       obterUsuarioSessao()
     },[])
+
+    // Save user informations
 
     async function salvarInformacoes(event){
         event.preventDefault()
@@ -34,6 +42,8 @@ function DadosConta(){
         
         alert('Salvo com Sucesso!')
     }
+
+    // Change Password Function
 
     async function alterarSenha(event){
         event.preventDefault()
@@ -49,6 +59,8 @@ function DadosConta(){
         
         alert('Senha Alterada com Sucesso!')
     }
+
+    // HTML Code
 
     return (
         <div className="DadosConta">

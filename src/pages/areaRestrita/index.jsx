@@ -1,8 +1,13 @@
 // Import Styles
 
-import { useEffect, useState } from "react";
 import "./style.css"
+
+// Framework Imports
+
+import { useEffect, useState } from "react";
 import Highlight from "react-highlight";
+
+// Import Languages for AceEditor
 
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-javascript";
@@ -13,14 +18,18 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 import { supabase } from "../../providers/adminsupabase";
 
-// Page Home HTML Code
+// Page Restricted Area
 
 function AreaRestrita(){
+
+    // Use States Variables
 
     const [logado, setLogado] = useState(false)
     const [list, setList] = useState([])
     const [languages, setLanguages] = useState([])
     const [reload, setReload] = useState(0)
+
+    // Get Pending Aprove Functions From Data Base and Programming Languages table
 
     useEffect(() => {
         async function getData(){
@@ -41,6 +50,8 @@ function AreaRestrita(){
         fetchLanguages();
         getData();
     },[reload])
+
+    // Function for Aprove Function
 
     async function aprovar(item){
 
@@ -70,11 +81,17 @@ function AreaRestrita(){
 
         setReload(reload+1)
     }
+
+    // Function for Reprove a Function
+
     async function reprovar(item){
         const { data, error } = await supabase.from('foraprove').delete().eq('id', item.id)
         alert("Reprovada com sucesso!")
         setReload(reload+1)
     }
+
+    // Function for verify Login
+
     async function logar(event){
         event.preventDefault()
 
@@ -86,6 +103,8 @@ function AreaRestrita(){
             alert("Credenciais inválidas!")
         }
     }
+
+    // HTML Code
 
     return (
         <div className="area_restrita">

@@ -4,11 +4,10 @@ import "./createFunction.css"
 
 // Import Frameworks
 
-import { createClient } from '@supabase/supabase-js'
 import { useEffect,useState } from "react";
 import AceEditor from "react-ace";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../../providers/supabase";
+import { supabase } from "../../../providers/supabase";
 
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/mode-python";

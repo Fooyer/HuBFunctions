@@ -1,21 +1,25 @@
 // Import Styles
 
-import { useEffect, useState } from "react";
 import "./card.css"
-import { supabase } from "../../../providers/supabase";
 
 // Import Frameworks
 
 import Highlight from "react-highlight";
+import { useEffect, useState } from "react";
+import { supabase } from "../../../../providers/supabase";
 
-// Component Funciton
+// Card Function
 
 function Card({autor,id,title,dfunction,description,planguage}){
+
+    // Initialize useState Variables
 
     const [funct, setFunc] = useState('')
     const [complete, setComplete] = useState(false)
     const [contentIncomplete, setContentIncomplete] = useState('')
     const [menos, setMenos]= useState(false)
+
+    // Take first 15 lines of a function
 
     useEffect(() => {
         let content = dfunction.split('\n').slice(0, 15).join('\n')
@@ -28,17 +32,23 @@ function Card({autor,id,title,dfunction,description,planguage}){
         setFunc(content)
     },[])
 
+    // Show complete function
+
     function mostrarTudo(){
         setFunc(dfunction)
         setComplete(false)
         setMenos(true)
     }
 
+    // Show short function
+
     function verMenos(){
         setFunc(contentIncomplete)
         setMenos(false)
         setComplete(true)
     }
+
+    // Save function on user's data
 
     async function salvarFuncaoUsuario(idFunction){
 
@@ -64,6 +74,8 @@ function Card({autor,id,title,dfunction,description,planguage}){
         
         alert('Salvo com Sucesso!')
     }
+
+    // HTML Code
 
     return (
 

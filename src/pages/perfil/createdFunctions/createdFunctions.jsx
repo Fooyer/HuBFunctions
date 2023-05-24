@@ -1,45 +1,54 @@
-// Import Styles
+// Styles Import
 
-import { useEffect, useState } from "react"
-import "./savedFunctions.css"
+import "./createdFunctions.css"
 
-// Import Frameworks
+// Framework Imports
 
-import { supabase } from "../../providers/supabase"
-import Card from "./card/card"
+import { supabase } from "../../../providers/supabase"
+import { useEffect, useState } from "react";
 
-// Component Funciton
+// Screen Components
 
-function SavedFunctions(){
+import Card from "./card/card";
 
-    const [ functions, setFunctions ] = useState([])
+// Section Code
+
+function CreatedFunctions(){
+
+    // Initialize useState variables
+
     const [ mainLanguage, setMainLanguage ] = useState('javascript');
     const [ codeLanguage, setCodeLanguage ] = useState('1');
+    const [ functions, setFunctions ] = useState([])
     const [ dataSecao, setDataSecao ] = useState([])
+
+    // Take Data From User Session
 
     useEffect(() => {
         async function obterUsuarioSessao(){
             const { data, error } = await supabase.auth.getSession()
             setDataSecao(data)
 
-            const { data: data2, error: error2 } = await supabase.from('1functions').select('*').in('id', data.session.user.user_metadata.salvas)
-
+            const { data: data2, error: error2 } = await supabase.from('1functions').select('*').in('id', data.session.user.user_metadata.criadas)
             setFunctions(data2)
         }
         obterUsuarioSessao()
     },[])
 
+    // Take Created Function From Session User
+
     useEffect(() => {
         if (!dataSecao.session){return}
         async function obterFuncoes(){
-            const { data, error } = await supabase.from(codeLanguage+'functions').select('*').in('id', dataSecao.session.user.user_metadata.salvas)
+            const { data, error } = await supabase.from(codeLanguage+'functions').select('*').in('id', dataSecao.session.user.user_metadata.criadas)
             setFunctions(data)
         }
         obterFuncoes()
     },[mainLanguage])
-    
 
-      async function changeLanguage(){
+    // Change Language Programming
+
+    async function changeLanguage(){
 
         var language = document.getElementsByName('selector')
         for (var i = 0; i < language.length; i++) {
@@ -54,9 +63,11 @@ function SavedFunctions(){
         }
     }
 
+    // HTML Code
+
     return (
-        <div className="savedFunctionsMain">
-            
+        <div className="createdFunctionsMain">
+
             <div class="radio-selector" id="radioSalvas">
                 <input type="radio" id="option1" name="selector" value="javascript" onChange={changeLanguage} />
                 <label for="option1">javascript</label>
@@ -68,10 +79,9 @@ function SavedFunctions(){
                 <Card key={element.id} functionData={element} language={mainLanguage} />
             ))}
 
-
         </div>
     )
 
 }
 
-export default SavedFunctions;
+export default CreatedFunctions;

@@ -1,15 +1,19 @@
 // Import Styles
 
 import "./card.css"
+
+// Framework Imports
+
 import Highlight from "react-highlight";
 
-
-// Component Funciton
+// Card Code
 
 function Card({functionData, language}){
 
+    // HTML Code
+
     return (
-        <div className="functionCardSaved" key={functionData.id}>
+        <div className="functionCardSaved">
             
             <h1>{functionData.title}</h1>
             <p>{functionData.description}</p>

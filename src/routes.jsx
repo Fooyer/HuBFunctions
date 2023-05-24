@@ -12,9 +12,12 @@ import Login from "./pages/login/login";
 import Register from "./pages/register/register";
 import Perfil from "./pages/perfil/perfil";
 
-// App code
+// Routes Function Code
 
 function PageRoutes() {
+
+  // HTML Code
+
   return (
 
     <BrowserRouter>

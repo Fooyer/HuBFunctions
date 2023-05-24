@@ -6,13 +6,15 @@ import "./results.css"
 
 import { Col, Row } from 'react-bootstrap';
 
-// Import Components
+// Import Screen Components
 
 import Card from "./card/card";
 
-// Component Funciton
+// Section Page
 
 function Results({dados,LanguageProg}){
+
+    // HTML Code
 
     return (
 

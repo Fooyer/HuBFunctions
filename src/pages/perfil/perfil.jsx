@@ -2,27 +2,31 @@
 
 import "./perfil.css"
 
+// Framework Imports
+
 import { supabase } from "../../providers/supabase"
 import { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Page imports
 
-import DadosConta from "../../components/dadosConta/dadosConta";
-import SavedFunctions from "../../components/savedFunctions/savedFunctions";
-import CreatedFunctions from "../../components/createdFunctions/createdFunctions";
+import DadosConta from "./dadosConta/dadosConta";
+import SavedFunctions from "./savedFunctions/savedFunctions";
+import CreatedFunctions from "./createdFunctions/createdFunctions";
 
 // Page Home HTML Code
 
 function Perfil(){
 
-    const navigate = useNavigate();
+    // Initialize useState Variables
 
     const [ errorAuth,setErrorAuth ] = useState('')
     const [ user,setUser ] = useState('')
     const [ page,setPage ] = useState('')
     const [ salvas,setSalvas ] = useState('')
     const [ criadas,setCriadas ] = useState('')
+
+    // Verify Session and save data from them
 
     useEffect(()=>{
         async function vereficarSessao(){
@@ -36,6 +40,8 @@ function Perfil(){
         vereficarSessao()
     },[])
 
+    // Logout Function
+
     async function logout(){
         const { error } = await supabase.auth.signOut()
 
@@ -43,6 +49,8 @@ function Perfil(){
 
         window.location.href = '/'
     }
+
+    // HTML Code
 
     return (
         <main className="AppPerfil">

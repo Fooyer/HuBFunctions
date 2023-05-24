@@ -1,7 +1,13 @@
+// Style Imports
+
 import "./header.css"
+
+// Component Funciton
 
 function Header({errorAuth}) {
 
+  // HTML Code
+  
   return (
     <header>
         <a href='/' className="linkHeader"><h2>HUBFUNCTIONS</h2></a>

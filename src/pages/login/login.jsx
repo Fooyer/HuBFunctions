@@ -2,14 +2,16 @@
 
 import "./login.css"
 
-import { supabase } from "../../providers/supabase"
-import { Link, useNavigate } from "react-router-dom"
+// Framework Imports
 
-// Page Home HTML Code
+import { supabase } from "../../providers/supabase"
+import { Link } from "react-router-dom"
+
+// Page Code
 
 function Login(){
 
-    const navigate = useNavigate()
+    // Validate Login Credencials
 
     async function validarLogin(event){
         event.preventDefault()
@@ -28,6 +30,8 @@ function Login(){
         window.location.href = '/'
 
     }
+
+    // HTML Code
 
     return (
         <section className="AppLogin">

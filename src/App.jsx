@@ -1,5 +1,7 @@
 // Frameworks Imports
-import React, { useEffect, useState } from "react";
+
+import { useEffect, useState } from "react";
+import { supabase } from "./providers/supabase";
 
 // Import Routes
 
@@ -9,13 +11,16 @@ import PageRoutes from "./routes";
 
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
-import { supabase } from "./providers/supabase";
 
 // App Code
 
 function App() {
 
+  // Initialize useState Variables
+
   const [ errorAuth,setErrorAuth ] = useState()
+
+  // Verify If User if Logged In
 
   useEffect(()=>{
     async function vereficarSessao(){
@@ -25,6 +30,8 @@ function App() {
     }
     vereficarSessao()
   },[])
+
+  // HTML Code
 
   return (
     <>

@@ -1,12 +1,17 @@
+// Import Styles
+
 import "./register.css"
 
-import { Link } from "react-router-dom"
+// Framework Imports
 
+import { Link } from "react-router-dom"
 import { supabase } from "../../providers/supabase"
 
-// Page Home HTML Code
+// Register Page Code
 
 function Register(){
+
+    // Validate Register
 
     async function validarRegistro(event){
         event.preventDefault()
@@ -36,6 +41,8 @@ function Register(){
 
         alert("Confirme seu email")
     }
+
+    // HTML Code
 
     return (
         <section className="AppLogin">
