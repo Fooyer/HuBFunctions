@@ -18,7 +18,6 @@ function SavedFunctions(){
         async function obterUsuarioSessao(){
           const { data, error } = await supabase.auth.getSession()
           setFunctions(data.session.user.user_metadata.salvas)
-          console.log(data.session.user.user_metadata.salvas)
         }
         obterUsuarioSessao()
       },[])

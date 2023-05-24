@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import "./style.css"
-import AceEditor from "react-ace";
+import Highlight from "react-highlight";
 
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-javascript";
@@ -43,9 +43,22 @@ function AreaRestrita(){
     },[reload])
 
     async function aprovar(item){
-        const { error } = await supabase.from(item.language+'functions').insert({ title: item.title, function: item.function, description: item.description})
+
+        const { error } = await supabase.from(item.language+'functions').insert({
+            id: item.id,
+            title: item.title,
+            function: item.function,
+            description: item.description,
+            autor: item.autor
+        })
+        
+        let { data: profiles, error4 } = await supabase.from('profiles').select('email').eq('id',item.autor)
+
+        const { data3, error3 } = await supabase.auth.updateUser(profiles[0].email, {data: { criadas: item.id }})
         const { data, error2 } = await supabase.from('foraprove').delete().eq('id', item.id)
+
         alert("Aprovada com sucesso!")
+
         setReload(reload+1)
     }
     async function reprovar(item){
@@ -89,8 +102,10 @@ function AreaRestrita(){
                         
                         <h1>{item.title}</h1>
                         <p>{item.description}</p>
+                        <p>{item.autor}</p>
                         <p>{languages[item.language-1].planguage}</p>
-                        <AceEditor showGutter={false} highlightActiveLine={false} mode={languages[item.language-1].planguage} theme="tomorrow_night_eighties" value={item.function} editorProps={{ $blockScrolling: true }} fontSize={15} className="cardEditorFunction" readOnly={true} />
+
+                        <Highlight className={languages[item.language-1].planguage} >{item.function}</Highlight>
 
                         <button id="button_aprovar" onClick={() => aprovar(item)}>Aprovar</button>
                         <button id="button_reprovar" onClick={() => reprovar(item)}>Reprovar</button>

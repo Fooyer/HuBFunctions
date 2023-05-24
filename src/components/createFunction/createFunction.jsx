@@ -87,7 +87,7 @@ function CreateFunction(){
             alert("Escolha uma linguagem!")
             return 0
         }
-        console.log(descFunction)
+
         if (descFunction === '' || descFunction === null || descFunction.replace(/\s/g, "") === ''){
             alert("Escreva uma função!")
             return 0 
@@ -104,8 +104,15 @@ function CreateFunction(){
         let codefuncao = descFunction
         let descricao = document.getElementById('descriptionNewFunction').value
         let languageValue = codeLanguage
+        let autor;
 
-        const { error } = await supabase.from('foraprove').insert({ title: tituloFuncao, function: codefuncao, description: descricao, language: languageValue })
+        const { data, error2 } = await supabase.auth.getSession()
+        
+
+        if (data.session !== null){autor = data.session.user.id}
+        
+
+        const { error } = await supabase.from('foraprove').insert({ title: tituloFuncao, function: codefuncao, description: descricao, language: languageValue, autor: autor})
 
         if (error!=null){
             console.log(error)
