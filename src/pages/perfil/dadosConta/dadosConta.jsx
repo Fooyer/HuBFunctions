@@ -36,7 +36,7 @@ function DadosConta(){
         const { data: data2, error: error2 } = await supabase.from('profiles').update({ username: username }).eq('email', email)
         if (error2){alert("Nome inválido ou já ultilizado"); return}
 
-        const { data, error } = await supabase.auth.updateUser({email: email, data: { username: username }})
+        const { data, error } = await supabase.auth.updateUser({ data: { username: username }})
 
         if (error){alert(error)}
         
@@ -78,7 +78,7 @@ function DadosConta(){
 
                         <div className="campoDados">
                             <label htmlFor="email">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value) } />
+                            <input type="email" name="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value) } disabled />
                         </div>
                     </div>
 
