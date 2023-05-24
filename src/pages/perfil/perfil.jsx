@@ -21,6 +21,8 @@ function Perfil(){
     const [ errorAuth,setErrorAuth ] = useState('')
     const [ user,setUser ] = useState('')
     const [ page,setPage ] = useState('')
+    const [ salvas,setSalvas ] = useState('')
+    const [ criadas,setCriadas ] = useState('')
 
     useEffect(()=>{
         async function vereficarSessao(){
@@ -28,6 +30,8 @@ function Perfil(){
           const { session, user } = data
           setErrorAuth(error)
           setUser(user.user_metadata.username)
+          setSalvas(user.user_metadata.salvas.length)
+          setCriadas(user.user_metadata.criadas.length)
         }
         vereficarSessao()
     },[])
@@ -83,7 +87,16 @@ function Perfil(){
                         }
                         {page === '' &&
                         <>
-
+                            <section className="secaoMainPerfil">
+                                <div className="divMainPerfilInfo">
+                                    <h2>Funções Salvas</h2>
+                                    <p>{salvas}</p>
+                                </div>
+                                <div className="divMainPerfilInfo">
+                                    <h2>Funções Criadas</h2>
+                                    <p>{criadas}</p>
+                                </div>
+                            </section>
                         </>
                         }
 
