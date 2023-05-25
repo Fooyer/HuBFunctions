@@ -19,7 +19,7 @@ function NoData(){
 			
                 <h1>Nenhuma função foi encontrada</h1>
 
-		    </Col>
+	    </Col>
         </Row>
 
     )
