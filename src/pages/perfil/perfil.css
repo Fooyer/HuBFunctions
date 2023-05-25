@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     height: 100%;
     padding-top: 100px;
+    justify-content: center;
 }
 .menuOptionsPerfil ul{
     list-style: none;
@@ -12,7 +13,7 @@
     padding: 0;
 }
 .menuOptionsPerfil{
-    width: 200px;
+    width: 15%;
     text-align: center;
 }
 .menuOptionsPerfil li:hover{
@@ -55,7 +56,7 @@
     font-size: 14pt;
 }
 .contentPerfil{
-    width: 70%;
+    width: 75%;
     color: #fff;
     margin-left: 5%;
     align-self: flex-start;
@@ -80,7 +81,11 @@
    .contentPerfil{
         width: 98%;
         margin-left: 1%;
-   } 
+   }
+   .menuOptionsPerfil{
+    width:90%;
+    text-align: center;
+}
 
 }
 .secaoMainPerfil{
