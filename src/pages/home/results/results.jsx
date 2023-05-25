@@ -27,7 +27,7 @@ function Results({dados,LanguageProg}){
 
                 ))}
 
-		    </Col>
+	     </Col>
         </Row>
 
     )
