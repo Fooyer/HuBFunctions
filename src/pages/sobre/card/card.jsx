@@ -2,17 +2,11 @@
 
 import "./card.css"
 
-// Frameworks Imports
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// Components Imports
-
-
-
-// Page Sobre HTML Code
+// Card Code
 
 function Card({participante}){
+
+    // HTML Code
 
     return (
         <div>
@@ -20,7 +14,6 @@ function Card({participante}){
             <p>{participante.funcaonoprojeto}</p>
             <p>{participante.descricao}</p>
             <a href={"mailto:"+participante.email}>{participante.email}</a>
-
         </div>
     )
 

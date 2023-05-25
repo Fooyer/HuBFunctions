@@ -1,8 +1,13 @@
 // Import Styles
 
-import { useEffect, useState } from "react";
 import "./style.css"
-import AceEditor from "react-ace";
+
+// Framework Imports
+
+import { useEffect, useState } from "react";
+import Highlight from "react-highlight";
+
+// Import Languages for AceEditor
 
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-javascript";
@@ -11,16 +16,20 @@ import "ace-builds/src-noconflict/ext-language_tools";
 
 // Cria um cliente com o banco
 
-import { supabase } from "../../providers/supabase";
+import { supabase } from "../../providers/adminsupabase";
 
-// Page Home HTML Code
+// Page Restricted Area
 
 function AreaRestrita(){
+
+    // Use States Variables
 
     const [logado, setLogado] = useState(false)
     const [list, setList] = useState([])
     const [languages, setLanguages] = useState([])
     const [reload, setReload] = useState(0)
+
+    // Get Pending Aprove Functions From Data Base and Programming Languages table
 
     useEffect(() => {
         async function getData(){
@@ -42,17 +51,47 @@ function AreaRestrita(){
         getData();
     },[reload])
 
+    // Function for Aprove Function
+
     async function aprovar(item){
-        const { error } = await supabase.from(item.language+'functions').insert({ title: item.title, function: item.function, description: item.description})
+
+        const { error5 } = await supabase.from(item.language+'functions').insert({
+            id: item.id,
+            title: item.title,
+            function: item.function,
+            description: item.description,
+            autor: item.autor
+        })
+
+        const { data: user, error } = await supabase.auth.admin.getUserById(item.autor)
+
+        let metadata = user.user.user_metadata.criadas
+
+        if (!metadata) {
+            metadata = [item.id]
+        } else{
+            metadata.push(item.id)
+        }
+
+        const { data3, error3 } = await supabase.auth.updateUser({data: { criadas: metadata }, user_id: item.autor})
+
         const { data, error2 } = await supabase.from('foraprove').delete().eq('id', item.id)
+
         alert("Aprovada com sucesso!")
+
         setReload(reload+1)
     }
+
+    // Function for Reprove a Function
+
     async function reprovar(item){
         const { data, error } = await supabase.from('foraprove').delete().eq('id', item.id)
         alert("Reprovada com sucesso!")
         setReload(reload+1)
     }
+
+    // Function for verify Login
+
     async function logar(event){
         event.preventDefault()
 
@@ -64,6 +103,8 @@ function AreaRestrita(){
             alert("Credenciais inválidas!")
         }
     }
+
+    // HTML Code
 
     return (
         <div className="area_restrita">
@@ -89,8 +130,10 @@ function AreaRestrita(){
                         
                         <h1>{item.title}</h1>
                         <p>{item.description}</p>
+                        <p>{item.autor}</p>
                         <p>{languages[item.language-1].planguage}</p>
-                        <AceEditor showGutter={false} highlightActiveLine={false} mode={languages[item.language-1].planguage} theme="tomorrow_night_eighties" value={item.function} editorProps={{ $blockScrolling: true }} fontSize={15} className="cardEditorFunction" readOnly={true} />
+
+                        <Highlight className={languages[item.language-1].planguage} >{item.function}</Highlight>
 
                         <button id="button_aprovar" onClick={() => aprovar(item)}>Aprovar</button>
                         <button id="button_reprovar" onClick={() => reprovar(item)}>Reprovar</button>

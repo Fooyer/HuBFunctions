@@ -1,5 +1,7 @@
 // Frameworks Imports
-import React from "react";
+
+import { useEffect, useState } from "react";
+import { supabase } from "./providers/supabase";
 
 // Import Routes
 
@@ -13,10 +15,28 @@ import Footer from "./components/footer/footer";
 // App Code
 
 function App() {
+
+  // Initialize useState Variables
+
+  const [ errorAuth,setErrorAuth ] = useState()
+
+  // Verify If User if Logged In
+
+  useEffect(()=>{
+    async function vereficarSessao(){
+      const { data, error } = await supabase.auth.refreshSession()
+      const { session, user } = data
+      setErrorAuth(error)
+    }
+    vereficarSessao()
+  },[])
+
+  // HTML Code
+
   return (
     <>
 
-      <Header />
+      <Header errorAuth={errorAuth} />
 
       <PageRoutes />
 

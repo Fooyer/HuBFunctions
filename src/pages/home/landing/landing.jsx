@@ -2,14 +2,17 @@
 
 import "./landing.css"
 
-// Import Frameworks
+// Media Imports
 
-import imgHow from '../../images/howToSearch.gif'
-import imgCreate from '../../images/imgCreate.gif'
+import imgHow from '../../../images/howToSearch.gif'
+import imgCreate from '../../../images/imgCreate.gif'
+import imgSave from "../../../images/saveFun.gif"
 
-// Component Description HTML Code
+// Section Code
 
 function LandingPage(){
+
+    // HTML Code
 
     return (
         
@@ -30,6 +33,15 @@ function LandingPage(){
                 </div>
                 <div className="sectionGifs">
                     <img src={imgCreate} width={1000} />
+                </div>
+            </div>
+
+            <div className="sectionMain">
+                <div className="sectionTitle">
+                    <h1>Salve uma função</h1>
+                </div>
+                <div className="sectionGifs">
+                    <img src={imgSave} width={1000} />
                 </div>
             </div>
         

@@ -66,7 +66,7 @@
     background-color:#2a9292;
 }
 .hljs{
-    max-width: 90vw;
+    max-width: 85vw;
     display:block;
     overflow-x:auto;
     background:rgb(26, 26, 26);
@@ -80,4 +80,8 @@
 }
 .hljs-strong{
     font-weight:bold;
+}
+#buttonSalvarFunction{
+    margin-right: 10px;
+    margin-bottom: 10px;
 }

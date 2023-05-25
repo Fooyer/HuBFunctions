@@ -6,7 +6,7 @@ import "./search.css"
 
 import { supabase } from "../../providers/supabase";
 import { Col, Row } from 'react-bootstrap';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 // Import Images
@@ -21,7 +21,6 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
     // Obter as opções de linguages diretamente do banco
 
     const [Languages, setLanguages] = useState([]);
-    const [value, setValue] = useState([])
 
     useEffect(() => {
         async function fetchLanguages(){
@@ -52,14 +51,15 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
         let SearchText = "%"+document.getElementById('searchContent').value.replace(" ","%")+"%"
         languageSearch = languageSearch+"functions"
 
-        let { data: functions, error } = await supabase.from(languageSearch).select('*').ilike('title', SearchText)
-
+        let { data: functions, error } = await supabase.from(languageSearch).select('*, profiles(username)').ilike('title', SearchText)
         if (functions.length===0){setSearched('null'); setDados(functions); return 0}
 
         setDados(functions)
         setSearched('searched')
 
     }
+
+    // Função Para Mudar a linguagem de pesquisa
 
     async function mudarLinguagem(){
         
@@ -71,7 +71,7 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
         setSearched('')
     }
 
-    // HTML do site
+    // HTML do Componente
 
     return (
         <Row className="mx-lg-5 mx-md-0 mx-1">
@@ -83,7 +83,7 @@ function SearchBar({setSearched,setDados,setLanguageProg}){
 
                     </Col>
 
-                    <Col xs="6" md="5" lg="4" className="Search-bar">
+                    <Col xs="6" md="4" lg="4" className="Search-bar">
 
                         <input placeholder="Pesquise uma função" id="searchContent" />
 

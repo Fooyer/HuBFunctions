@@ -6,13 +6,15 @@ import "./results.css"
 
 import { Col, Row } from 'react-bootstrap';
 
-// Import Components
+// Import Screen Components
 
 import Card from "./card/card";
 
-// Component Funciton
+// Section Page
 
 function Results({dados,LanguageProg}){
+
+    // HTML Code
 
     return (
 
@@ -20,8 +22,8 @@ function Results({dados,LanguageProg}){
             <Col xs="12" md="10" lg="8" className="Results-Box">
 			
                 {dados.map((element) => (
-                        
-                    <Card title={element.title} description={element.description} dfunction={element.function} planguage={LanguageProg} />
+                    
+                    <Card autor={element.profiles!==null ? element.profiles.username : "Anônimo"} id={element.id} title={element.title} description={element.description} dfunction={element.function} planguage={LanguageProg} />
 
                 ))}
 
