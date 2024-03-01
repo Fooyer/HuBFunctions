@@ -9,15 +9,22 @@
   --primary: #f8f9fa;
   --secondary: #6c757d;
 
+  --inverted: rgb(12, 12, 12);
   --header: #e0e0e0;
+
+  --text: #212529;
 }
 
 .dark{
     /* cria cores padrão para serem usadas no projeto */
-    --primary: black;
+    --primary: rgb(12, 12, 12);
     --secondary: #6c757d;
-  
+
+
+    --inverted: #f8f9fa;
     --header: #e0e0e0;
+
+    --text: #f8f9fa;
 }
 
 body{

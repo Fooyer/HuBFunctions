@@ -15,23 +15,26 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
 
-  async function createInvoice(){
+  async function validarTema(){
     'use server'
     
     const cookieStore = cookies()
     let tema = cookieStore.get('tema')
+    let corTema = ""
 
     if (tema == null) {
-      tema = 'light'
+      corTema = 'light'
+    } else {
+      corTema = tema.value
     }
 
-    return tema.value
+    return corTema
   }
   
-  const invoice = await createInvoice()
+  const classTema = await validarTema()
 
   return (
-    <html lang="pt-br" id="root" className={invoice}>
+    <html lang="pt-br" id="root" className={classTema}>
       <body className={inter.className}>
 
         <Header />
