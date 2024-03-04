@@ -37,30 +37,69 @@
 }
 
 .darkBotao{
-    position: absolute;
-    top: 2;
-    right: 0;
-    margin-right: 50px;
     color: var(--primary);
     border: none;
     border-radius: 30%;
     cursor: pointer;
     transition: 0.2s;
+    height: 30px;
+    width: auto;
 }
 
 .lightBotao{
-    position: absolute;
-    top: 2;
-    right: 0;
     color: var(--primary);
     border: none;
     border-radius: 30%;
     cursor: pointer;
     transition: 0.2s;
-    margin-right: 50px;
+    height: 30px;
+    width: auto;
 }
-
 
 .darkBotao, .lightBotao{
     user-select: none;
+}
+
+.switchTema {
+    position: absolute;
+    margin-right: 60px;
+    right: 0;
+    display: block;
+    width: 80px;
+    height: 30px;
+    background-color: rgb(212, 203, 203);
+    border-radius: 70px;
+    padding: 3px 10px 3px 7px;
+}
+
+.switchTema .imageLight {
+    margin-right: 40px;
+    width: 20px;
+    height: 25px;
+    animation: go-back 0.5s;
+}
+
+.switchTema .imageDark {
+    margin-left: 40px;
+    width: 25px;
+    height: 25px;
+    animation: lets-go 0.5s;
+}
+
+@keyframes go-back {
+    0% {
+        transform: translateX(40px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes lets-go {
+    0% {
+        transform: translateX(-40px);
+    }
+    100% {
+        transform: translateX(-0px);
+    }
 }
