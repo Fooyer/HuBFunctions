@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
     border-bottom: 1px solid var(--header);
+    height: 75px;
 }
 
 .nav{
@@ -37,12 +37,15 @@
 }
 
 .darkBotao{
+    position: absolute;
+    top: 2;
+    right: 0;
+    margin-right: 50px;
     color: var(--primary);
     border: none;
     border-radius: 30%;
     cursor: pointer;
     transition: 0.2s;
-    margin-right: 50px;
 }
 
 .lightBotao{

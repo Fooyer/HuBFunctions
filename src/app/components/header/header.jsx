@@ -45,8 +45,8 @@ function Header(){
                 </Link>
             </nav>
             <div onClick={alterarTema} className={tema === 'light' ? styles.lightBotao : styles.darkBotao}>
-                {tema == "light" && <Image src={imgLua} width={40} />}
-                {tema == "dark" && <Image src={imgSol} width={40} />}
+                {tema == "light" && <Image src={imgLua} width={35} />}
+                {tema == "dark" && <Image src={imgSol} width={35} />}
             </div>
         </header>
     )
