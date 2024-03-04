@@ -6,22 +6,55 @@
     border-bottom: 1px solid var(--header);
 }
 
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.2rem;
+    position: relative; /* Adicionando position: relative para garantir que a pseudo-elemento esteja posicionado corretamente */
+}
+
+.nav a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Posicionando o pseudo-elemento abaixo do texto */
+    left: 0; /* Começando da esquerda */
+    width: 0; /* Iniciando com largura zero */
+    height: 2px; /* Espessura do underline */
+    background-color: var(--text); /* Cor do underline */
+    transition: width 0.3s ease; /* Adicionando transição para a largura */
+}
+
+.nav a:hover::before {
+    width: 100%; /* Aumentando a largura para 100% */
+}
+
 .darkBotao{
-    background-color: var(--inverted);
     color: var(--primary);
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 30%;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s;
+    margin-right: 50px;
 }
 
 .lightBotao{
-    background-color: var(--inverted);
     color: var(--primary);
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 30%;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s;
+    margin-right: 50px;
+}
+
+
+.darkBotao, .lightBotao{
+    user-select: none;
 }

@@ -12,7 +12,8 @@
   --inverted: rgb(12, 12, 12);
   --header: #e0e0e0;
 
-  --text: #212529;
+  --text: #0c0e0f;
+  --textHold: #2e3336;
 }
 
 .dark{
@@ -25,6 +26,7 @@
     --header: #e0e0e0;
 
     --text: #f8f9fa;
+    --textHold: #b9b9b9;
 }
 
 body{
