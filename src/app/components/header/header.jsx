@@ -4,7 +4,7 @@ import styles from './header.module.css';
 import Cookies from 'js-cookie';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Image from 'next/image';
 import imgLua from '../../../../public/lua.svg';
@@ -13,6 +13,13 @@ import imgSol from '../../../../public/sol.svg';
 function Header(){
 
     const [tema, setTema] = useState(Cookies.get("tema"))
+
+    useEffect(() => {
+        let temas = Cookies.get('tema')
+        if(temas == undefined){
+            setTema("light")
+        }
+    }, [])
 
     async function alterarTema(){
         let temas = Cookies.get('tema')

@@ -7,8 +7,9 @@
 .light{
   /* cria cores padrão para serem usadas no projeto */
   --primary: #f8f9fa;
-  --secondary: #6c757d;
+  --secondary: #e5e5e6;
 
+  --shadow: rgba(0, 0, 0, 0.1);
   --inverted: rgb(12, 12, 12);
   --header: #e0e0e0;
 
@@ -19,9 +20,9 @@
 .dark{
     /* cria cores padrão para serem usadas no projeto */
     --primary: rgb(12, 12, 12);
-    --secondary: #6c757d;
+    --secondary: #1a1c1d;
 
-
+    --shadow: rgba(255, 255, 255, 0.1);
     --inverted: #f8f9fa;
     --header: #e0e0e0;
 
