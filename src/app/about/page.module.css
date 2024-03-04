@@ -1,0 +1,56 @@
+/* page.module.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  color: var(--text);
+}
+
+.description {
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.team {
+  display: flex;
+  flex-direction: column; /* Adicionado para garantir que o título e os membros da equipe sejam empilhados verticalmente */
+  margin-top: 40px;
+}
+
+.teamTitle {
+  color: var(--text);
+  font-size: 24px;
+  margin-bottom: 20px; /* Adicionando margem inferior para separar o título dos membros da equipe */
+}
+
+.member {
+  background-color: var(--secondary);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  margin-bottom: 20px; /* Adicionando margem inferior para separar os membros da equipe */
+}
+
+.member:hover {
+  transform: translateY(-5px);
+}
+
+.memberName {
+  color: var(--text);
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.memberRole {
+  color: var(--textHold);
+  font-size: 16px;
+}
+
+.memberDescription {
+  color: var(--textHold);
+  font-size: 16px;
+  line-height: 1.6;
+}
