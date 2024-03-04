@@ -20,13 +20,13 @@ export default async function RootLayout({ children }) {
     
     const cookieStore = cookies()
     let tema = cookieStore.get('tema')
-    let corTema = ""
 
     if (tema == null) {
       tema = 'light'
+      return tema
     }
 
-    return corTema
+    return tema.value
   }
   
   const classTema = await validarTema()
