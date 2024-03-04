@@ -5,3 +5,23 @@
     padding: 20px 0;
     border-bottom: 1px solid var(--header);
 }
+
+.darkBotao{
+    background-color: var(--inverted);
+    color: var(--primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lightBotao{
+    background-color: var(--inverted);
+    color: var(--primary);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
