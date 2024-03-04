@@ -49,6 +49,9 @@
 }
 
 .lightBotao{
+    position: absolute;
+    top: 2;
+    right: 0;
     color: var(--primary);
     border: none;
     border-radius: 30%;
