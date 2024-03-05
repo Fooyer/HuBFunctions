@@ -7,7 +7,11 @@
 .light{
   /* cria cores padrão para serem usadas no projeto */
   --primary: #f8f9fa;
-  --secondary: #e5e5e6;
+  --secondary: #e4e4e4;
+  --terciary: #c9c9c9;
+
+  --inputPrimary: #f3f3f3;
+  --inputSecundary: #d3d3d3;
 
   --shadow: rgba(0, 0, 0, 0.1);
   --inverted: rgb(12, 12, 12);
@@ -21,6 +25,10 @@
     /* cria cores padrão para serem usadas no projeto */
     --primary: rgb(12, 12, 12);
     --secondary: #1a1c1d;
+    --terciary: #2e3336;
+
+    --inputPrimary: #1a1c1d;
+    --inputSecundary: #2e3336;
 
     --shadow: rgba(255, 255, 255, 0.1);
     --inverted: #f8f9fa;

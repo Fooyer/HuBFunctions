@@ -19,6 +19,7 @@
     color: var(--text);
     font-size: 1.2rem;
     position: relative; /* Adicionando position: relative para garantir que a pseudo-elemento esteja posicionado corretamente */
+    user-select: none;
 }
 
 .nav a::before {

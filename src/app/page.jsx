@@ -1,10 +1,28 @@
-import Image from "next/image";
+'use client'
+
 import styles from "./page.module.css";
 
+import { useState } from "react";
+
+import SearchBar from "./components/searchBar/searchBar";
+
 export default function Home() {
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  function onSearch(event){
+    event.preventDefault();
+
+
+
+    console.log(searchTerm)
+  }
+
   return (
     <main className={styles.main}>
-      <h1 className={styles.title}>Welcome to my Next.js site!</h1>
+      <div className={styles.searchBar}>
+        <SearchBar onSearch={onSearch} setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
+      </div>
     </main>
   );
 }

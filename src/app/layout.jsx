@@ -32,7 +32,7 @@ export default async function RootLayout({ children }) {
   const classTema = await validarTema()
 
   return (
-    <html lang="pt-br" id="root" className={classTema}>
+    <html lang="en" id="root" className={classTema}>
       <body className={inter.className}>
 
         <Header />

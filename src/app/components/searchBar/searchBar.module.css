@@ -1,0 +1,50 @@
+/* styles.module.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchContainer {
+    position: relative;
+}
+
+.input {
+    padding: 10px;
+    border: 1px solid var(--terciary); /* Usando a cor secundária como borda do input */
+    border-radius: 15px;
+    font-size: 16px;
+    width: 40vw; /* Defina o tamanho desejado */
+    height: 50px;
+    background-color: var(--inputPrimary); /* Usando a cor primária como fundo do input */
+    color: var(--text); /* Usando a cor de texto padrão */
+    padding-right: 50px; /* Ajuste o padding para acomodar o botão */
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--textHold); /* Alterando a cor da borda ao focar */
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    height: 80%;
+    transform: translateY(-50%);
+    display: flex; /* Adiciona display flex */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 20px;
+    background-color: var(--inputSecundary); /* Usando a cor primária como fundo do botão */
+    color: var(--text); /* Usando a cor de texto padrão */
+    border: 1px solid var(--inputSecundary); /* Usando a cor secundária como borda do botão */
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.button:hover {
+    border-color: var(--textHold); /* Alterando a cor da borda ao focar */
+}
