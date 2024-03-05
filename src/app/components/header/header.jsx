@@ -52,13 +52,13 @@ function Header(){
             </div>
 
             <div className={`${styles.menu} ${hamburguer ? styles.open : ""}`}>
-                <Link href="/profile">
+                <Link href="/profile" onClick={alterarHamburguer}>
                     Profile
                 </Link>
-                <Link href="/create-function">
+                <Link href="/create-function" onClick={alterarHamburguer}>
                     Create function
                 </Link>
-                <Link href="/sign-out">
+                <Link href="/sign-out" onClick={alterarHamburguer}>
                     Sign out
                 </Link>
             </div>
