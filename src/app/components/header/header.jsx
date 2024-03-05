@@ -13,6 +13,7 @@ import imgSol from '../../../../public/sol.svg';
 function Header(){
 
     const [tema, setTema] = useState(Cookies.get("tema"))
+    const [hamburguer, setHamburguer] = useState(false)
 
     useEffect(() => {
         let temas = Cookies.get('tema')
@@ -38,8 +39,30 @@ function Header(){
         }
     }
 
+    function alterarHamburguer(){
+        setHamburguer(hamburguer=> !hamburguer)
+    }
     return (
         <header className={styles.header}>
+
+            <div className={`${styles.hamburger} ${hamburguer ? styles.open : ""}`} onClick={alterarHamburguer}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <div className={`${styles.menu} ${hamburguer ? styles.open : ""}`}>
+                <Link href="/profile">
+                    Profile
+                </Link>
+                <Link href="/create-function">
+                    Create function
+                </Link>
+                <Link href="/sign-out">
+                    Sign out
+                </Link>
+            </div>
+
             <nav className={styles.nav}>
                 <Link href="/">
                     Home
