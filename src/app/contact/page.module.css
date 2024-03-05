@@ -1,0 +1,13 @@
+.main{
+    display: flex;
+    justify-content: center;
+    min-height: 85.5vh;
+    background-color: var(--primary);
+    color: var(--text);
+}
+
+.sectionTitle{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 1.8rem;
+}

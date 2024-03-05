@@ -20,6 +20,7 @@
     background-color: var(--inputPrimary); /* Usando a cor primária como fundo do input */
     color: var(--text); /* Usando a cor de texto padrão */
     padding-right: 50px; /* Ajuste o padding para acomodar o botão */
+    transition: 0.3s;
 }
 
 .input:focus {
@@ -43,6 +44,7 @@
     border-radius: 15px;
     cursor: pointer;
     font-size: 14px;
+    transition: 0.3s;
 }
 
 .button:hover {

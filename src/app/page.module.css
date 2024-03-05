@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 85.5vh;
+    min-height: 80vh;
     background-color: var(--primary);
 }
 
 .searchBar {
     position: relative;
-    top: -200px; /* ou o valor que preferir para mover para cima */
-  }
+    top: -15vh; /* ou o valor que preferir para mover para cima */
+}
