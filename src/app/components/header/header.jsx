@@ -14,12 +14,19 @@ function Header(){
 
     const [tema, setTema] = useState(Cookies.get("tema"))
     const [hamburguer, setHamburguer] = useState(false)
+    const [logged, setLogged] = useState(undefined)
 
     useEffect(() => {
         let temas = Cookies.get('tema')
         if(temas == undefined){
             setTema("light")
         }
+        let logged = Cookies.get('user')
+        
+        const status = false //Chama API para validação do Login
+
+        setLogged(status)
+
     }, [])
 
     async function alterarTema(){
@@ -52,15 +59,29 @@ function Header(){
             </div>
 
             <div className={`${styles.menu} ${hamburguer ? styles.open : ""}`}>
-                <Link href="/profile" onClick={alterarHamburguer}>
-                    Profile
-                </Link>
-                <Link href="/create-function" onClick={alterarHamburguer}>
-                    Create function
-                </Link>
-                <Link href="/sign-out" onClick={alterarHamburguer}>
-                    Sign out
-                </Link>
+                {logged == true &&
+                    <>
+                        <Link href="/profile" onClick={alterarHamburguer}>
+                            Profile
+                        </Link>
+                        <Link href="/create-function" onClick={alterarHamburguer}>
+                            Create function
+                        </Link>
+                        <Link href="/sign-out" onClick={alterarHamburguer}>
+                            Sign out
+                        </Link>
+                    </>
+                }
+                {logged == false &&
+                    <>
+                        <Link href="/sign-in" onClick={alterarHamburguer}>
+                            Sign In
+                        </Link>
+                        <Link href="/create-account" onClick={alterarHamburguer}>
+                            Create account
+                        </Link>
+                    </>
+                }
             </div>
 
             <nav className={styles.nav}>
