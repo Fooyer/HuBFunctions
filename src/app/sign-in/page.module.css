@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85.5vh;
+    z-index: none;
+  }
+  
+  .form {
+    border-radius: 8px;
+    padding: 40px;
+    max-width: 400px;
+    margin-bottom: 10vh;
+  }
+  
+  .form h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--text); /* Alterado para variável CSS */
+  }
+  
+  .form input[type="text"],
+  .form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--inputSecundary); /* Alterado para variável CSS */
+    border-radius: 4px;
+    background-color: var(--inputPrimary); /* Alterado para variável CSS */
+    color: var(--text);
+  }
+  
+  .form button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--terciary); /* Alterado para variável CSS */
+    box-shadow: 0 2px 4px var(--shadow); /* Alterado para variável CSS */
+    color: var(--inverted); /* Alterado para variável CSS */
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .form button:hover {
+    border: 1px solid var(--inverted); /* Alterado para variável CSS */
+  }
