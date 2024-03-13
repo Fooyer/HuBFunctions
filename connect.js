@@ -13,40 +13,62 @@ const db = new sqlite3.Database(
 
 db.serialize(() => {
   db.run(
-    `CREATE TABLE IF NOT EXISTS Client (
-      _id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    `CREATE TABLE IF NOT EXISTS Clients (
+      id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
       username TEXT,
       email TEXT,
-      senha TEXT
+      senha TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP
     )`, (err) => {
       if (err) {
         return console.error(err.message);
       }
 
-      db.run(`CREATE TABLE IF NOT EXISTS Function (
-        _id INTEGER NOT NULL,
-        code TEXT,
-        id_client INT NOT NULL,
-        PRIMARY KEY (_id, id_client),
-        CONSTRAINT fk_functions_clients
+      db.run(`CREATE TABLE IF NOT EXISTS Languages (
+        id INTEGER NOT NULL,
+        id_client INTEGER NOT NULL,
+        name TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id, id_client),
+        CONSTRAINT fk_languages_clients
           FOREIGN KEY (id_client)
-          REFERENCES Client (_id)
+          REFERENCES Clients (id)
           ON DELETE NO ACTION
           ON UPDATE NO ACTION);
-        CREATE INDEX fk_functions_clients_idx on Function (id_client ASC);
+        CREATE INDEX fk_languages_clients_idx on Languages (id_client ASC);
         `,
         (err) => {
           if (err) {
             return console.error(err.message)
           }
 
-          db.close((err) => {
-            if (err) {
-              return console.error(err.message);
+          db.run(`CREATE TABLE IF NOT EXISTS Functions (
+            id INTEGER NOT NULL,
+            id_language INTEGER NOT NULL,
+            name TEXT,
+            TEXT DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id, id_language),
+            CONSTRAINT fk_functions_languages
+              FOREIGN KEY (id_language)
+              REFERENCES Languages (id)
+              ON DELETE NO ACTION
+              ON UPDATE NO ACTION);
+            CREATE INDEX fk_functions_languages_idx on Functions (id_language ASC);
+            `,
+            (err) => {
+              if (err) {
+                return console.error(err.message)
+              }
+    
+              db.close((err) => {
+                if (err) {
+                  return console.error(err.message);
+                }
+    
+                console.log("Closed the database connection.");
+              });
             }
-
-            console.log("Closed the database connection.");
-          });
+          );
         }
       );
     }
