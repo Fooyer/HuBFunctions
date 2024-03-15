@@ -5,7 +5,7 @@ let db = null;
 
 export async function POST(request) {
     const data = await request.json();
-    const { username, email, senha } = data;
+    const { id, id_client, name } = data;
 
     if (!db) {
         db = await open({
@@ -14,7 +14,7 @@ export async function POST(request) {
         });
     }
 
-    const sql = `INSERT INTO Clients ("username", "email", "senha") VALUES ("${username}", "${email}", "${senha}");`
+    const sql = `INSERT INTO Languages ("id", "id_client", "name") VALUES ("${id}", "${id_client}", "${name}");`
 
     const items = await db.all(sql);
 
