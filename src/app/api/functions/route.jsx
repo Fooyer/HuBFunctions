@@ -1,11 +1,11 @@
 import sqlite3 from "sqlite3";
-import { open, Database } from "sqlite";
+import { open } from "sqlite";
 
 let db = null;
 
 export async function POST(request) {
     const data = await request.json();
-    const { nome, email, senha } = data;
+    const { id_language, name } = data;
 
     if (!db) {
         db = await open({
@@ -14,7 +14,7 @@ export async function POST(request) {
         });
     }
 
-    const sql = `INSERT INTO Client (username, email, senha) VALUES (${nome}, ${email}, ${senha});`
+    const sql = `INSERT INTO Functions ("id_language", "name") VALUES ("${id_language}", "${name}");`
 
     const items = await db.all(sql);
 

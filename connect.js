@@ -49,7 +49,7 @@ db.serialize(() => {
     id INTEGER NOT NULL,
     id_language INTEGER NOT NULL,
     name TEXT,
-    TEXT DEFAULT CURRENT_TIMESTAMP,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id, id_language),
     CONSTRAINT fk_functions_languages
       FOREIGN KEY (id_language)
