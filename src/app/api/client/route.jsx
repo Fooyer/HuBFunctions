@@ -1,6 +1,6 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
-import { createHmac } from "node:crypto";
+import { createHmac, randomUUID } from "node:crypto";
 
 let db = null;
 
@@ -9,23 +9,23 @@ export async function POST(request) {
     const { username, email, password } = data;
 
     if (!username) {
-        return new Response(JSON.stringify("Username is null"), {
+        return new Response(JSON.stringify("username is undefined"), {
             headers: { "Content-Type": "application/json" },
-            status: 200,
+            status: 400,
         });
     }
 
     if (!email) {
-        return new Response(JSON.stringify("Email is null"), {
+        return new Response(JSON.stringify("email is undefined"), {
             headers: { "Content-Type": "application/json" },
-            status: 200,
+            status: 400,
         });
     }
 
     if (!password) {
-        return new Response(JSON.stringify("Password is null"), {
+        return new Response(JSON.stringify("password is undefined"), {
             headers: { "Content-Type": "application/json" },
-            status: 200,
+            status: 400,
         });
     }
 
@@ -35,6 +35,7 @@ export async function POST(request) {
             driver: sqlite3.Database,
         });
     }
+    const id = randomUUID();
 
     const secret = process.env.SECRET_PASSKEY;
 
@@ -42,7 +43,7 @@ export async function POST(request) {
                .update(password)
                .digest('hex');
 
-    const sql = `INSERT INTO Clients ("username", "email", "senha") VALUES ("${username}", "${email}", "${password_hash}");`
+    const sql = `INSERT INTO Clients ("id", "username", "email", "senha") VALUES ("${id}", "${username}", "${email}", "${password_hash}");`
 
     const items = await db.all(sql);
 

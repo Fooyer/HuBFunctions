@@ -5,7 +5,21 @@ let db = null;
 
 export async function POST(request) {
     const data = await request.json();
-    const { id_language, name } = data;
+    const { id_language, code } = data;
+    
+    if (!code) {
+        return new Response(JSON.stringify("code is undefined"), {
+            headers: { "Content-Type": "application/json" },
+            status: 400,
+        });
+    }
+
+    if (!id_language) {
+        return new Response(JSON.stringify("id_language is undefined"), {
+            headers: { "Content-Type": "application/json" },
+            status: 400,
+        });
+    }
 
     if (!db) {
         db = await open({
@@ -13,8 +27,10 @@ export async function POST(request) {
             driver: sqlite3.Database,
         });
     }
+    
+    const id = randomUUID();
 
-    const sql = `INSERT INTO Functions ("id_language", "name") VALUES ("${id_language}", "${name}");`
+    const sql = `INSERT INTO Functions ("id", "id_language", "code") VALUES ("${id}", "${id_language}", "${code}");`
 
     const items = await db.all(sql);
 
