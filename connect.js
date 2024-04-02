@@ -14,7 +14,7 @@ const db = new sqlite3.Database(
 db.serialize(() => {
   db.run(
     `CREATE TABLE IF NOT EXISTS Clients (
-      id TEXT NOT NULL PRIMARY KEY,
+      id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
       username TEXT,
       email TEXT,
       senha TEXT,
@@ -28,7 +28,7 @@ db.serialize(() => {
   );
 
   db.run(`CREATE TABLE IF NOT EXISTS Languages (
-    id TEXT NOT NULL PRIMARY KEY,
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     name TEXT,
     created_at TEXT DEFAULT CURRENT_TIMESTAMP
     )`, (err) => {
@@ -39,8 +39,8 @@ db.serialize(() => {
   );
 
   db.run(`CREATE TABLE IF NOT EXISTS Functions (
-    id TEXT NOT NULL,
-    id_language TEXT NOT NULL,
+    id INTEGER NOT NULL,
+    id_language INTEGER NOT NULL,
     code TEXT,
     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id, id_language),
@@ -61,7 +61,7 @@ db.serialize(() => {
     if (err) {
       return console.error(err.message);
     }
-
+    
     console.log("Closed the database connection.");
   });
 });

@@ -28,10 +28,20 @@ export async function POST(request) {
         });
     }
     
-    const id = randomUUID();
+    const searchIdFunctions = `SELECT id FROM Functions WHERE id=(SELECT max(id) FROM Functions);`;
 
-    const sql = `INSERT INTO Functions ("id", "id_language", "code") VALUES ("${id}", "${id_language}", "${code}");`
+    let idResult = await db.all(searchIdFunctions);
+    let id;
 
+    if (!idResult) {
+        id = 1;
+    } else {
+        id = Number(idResult[0].id);
+        id++;
+    }
+    
+    const sql = `INSERT INTO Functions ("id", "id_language", "code") VALUES ("${id}", "${id_language}", "${code}");`;
+    
     const items = await db.all(sql);
 
     return new Response(JSON.stringify(items), {

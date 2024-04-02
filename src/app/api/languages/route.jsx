@@ -5,14 +5,7 @@ let db = null;
 
 export async function POST(request) {
     const data = await request.json();
-    const { id_client, name } = data;
-
-    if (!id_client) {
-        return new Response(JSON.stringify("id_client is undefined"), {
-            headers: { "Content-Type": "application/json" },
-            status: 400,
-        });
-    }
+    const { name } = data
 
     if (!name) {
         return new Response(JSON.stringify("name is undefined"), {
@@ -28,9 +21,7 @@ export async function POST(request) {
         });
     }
 
-    const id = randomUUID();
-
-    const sql = `INSERT INTO Languages ("id", "id_client", "name") VALUES ("${id}", "${id_client}", "${name}");`
+    const sql = `INSERT INTO Languages ("name") VALUES ("${name}");`
 
     const items = await db.all(sql);
 
