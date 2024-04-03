@@ -42,7 +42,7 @@ export async function POST(request) {
                .update(password)
                .digest('hex');
 
-    const sql = `INSERT INTO Clients ("username", "email", "senha") VALUES ("${username}", "${email}", "${password_hash}");`
+    const sql = `INSERT INTO Clients ("username", "email", "password") VALUES ("${username}", "${email}", "${password_hash}");`
 
     const items = await db.all(sql);
 

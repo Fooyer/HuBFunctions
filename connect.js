@@ -17,7 +17,7 @@ db.serialize(() => {
       id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
       username TEXT,
       email TEXT,
-      senha TEXT,
+      password TEXT,
       languages TEXT,
       created_at TEXT DEFAULT CURRENT_TIMESTAMP
     )`, (err) => {
@@ -42,6 +42,7 @@ db.serialize(() => {
     id INTEGER NOT NULL,
     id_language INTEGER NOT NULL,
     code TEXT,
+    title TEXT,
     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id, id_language),
     CONSTRAINT fk_functions_languages

@@ -3,7 +3,7 @@ import { open } from "sqlite";
 
 let db = null;
 
-export async function GET() {    
+export async function GET() { 
     if (!db) {
         db = await open({
             filename: "./collection.db",
