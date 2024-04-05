@@ -1,6 +1,9 @@
 No terminal digita `node connect.js` para criar o SQLite
+
 Criar arquivo `.env` e definir o `SECRET_PASSKEY`
+
 Abra [http://localhost:3000](http://localhost:3000) com seu navegador para ver os resultados.
+
 Rotas da api [http://localhost:3000/api](http://localhost:3000/api)
 
 
