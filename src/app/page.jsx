@@ -24,7 +24,7 @@ export default function Home() {
               <p>{code.title}</p>
               <p>{code.language}</p>
             </div>
-            <Highlight>{code.code.toString()}</Highlight>
+            <Highlight className={code.language}>{code.code}</Highlight>
           </div>
         ))}
       </div>

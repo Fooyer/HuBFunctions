@@ -9,14 +9,14 @@ export async function POST(request) {
     const { email, password } = data;
     
     if (!email) {
-        return new Response(JSON.stringify("code is undefined"), {
+        return new Response(JSON.stringify("email is undefined"), {
             headers: { "Content-Type": "application/json" },
             status: 400,
         });
     }
 
     if (!password) {
-        return new Response(JSON.stringify("id_language is undefined"), {
+        return new Response(JSON.stringify("password is undefined"), {
             headers: { "Content-Type": "application/json" },
             status: 400,
         });

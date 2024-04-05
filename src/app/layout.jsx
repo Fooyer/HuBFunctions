@@ -8,6 +8,7 @@ import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 import { cookies } from "next/headers";
 import { FunctionsContextProvider } from "./context/FunctionsContext";
+import { AuthContextProvider } from "./context/AuthContext";
 
 export const metadata = {
   title: "HUB Functions",
@@ -35,14 +36,15 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" id="root" className={classTema}>
       <body className={inter.className}>
+        <AuthContextProvider>
+          <Header />
 
-        <Header />
-
-        <FunctionsContextProvider>
-          {children}
-        </FunctionsContextProvider>
-        
-        <Footer />
+          <FunctionsContextProvider>
+            {children}
+          </FunctionsContextProvider>
+          
+          <Footer />
+        </AuthContextProvider>
 
       </body>
     </html>
