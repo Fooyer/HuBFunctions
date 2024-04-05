@@ -1,10 +1,11 @@
-.main{
+.main {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
     background-color: var(--primary);
     flex-direction: column;
+    padding-top: 5rem;
 }
 
 .main p {
@@ -18,12 +19,14 @@
     padding: 10px;
 }
 
-.searchBar {
-    position: relative;
-    top: -15vh; /* ou o valor que preferir para mover para cima */
+.codeBlock {
+    max-width: 860px;
+    width: auto;
+    margin-top: 3rem;
 }
 
 .codeInformation {
+    width: 100%;
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 30px;
