@@ -1,11 +1,12 @@
-// SearchBar.js
-
 'use client'
 
-import { useState } from 'react';
 import styles from './searchBar.module.css'; // Importa os estilos CSS
 
-function SearchBar({ onSearch, searchTerm, setSearchTerm }) {
+import { useContext } from "react";
+import { FunctionsContext } from '../../context/FunctionsContext';
+
+function SearchBar() {
+    const { onSearch, searchTerm, setSearchTerm } = useContext(FunctionsContext);
 
     function handleChange(event){
         setSearchTerm(event.target.value);

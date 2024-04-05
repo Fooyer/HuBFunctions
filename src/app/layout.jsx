@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 import { cookies } from "next/headers";
+import { FunctionsContextProvider } from "./context/FunctionsContext";
 
 export const metadata = {
   title: "HUB Functions",
@@ -37,8 +38,10 @@ export default async function RootLayout({ children }) {
 
         <Header />
 
-        {children}
-
+        <FunctionsContextProvider>
+          {children}
+        </FunctionsContextProvider>
+        
         <Footer />
 
       </body>
