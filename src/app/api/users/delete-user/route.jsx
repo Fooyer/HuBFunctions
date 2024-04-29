@@ -1,6 +1,7 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 import { createHmac } from "node:crypto";
+import { headers } from "next/headers";
 
 let db = null;
 
