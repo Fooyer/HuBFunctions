@@ -1,10 +1,25 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
+import { headers } from "next/headers";
+import { authorizated } from "../../../middleware/auth";
 
 let db = null;
 
 export async function DELETE(request) {
+    const headerList = headers();
+    const authorization = headerList.get("Authorization");
+    
+    try {
+        await authorizated(authorization);
+    } catch (e) {
+        return new Response(JSON.stringify("User is not authorized!"), {
+            headers: { "Content-Type": "application/json" },
+            status: 401,
+        });
+    }
+    
     const data = await request.json();
+
     const { id } = data;
     
     if (!id) {

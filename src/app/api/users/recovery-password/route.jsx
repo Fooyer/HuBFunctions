@@ -1,7 +1,6 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
 import { createHmac } from "node:crypto";
-import { sign } from "jsonwebtoken";
 
 let db = null;
 
@@ -40,21 +39,7 @@ export async function POST(request) {
     
     const items = await db.all(sql);
 
-    if (!items[0]) {
-        return new Response(JSON.stringify({ Error: "User not registered" }), {
-            headers: { "Content-Type": "application/json" },
-            status: 401,
-        });
-    }
-
-    const token = sign({
-        email, password_hash
-    },
-    process.env.JWT_SECRET, {
-        expiresIn: "1d"
-    });
-
-    return new Response(JSON.stringify({ token: "Bearer " + token }), {
+    return new Response(JSON.stringify(items), {
         headers: { "Content-Type": "application/json" },
         status: 200,
     });

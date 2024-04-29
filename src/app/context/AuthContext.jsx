@@ -1,7 +1,6 @@
 'use client'
 
 import { createContext, useState } from "react";
-
 import axios from "axios";
 
 export const AuthContext = createContext({});
@@ -13,14 +12,14 @@ export function AuthContextProvider(props) {
     async function onLogin(event){
         event.preventDefault();
 
-        const result = await axios.post("http://localhost:3000/api/users/login", {
+        const { data } = await axios.post("http://localhost:3000/api/users/login", {
             password: password,
             email: email
         });
 
-        console.log(result)
+        localStorage.setItem("session", data.Bearer);
     }
-    
+
     return (
         <AuthContext.Provider value={{ password, email, onLogin, setEmail, setPassword }}>
             {props.children}

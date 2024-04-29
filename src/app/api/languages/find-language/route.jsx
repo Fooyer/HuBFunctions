@@ -4,9 +4,9 @@ import { open } from "sqlite";
 let db = null;
 
 export async function GET(request) {
-    const body = request[Object.getOwnPropertySymbols(request)[1]];
-    const id_language = body.url.searchParams.get("id_language");
-
+    const searchParams = request.nextUrl.searchParams;
+    const id_language = searchParams.get('id_language');
+    
     if (!db) {
         db = await open({
             filename: "./collection.db",

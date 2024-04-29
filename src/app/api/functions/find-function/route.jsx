@@ -4,8 +4,8 @@ import { open } from "sqlite";
 let db = null;
 
 export async function GET(request) {
-    const body = request[Object.getOwnPropertySymbols(request)[1]];
-    const paramValue = body.url.searchParams.get("functionString");
+    const searchParams = request.nextUrl.searchParams;
+    const functionV = searchParams.get('functionString');
 
     if (!db) {
         db = await open({
@@ -14,7 +14,7 @@ export async function GET(request) {
         });
     }
 
-    const findFunctions = `SELECT * FROM Functions WHERE code LIKE '%${paramValue}%' OR title LIKE '%${paramValue}%';`;
+    const findFunctions = `SELECT * FROM Functions WHERE code LIKE '%${functionV}%' OR title LIKE '%${functionV}%';`;
     
     const functions = await db.all(findFunctions);
 

@@ -1,9 +1,10 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
+import { createHmac } from "node:crypto";
 
 let db = null;
 
-export async function PUT(request) {
+export async function DELETE(request) {
     const headerList = headers();
     const authorization = headerList.get("Authorization");
     
@@ -15,12 +16,19 @@ export async function PUT(request) {
             status: 401,
         });
     }
-
-    const data = await request.json();
-    const { id, name } = data;
     
-    if (!id) {
-        return new Response(JSON.stringify("code is undefined"), {
+    const data = await request.json();
+    const { email, password } = data;
+    
+    if (!email) {
+        return new Response(JSON.stringify("email is undefined"), {
+            headers: { "Content-Type": "application/json" },
+            status: 400,
+        });
+    }
+
+    if (!password) {
+        return new Response(JSON.stringify("password is undefined"), {
             headers: { "Content-Type": "application/json" },
             status: 400,
         });
@@ -32,23 +40,18 @@ export async function PUT(request) {
             driver: sqlite3.Database,
         });
     }
-
-    const selectLanguage = `SELECT * FROM Languages WHERE id = ${id};`;
     
-    const result1 = await db.all(selectLanguage);
+    const secret = process.env.SECRET_PASSKEY;
 
-    if (result1[0] == null) {
-        return new Response(JSON.stringify("Id not exist"), {
-            headers: { "Content-Type": "application/json" },
-            status: 404,
-        });
-    }
-    
-    const sql = `UPDATE Languages SET name = ${name} WHERE id = ${id}`;
+    const password_hash = createHmac('sha256', secret)
+               .update(password)
+               .digest('hex');
 
-    const result = await db.all(sql);
+    const sql = `SELECT * FROM Clients WHERE email = "${email}" AND password = "${password_hash}"`;
     
-    return new Response(JSON.stringify(result), {
+    const items = await db.all(sql);
+
+    return new Response(JSON.stringify(items), {
         headers: { "Content-Type": "application/json" },
         status: 200,
     });

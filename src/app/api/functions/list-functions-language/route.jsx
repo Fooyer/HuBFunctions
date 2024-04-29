@@ -4,8 +4,8 @@ import { open } from "sqlite";
 let db = null;
 
 export async function GET(request) {
-    const body = request[Object.getOwnPropertySymbols(request)[1]];
-    const param = body.url.searchParams.get("language");
+    const searchParams = request.nextUrl.searchParams;
+    const language = searchParams.get('language');
     
     if (!db) {
         db = await open({
@@ -14,7 +14,7 @@ export async function GET(request) {
         });
     }
     
-    const sql = `SELECT * FROM Functions WHERE id_language = ${param};`;
+    const sql = `SELECT * FROM Functions WHERE id_language = ${language};`;
 
     const items = await db.all(sql);
 
