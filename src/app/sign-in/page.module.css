@@ -34,7 +34,7 @@
     width: 100%;
     padding: 10px;
     background-color: var(--terciary); /* Alterado para variável CSS */
-    box-shadow: 0 2px 4px var(--shadow); /* Alterado para variável CSS */
+    box-shadow: 0 0px 4px var(--shadow); /* Alterado para variável CSS */
     color: var(--inverted); /* Alterado para variável CSS */
     border-radius: 4px;
     cursor: pointer;

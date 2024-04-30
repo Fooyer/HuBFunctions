@@ -16,17 +16,16 @@ function Contact(){
         <div className={styles.socialList}>
 
           <div className={styles.member}>
-            <h2 className={styles.memberName}>Telegram</h2>
-            <p className={styles.memberRole}>Hub Functions</p>
+            <h2 className={styles.memberName}>EMail</h2>
+            <p className={styles.memberRole}><Link target='_blank' href="mailto:support@hubfunctions.com">support@hubfunctions.com</Link></p>
           </div>
 
           <div className={styles.member}>
             <h2 className={styles.memberName}>Discord</h2>
-            <p className={styles.memberRole}><Link target='_blank' href="https://discord.gg/fm9stJbg5e">Entrar no servidor</Link></p>
+            <p className={styles.memberRole}><Link target='_blank' href="https://discord.gg/RRh2jq9bAU">Join Community</Link></p>
           </div>
 
         </div>
-
       </div>
     </div>
   );

@@ -13,6 +13,9 @@
   --inputPrimary: #f4f4f4;
   --inputSecundary: #d3d3d3;
 
+  --checkboxprimary: #f8f9fa;
+  --checkboxsecundary: #e4e4e4;
+
   --shadow: rgba(0, 0, 0, 0.1);
   --inverted: rgb(12, 12, 12);
   --header: #e0e0e0;
@@ -29,6 +32,9 @@
 
     --inputPrimary: #1a1c1d;
     --inputSecundary: #2e3336;
+
+    --checkboxprimary: #181818;
+    --checkboxsecundary: #1f1f1f;
 
     --shadow: rgba(255, 255, 255, 0.1);
     --inverted: #f8f9fa;

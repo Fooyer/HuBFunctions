@@ -4,6 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .searchContainer {
@@ -49,4 +51,11 @@
 
 .button:hover {
     border-color: var(--textHold); /* Alterando a cor da borda ao focar */
+}
+
+.multiselect{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
 }

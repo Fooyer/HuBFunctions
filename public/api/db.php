@@ -6,7 +6,7 @@ class DB {
     function __construct() {
         try {
             
-            $this->dbh = new PDO('mysql:host=localhost;dbname=', '', '');
+            $this->dbh = new PDO('mysql:host=127.0.0.1;dbname=u362358694_hubfunctions', 'u362358694_public', '2yDLfKRB@4y|');
             $this->dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 

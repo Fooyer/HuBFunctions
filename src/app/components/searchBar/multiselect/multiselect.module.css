@@ -1,0 +1,25 @@
+.option {
+    display: inline-block;
+    padding: 7px;
+    border: 1px solid rgba(25, 25, 25, 0.3);
+    color: var(--text);
+    background-color: var(--checkboxprimary);
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+    transition: .3s;
+    font-size: 12px;
+}
+
+.optionSelected {
+    display: inline-block;
+    padding: 7px;
+    border: 1px solid #333;
+    background-color: var(--checkboxsecundary);
+    color: var(--text);
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+    transition: .3s;
+    font-size: 12px;
+}

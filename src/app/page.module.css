@@ -13,74 +13,37 @@
     padding-bottom: 10px;
 }
 
-.main pre {
-    color: var(--textHold);
-    background-color: var(--terciary);
-    padding: 10px;
+.functionCard {
+    background-color: var(--secondary); /* fundo suave */
+    border-radius: 8px; /* bordas arredondadas */
+    padding: 1rem; /* espaçamento interno */
+    margin: 0.5rem; /* margem entre cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* sombra suave */
+    transition: transform 0.3s ease; /* transição suave para hover */
 }
 
-.codeBlock {
-    max-width: 860px;
-    width: auto;
-    margin-top: 3rem;
+.functionCard h2 {
+    color: var(--text); /* cor primária para o título */
+    margin-bottom: 0.5rem; /* espaço abaixo do título */
 }
 
-.codeInformation {
-    width: 100%;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 30px;
-    background: var(--secondary);
+.functionCard p {
+    color: var(--text); /* cor de texto padrão */
+    font-size: 0.9rem; /* tamanho de fonte menor para detalhes */
 }
 
-.codeTitles {
+.main404 {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    background-color: var(--primary);
+    flex-direction: column;
+    padding-top: 5rem;
+    color: var(--text); /* usando a cor de texto definida */
 }
 
-.hljs-comment,.hljs-quote{
-    color:#7e7887;
-}
-.hljs-variable,.hljs-template-variable,.hljs-attribute,.hljs-regexp,.hljs-link,.hljs-tag,.hljs-name,.hljs-selector-id,.hljs-selector-class{
-    color:#be4678;
-}
-.hljs-number,.hljs-meta,.hljs-built_in,.hljs-builtin-name,.hljs-literal,.hljs-type,.hljs-params{
-    color:#cf7354;
-}
-.hljs-string,.hljs-symbol,.hljs-bullet{
-    color:#2a9292;
-}
-.hljs-title,.hljs-section{
-    color:#7389fc;
-}
-.hljs-keyword,.hljs-selector-tag{
-    color:#b886fd;
-}
-.hljs-deletion,.hljs-addition{
-    color:#19171c;
-    display:inline-block;
-    width:100%;
-}
-.hljs-deletion{
-    background-color:#be4678;
-}
-.hljs-addition{
-    background-color:#2a9292;
-}
-.hljs{
-    max-width: 85vw;
-    display:block;
-    overflow-x:auto;
-    background:rgb(26, 26, 26);
-    color:#b8b7bb;
-    padding:0.5em;
-    border-radius: 5px;
-    border: 1px solid gray;
-}
-.hljs-emphasis{
-    font-style:italic;
-}
-.hljs-strong{
-    font-weight:bold;
+.main404 h2 {
+    font-size: 2.5rem; /* tamanho maior para o título */
+    color: var(--highlight); /* cor destacada para o título */
+    margin-bottom: 1rem; /* espaço abaixo do título */
 }
