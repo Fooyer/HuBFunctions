@@ -18,11 +18,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-highlight": "^0.15.0",
-<<<<<<< HEAD
     "react-select": "^5.8.0",
-=======
-    "react-toastify": "^10.0.5",
->>>>>>> c5588e5b604a720b20cf70f3d0bc004e682398cf
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   },
