@@ -13,7 +13,7 @@ function SearchBar({setFunctions}) {
 
     useEffect(() => {
         async function getLanguages() {
-            const response = await fetch('http://localhost/hub/api/programming_languages/get/');
+            const response = await fetch('http://https://hubfunctions.com/api/programming_languages/get/');
             const data = await response.json();
             setProgrammingLanguages(data['response'])
         }
@@ -27,7 +27,7 @@ function SearchBar({setFunctions}) {
     async function handleSubmit(event){
         event.preventDefault();
 
-        const response = await fetch('http://localhost/hub/api/functions/search/?search_term=' + searchTerm + "&programming_languages=" + JSON.stringify(selectedOptions), {
+        const response = await fetch('http://https://hubfunctions.com/api/functions/search/?search_term=' + searchTerm + "&programming_languages=" + JSON.stringify(selectedOptions), {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
