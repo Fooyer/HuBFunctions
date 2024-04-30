@@ -6,6 +6,8 @@ import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import { FunctionsContextProvider } from "./context/FunctionsContext";
+import { AuthContextProvider } from "./context/AuthContext";
 
 export default function RootLayout({ children }) {
 
@@ -22,12 +24,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" id="root" className={tema}>
       <body>
-          <Header />
+        <AuthContextProvider>
+            <Header />
 
-          {children}
-          
-          <Footer />
-
+            <FunctionsContextProvider>
+              {children}
+            </FunctionsContextProvider>
+            
+            <Footer />
+          </AuthContextProvider>
       </body>
     </html>
   );

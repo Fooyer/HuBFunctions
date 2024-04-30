@@ -5,8 +5,12 @@ import styles from './page.module.css';
 
 import { AuthContext } from '../context/AuthContext';
 
-export default function SignIn() {
-  const { setEmail, setPassword, onLogin, email, password } = useContext(AuthContext);
+export default function Register() {
+  const { setUsername, setEmail, setPassword, onLogin, email, password, username } = useContext(AuthContext);
+
+  function handleChangeUsername(event) {
+    setUsername(event.target.value);
+  }
 
   function handleChangeEmail(event) {
     setEmail(event.target.value);
@@ -19,7 +23,12 @@ export default function SignIn() {
   return (
     <div className={styles.container}>
       <form onSubmit={onLogin} className={styles.form}>
-        <h1>Sign In</h1>
+        <h1>Register new account</h1>
+        <input 
+          value={username}
+          onChange={handleChangeUsername}
+          type="text" 
+          placeholder="Username"/>
         <input 
           value={email}
           onChange={handleChangeEmail}
@@ -30,7 +39,7 @@ export default function SignIn() {
           onChange={handleChangePassword}
           type="password"
           placeholder="Password" />
-        <button type="submit">Sign In</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
