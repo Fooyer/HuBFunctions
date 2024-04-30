@@ -3,9 +3,13 @@
 import styles from "./page.module.css";
 import { useEffect, useState } from "react";
 
-import SearchBar from "./components/searchBar/searchBar";
+import Highlight from 'react-highlight'
+import { useContext } from "react";
 
+import SearchBar from "./components/searchBar/searchBar";
+import { FunctionsContext } from "./context/FunctionsContext";
 export default function Home() {
+  const { codes } = useContext(FunctionsContext);
 
   const [functions, setFunctions] = useState(undefined);
   const [firstTime, setFirstTime] = useState(true);
