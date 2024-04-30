@@ -1,2 +1,0 @@
-// Selecina todos os valores conforme lista de ids
-//SELECT * FROM clientes WHERE genero IN id (1, 2, 3)

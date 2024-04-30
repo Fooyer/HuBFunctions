@@ -2,18 +2,18 @@
 
 import styles from './searchBar.module.css'; // Importa os estilos CSS
 
-import { useContext } from "react";
-import { FunctionsContext } from '../../context/FunctionsContext';
+import { useState } from 'react';
 
 function SearchBar() {
-    const { onSearch, searchTerm, setSearchTerm } = useContext(FunctionsContext);
+
+    const [searchTerm, setSearchTerm] = useState('');
 
     function handleChange(event){
         setSearchTerm(event.target.value);
     };
 
     return (
-        <form onSubmit={onSearch} className={styles.container}>
+        <form className={styles.container}>
             <div className={styles.searchContainer}>
                 <input
                     type="text"

@@ -2,14 +2,9 @@
 
 import styles from "./page.module.css";
 
-import Highlight from 'react-highlight'
-import { useContext } from "react";
-
 import SearchBar from "./components/searchBar/searchBar";
-import { FunctionsContext } from "./context/FunctionsContext";
 
 export default function Home() {
-  const { codes } = useContext(FunctionsContext);
 
   return (
     <main className={styles.main}>
@@ -18,15 +13,7 @@ export default function Home() {
       </div>
 
       <div className={styles.codeBlock}>
-        {codes.map((code, index) => (
-          <div key={index} className={styles.codeInformation}>
-            <div className={styles.codeTitles}>
-              <p>{code.title}</p>
-              <p>{code.language}</p>
-            </div>
-            <Highlight className={code.language}>{code.code}</Highlight>
-          </div>
-        ))}
+
       </div>
     </main>
   );

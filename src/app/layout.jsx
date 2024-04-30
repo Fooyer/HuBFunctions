@@ -1,50 +1,32 @@
+'use client';
 
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
-import { cookies } from "next/headers";
-import { FunctionsContextProvider } from "./context/FunctionsContext";
-import { AuthContextProvider } from "./context/AuthContext";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
-export const metadata = {
-  title: "HUB Functions",
-  description: "Hub Functions",
-};
+export default function RootLayout({ children }) {
 
-export default async function RootLayout({ children }) {
+  const [tema, setTema] = useState('')
 
-  async function validarTema(){
-    'use server'
-    
-    const cookieStore = cookies()
-    let tema = cookieStore.get('tema')
+  useEffect(() => {
+    setTema(Cookies.get("tema"))
 
-    if (tema == null) {
-      tema = 'light'
-      return tema
+    if (Cookies.get("tema") === '') {
+      setTema('light')
     }
-
-    return tema.value
-  }
-  
-  const classTema = await validarTema()
+  }, [])
 
   return (
-    <html lang="en" id="root" className={classTema}>
-      <body className={inter.className}>
-        <AuthContextProvider>
+    <html lang="en" id="root" className={tema}>
+      <body>
           <Header />
 
-          <FunctionsContextProvider>
-            {children}
-          </FunctionsContextProvider>
+          {children}
           
           <Footer />
-        </AuthContextProvider>
 
       </body>
     </html>
