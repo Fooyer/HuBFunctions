@@ -30,11 +30,37 @@ foreach ($programming_languages as $programming_language) {
 }
 $language_query_part = implode(' OR ', $language_conditions);
 
-$query = 'SELECT functions.*, programming_language.name as languageName FROM functions JOIN programming_language ON functions.language = programming_language.id WHERE title LIKE :search_term AND (' . $language_query_part . ')';
+$selectiveSearch = "";
 
-$params = array(
-    ':search_term' => '%' . $search_term . '%', // Adiciona os símbolos de percentual para busca parcial
-);
+$selectiveSearch;
+$isSelective = preg_match('/^["\'].*["\']$/', $search_term);
+if ($isSelective) {
+    $search_term = trim($search_term, "\"'"); // Remove as aspas
+    $selectiveSearch = " OR dfunction LIKE :selective_search";
+
+    $query = 'SELECT functions.*, programming_language.name as languageName
+            FROM functions 
+            JOIN programming_language ON functions.language = programming_language.id 
+            WHERE title LIKE :search_term
+            '. $selectiveSearch .'
+            AND (' . $language_query_part . ')';
+
+    $params = array(
+        ':search_term' => '%' . $search_term . '%', // Adiciona os símbolos de percentual para busca parcial
+        ':selective_search' => '%' . $search_term . '%'
+    );
+} else {
+    $query = 'SELECT functions.*, programming_language.name as languageName
+            FROM functions 
+            JOIN programming_language ON functions.language = programming_language.id 
+            WHERE title LIKE :search_term
+            AND (' . $language_query_part . ')';
+
+    $params = array(
+        ':search_term' => '%' . $search_term . '%' // Adiciona os símbolos de percentual para busca parcial
+    );
+}
+
 $response = $db->query($query, $params); // Garante que os parâmetros sejam passados corretamente
 
 // Retorna as parcelas

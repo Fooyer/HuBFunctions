@@ -25,7 +25,7 @@ export default function Home() {
         {functions !== undefined && functions.map((func) => (
           <div key={func.id} className={styles.functionCard}>
             <h2>{func.title}</h2>
-            <p>{func.function}</p>
+            <p>{func.dfunction}</p>
             <p>{func.languageName}</p>
           </div>
         ))}

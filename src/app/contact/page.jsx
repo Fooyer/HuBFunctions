@@ -16,7 +16,7 @@ function Contact(){
         <div className={styles.socialList}>
 
           <div className={styles.member}>
-            <h2 className={styles.memberName}>EMail</h2>
+            <h2 className={styles.memberName}>Email</h2>
             <p className={styles.memberRole}><Link target='_blank' href="mailto:support@hubfunctions.com">support@hubfunctions.com</Link></p>
           </div>
 
