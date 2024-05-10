@@ -14,3 +14,14 @@
     text-transform: uppercase;
     box-shadow: 0 -2px 4px var(--shadow);
 }
+
+@media(max-width: 500px) {
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer p {
+        font-size: .6rem;
+    }
+}

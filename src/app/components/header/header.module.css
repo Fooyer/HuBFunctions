@@ -168,6 +168,7 @@
     padding: 10px 20px;
     flex-direction: column;
     gap: 10px;
+    background-color: var(--primary);
   }
   
   .menu a {

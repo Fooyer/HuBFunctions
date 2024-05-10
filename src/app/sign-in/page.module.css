@@ -44,3 +44,9 @@
   .form button:hover {
     border: 1px solid var(--inverted); /* Alterado para variável CSS */
   }
+
+  @media(max-width: 500px) {
+    .form h1 {
+        font-size: 1.5rem;
+    }
+  }

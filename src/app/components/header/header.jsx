@@ -11,6 +11,15 @@ import imgLua from '../../../../public/lua.svg';
 import imgSol from '../../../../public/sol.svg';
 
 function Header(){
+    const [matches, setMatches] = useState(
+        window.matchMedia("(min-width: 768px)").matches
+    )
+
+    useEffect(() => {
+        window
+        .matchMedia("(min-width: 768px)")
+        .addEventListener('change', e => setMatches( e.matches ));
+    }, []);
 
     const [tema, setTema] = useState(Cookies.get("tema"))
     const [hamburguer, setHamburguer] = useState(false)
@@ -82,25 +91,48 @@ function Header(){
                         </Link>
                     </>
                 }
+                {!matches && (
+                    <>
+                        <Link href="/">
+                            Home
+                        </Link>
+                        <Link href="/about">
+                            About
+                        </Link>
+                        <Link href="/contact">
+                            Contact
+                        </Link>
+                        <div onClick={alterarTema} className={tema === 'light' ? styles.lightBotao : styles.darkBotao}>
+                            <div className={styles.switchTema}>
+                                {tema == "light" && <Image className={styles.imageLight} src={imgLua} alt='Imagem lua' />}
+                                {tema == "dark" && <Image className={styles.imageDark} src={imgSol} alt='Imagem de sol' />}
+                            </div>
+                        </div>
+                    </>
+                )}
             </div>
 
-            <nav className={styles.nav}>
-                <Link href="/">
-                    Home
-                </Link>
-                <Link href="/about">
-                    About
-                </Link>
-                <Link href="/contact">
-                    Contact
-                </Link>
-            </nav>
-            <div onClick={alterarTema} className={tema === 'light' ? styles.lightBotao : styles.darkBotao}>
-                <div className={styles.switchTema}>
-                    {tema == "light" && <Image className={styles.imageLight} src={imgLua} alt='Imagem lua' />}
-                    {tema == "dark" && <Image className={styles.imageDark} src={imgSol} alt='Imagem de sol' />}
-                </div>
-            </div>
+            {matches && (
+                <>
+                    <nav className={styles.nav}>
+                        <Link href="/">
+                            Home
+                        </Link>
+                        <Link href="/about">
+                            About
+                        </Link>
+                        <Link href="/contact">
+                            Contact
+                        </Link>
+                    </nav>
+                    <div onClick={alterarTema} className={tema === 'light' ? styles.lightBotao : styles.darkBotao}>
+                        <div className={styles.switchTema}>
+                            {tema == "light" && <Image className={styles.imageLight} src={imgLua} alt='Imagem lua' />}
+                            {tema == "dark" && <Image className={styles.imageDark} src={imgSol} alt='Imagem de sol' />}
+                        </div>
+                    </div>
+                </>
+            )}
         </header>
     )
 };
