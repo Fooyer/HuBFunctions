@@ -2,15 +2,30 @@
 
 import styles from './page.module.css';
 
-export default function submit(event) {
+export default function SignIn() {
 
-  function submit(event) {
+  async function submit(event) {
     event.preventDefault();
 
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    console.log(username + '/' + password);
+    const response = await fetch('http://localhost/hub/api/sign-in/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            }),
+      });
+
+    const data = await response.json();
+    
+    console.log(data)
+
+    localStorage.setItem('Usr', username);
   }
 
   return (
