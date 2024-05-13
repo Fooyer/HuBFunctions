@@ -58,3 +58,9 @@
     color: var(--highlight); /* cor destacada para o título */
     margin-bottom: 1rem; /* espaço abaixo do título */
 }
+
+@media (max-width: 900px) {
+    .searchBar {
+        width: 100%;
+    }
+}
