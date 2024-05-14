@@ -2,11 +2,8 @@
 
 import styles from './page.module.css';
 import Cookies from 'js-cookie';
-import { useRouter } from 'next/navigation';
 
 export default function SignIn() {
-
-  const navigate = useRouter()
 
   async function submit(event) {
     event.preventDefault();
@@ -26,8 +23,6 @@ export default function SignIn() {
       });
 
     const data = await response.json();
-      
-    console.log(data)
 
     if (data.success === true){
       let resp = data.response;

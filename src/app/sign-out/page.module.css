@@ -1,0 +1,24 @@
+/* Define o estilo base do contêiner para centralizar o conteúdo */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Usa toda a altura da tela */
+    background-color: var(--primary); /* Cor de fundo escura */
+    color: var(--text); /* Cor da fonte branca */
+    font-family: 'Arial', sans-serif; /* Define a fonte */
+    text-align: center; /* Alinha o texto ao centro */
+}
+
+/* Estilização específica para o título */
+.title {
+    font-size: 2rem; /* Tamanho da fonte do título */
+    margin-bottom: 0.5rem; /* Espaçamento abaixo do título */
+}
+
+/* Estilização para o texto */
+.text {
+    font-size: 1.2rem; /* Tamanho da fonte do texto */
+    margin-bottom: 0.25rem; /* Espaçamento abaixo do texto */
+}
