@@ -2,7 +2,11 @@
 
 import styles from './page.module.css';
 
+import { useRouter } from 'next/navigation';
+
 export default function CreateAccount() {
+
+  const navigate = useRouter();
 
   async function submit(event) {
     event.preventDefault();
@@ -11,8 +15,6 @@ export default function CreateAccount() {
     const email = event.target.email.value;
     const password = event.target.password.value;
     const confirmPassword = event.target.confirmPassword.value;
-
-    console.log(username + '/'+ email + '/' + password + "/" + confirmPassword);
 
     if (password !== confirmPassword) {
       alert('Passwords do not match');
@@ -31,7 +33,7 @@ export default function CreateAccount() {
 
     if (resp.success === true) {
       alert('Account created');
-      //window.location.href = '/sign-in';
+      navigate.push('/sign-in');
     } else {
       alert(resp.response);
     }
