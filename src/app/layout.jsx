@@ -6,6 +6,7 @@ import Footer from "./components/footer/footer";
 import Header from "./components/header/header";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import HeadComponent from "./components/head/head";
 
 export default function RootLayout({ children }) {
 
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" id="root" className={tema}>
+      <HeadComponent title="HubFunctions" />
       <body>
           <Header />
 

@@ -10,7 +10,7 @@ export default function SignIn() {
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    const response = await fetch('http://localhost/hub/api/sign-in/', {
+    const response = await fetch('https://hubfunctions.com/api/sign-in/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

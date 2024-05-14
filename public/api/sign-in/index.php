@@ -1,8 +1,8 @@
 <?php
 
-include '../../api.php';
-include '../../db.php';
-include '../../class/usuario.php';
+include '../api.php';
+include '../db.php';
+include '../class/usuario.php';
 
 $api = new Api();
 $db = new DB();
@@ -11,28 +11,26 @@ $api->method('POST');
 
 $dados = $api->obterBody();
 
-$usuario = $dados['username'];
+$username = $dados['username'];
 
 $senha = $dados['password'];
 $senhaEncrypt = base64_encode($senha);
 
-$usuario = new Usuario($usuario, $db);
+$usuario = new Usuario($username, $db);
 
-
-
-$query = 'SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha';
-
-$dadosParametros = array(
-    ':usuario' => $usuario,
-    ':senha' => $senhaEncrypt
-);
-
-$response = $db->query($query,$dadosParametros);
-
-if (count($response['data']) == 0) {
-    $api->sendResponse(401, array('success' => false, 'response' => 'Usuário ou senha inválidos'));
+if(!$usuario->isValid()){
+    $api->sendResponse(400, array('success' => false, 'error' => 'Usuário ou senha inválidos'));
 }
 
+if(!$usuario->validarSenha($senhaEncrypt)){
+    $api->sendResponse(400, array('success' => false, 'error' => $senhaEncrypt));
+}
 
+$token = $usuario->gerarToken();
 
-$api->sendResponse(200, array('success' => true, 'response' => $response['data']));
+$response = array(
+    'token' => $token,
+    'message' => 'Usuário autenticado com sucesso'
+);
+
+$api->sendResponse(200, array('success' => true, 'response' => $response));

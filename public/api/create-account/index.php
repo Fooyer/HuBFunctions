@@ -22,7 +22,7 @@ $query = 'INSERT INTO usuarios (username,password,email) VALUES (username,passwo
 
 $dadosParametros = array(
     ':usuario' => $usuario,
-    ':senha' => $senhaEncrypt
+    ':senha' => $senhaEncrypt,
     ':email' => $email
 );
 
