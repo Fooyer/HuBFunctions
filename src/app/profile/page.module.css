@@ -1,0 +1,82 @@
+.main {
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    /* height: 85.5vh; */
+    width: 100%;
+    max-width: 1100px;
+    z-index: none;
+    margin: auto;
+    border-left: 1px solid var(--shadow);
+    border-right: 1px solid var(--shadow);
+    padding: 40px;
+}
+
+.main .profile {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 450px;
+}
+
+.main .profile .button {
+    display: flex; /* Adiciona display flex */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 20px;
+    background-color: var(--inputSecundary); /* Usando a cor primária como fundo do botão */
+    color: var(--text); /* Usando a cor de texto padrão */
+    border: 1px solid var(--inputSecundary); /* Usando a cor secundária como borda do botão */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.main .profile .button:hover {
+    border-color: var(--textHold); /* Alterando a cor da borda ao focar */
+}
+
+.main .profile .person {
+
+}
+
+.main .profile img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+}
+
+.main .profile h3 {
+    color: var(--inverted);
+}
+
+.main .functions {
+    width: 700px;
+    height: auto;
+}
+
+.main .functions h2 {
+    color: var(--inverted);
+}
+
+
+.main .functions .function {
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main .functions .function .codes {
+    background-color: var(--secondary);
+    color: var(--inverted);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}

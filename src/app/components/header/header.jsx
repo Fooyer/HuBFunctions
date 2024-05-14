@@ -28,31 +28,31 @@ function Header(){
     useEffect(() => {
 
         async function iniciarHeader(){
-            let temas = Cookies.get('tema')
+            // let temas = Cookies.get('tema')
 
-            if(temas == undefined){
-                setTema("light")
-            }
+            // if(temas == undefined){
+            //     setTema("light")
+            // }
 
-            const user = Cookies.get('user')
-            const token = Cookies.get('token')
+            // const user = Cookies.get('user')
+            // const token = Cookies.get('token')
 
-            const response = await fetch('https://hubfunctions.com/api/sign-in/validate-token/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    user: user,
-                    token: token
-                }),
-            })
+            // const response = await fetch('https://hubfunctions.com/api/sign-in/validate-token/', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({
+            //         user: user,
+            //         token: token
+            //     }),
+            // })
 
-            const resp = await response.json()
+            // const resp = await response.json()
             
-            const status = resp.success //Chama API para validação do Login
+            // const status = resp.success //Chama API para validação do Login
 
-            setLogged(status)
+            setLogged(true)
         }
 
         iniciarHeader();
