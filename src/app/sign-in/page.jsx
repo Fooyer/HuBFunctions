@@ -1,8 +1,12 @@
 'use client'
 
 import styles from './page.module.css';
+import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
 
 export default function SignIn() {
+
+  const navigate = useRouter()
 
   async function submit(event) {
     event.preventDefault();
@@ -22,10 +26,21 @@ export default function SignIn() {
       });
 
     const data = await response.json();
-    
+      
     console.log(data)
 
-    localStorage.setItem('Usr', username);
+    if (data.success === true){
+      let resp = data.response;
+
+      alert(resp.message);
+
+      Cookies.set('user', username, {expires: 7});
+      Cookies.set('token', resp.token, {expires: 7});
+
+      location.href = '/'
+    } else {
+      alert('Invalid username or password');
+    }
   }
 
   return (
