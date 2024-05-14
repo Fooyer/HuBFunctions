@@ -7,7 +7,7 @@ include '../class/usuario.php';
 $api = new Api();
 $db = new DB();
 
-$api->method('POST');
+$api->method('PUT');
 
 $dados = $api->obterBody();
 

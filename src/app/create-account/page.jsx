@@ -22,7 +22,7 @@ export default function CreateAccount() {
     }
 
     const response = await fetch('https://hubfunctions.com/api/create-account/', {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
