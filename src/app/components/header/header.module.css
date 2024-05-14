@@ -186,3 +186,9 @@
   .open {
     display: flex;
   }
+
+@media (max-width: 767px) {
+    .menu {
+        height: 100%;
+    }
+}
