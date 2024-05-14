@@ -6,12 +6,18 @@ class Usuario {
     private $token;
     private $email;
     private $db;
+    private $new;
 
     public function __construct($usuario, $db) {
         $this->db = $db;
         $this->usuario = $usuario;
 
-        $this->select($usuario);
+        if($usuario != null){
+            $this->new = false;
+            $this->select($usuario);
+        } else{
+            $this->new = true;
+        }
     }
 
     private function select($usuario){
@@ -28,6 +34,43 @@ class Usuario {
 
         $this->usuario = $response['username'];
         $this->senha = $response['password'];
+    }
+
+    public function save(){
+
+        if ($this->new){
+            return $this->insert();
+        } else {
+            return $this->update();
+        }
+    }
+
+    private function insert(){
+        $query = 'INSERT INTO users (username, password, email) VALUES (:usuario, :senha, :email)';
+
+        $dadosParametros = array(
+            ':usuario' => $this->usuario,
+            ':senha' => $this->senha,
+            ':email' => $this->email
+        );
+
+        $response = $this->db->query($query,$dadosParametros);
+
+        return $response;
+    }
+
+    private function update(){
+        $query = 'UPDATE users SET password = :senha, email = :email WHERE username = :usuario';
+
+        $dadosParametros = array(
+            ':usuario'=> $this->usuario,
+            ':senha'=> $this->senha,
+            ':email'=> $this->email
+        );
+
+        $response = $this->db->query($query,$dadosParametros);
+
+        return $response;
     }
 
     public function gerarToken(){
@@ -79,4 +122,66 @@ class Usuario {
         return true;
     }
     
+    public function getUsuario(){
+        return $this->usuario;
+    }
+
+    public function getSenha(){
+        return $this->senha;
+    }
+
+    public function getEmail(){
+        return $this->email;
+    }
+
+    public function setUsuario($usuario){
+        $return['status'] = true;
+        $return['message'] = "";
+
+        $query = "SELECT * FROM users WHERE username = :usuario";
+        $dadosParametros = array(
+            ":usuario"=> $usuario
+        );
+        $response = $this->db->query($query,$dadosParametros);
+
+        if($response["data"] != null){
+            $return['status'] = false;
+            $return['message'] = 'Usuário já existe';
+            return $return;
+        }
+
+        $this->usuario = $usuario;
+
+        return $return;
+    }
+
+    public function setSenha($senha){
+        $return['status'] = true;
+        $return['message'] = "";
+
+        $this->senha = $senha;
+
+        return $return;
+    }
+
+    public function setEmail($email){
+        $return['status'] = true;
+        $return['message'] = "";
+
+        $query = "SELECT id FROM users WHERE email = :email";
+        $dadosParametros = array(
+            ":email"=> $email
+        );
+        $response = $this->db->query($query,$dadosParametros);
+
+        if($response["data"] != null){
+            $return['status'] = false;
+            $return['message'] = "Email já possui uma conta";
+            return $return;
+        }
+
+        $this->email = $email;
+
+        return $return;
+    }
 }
