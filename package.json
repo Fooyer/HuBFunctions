@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@uiw/react-textarea-code-editor": "^3.0.2",
     "axios": "^1.6.8",
     "cors": "^2.8.5",
     "crypto-js": "^4.2.0",

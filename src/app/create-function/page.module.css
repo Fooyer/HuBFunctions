@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 85.5vh;
+    z-index: none;
+    width: 500px;
+    margin: auto;
+}
+
+.container h1 {
+    color: var(--inverted);
+    margin-bottom: 30px;
+}
+
+.textcode {
+    width: 500px;
+    min-height: 300px;
+    max-height: 400px;
+    height: auto;
+    border: 1px solid var(--inverted);
+    border-radius: 5px;
+}
+
+.container .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.container .buttonContainer .button {
+    height: 80%;
+    display: flex; /* Adiciona display flex */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px 20px;
+    background-color: var(--inputSecundary); /* Usando a cor primária como fundo do botão */
+    color: var(--text); /* Usando a cor de texto padrão */
+    border: 1px solid var(--inputSecundary); /* Usando a cor secundária como borda do botão */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.container .buttonContainer .button:hover {
+    border-color: var(--textHold); /* Alterando a cor da borda ao focar */
+}
