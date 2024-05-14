@@ -15,12 +15,14 @@
 }
 
 .textcode {
-    width: 500px;
+    width: 600px;
     min-height: 300px;
     max-height: 400px;
     height: auto;
     border: 1px solid var(--inverted);
     border-radius: 5px;
+    background-color: var(--secondary);
+    color: var(--text);
 }
 
 .container .buttonContainer {
