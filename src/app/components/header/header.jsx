@@ -26,15 +26,36 @@ function Header(){
     const [logged, setLogged] = useState(undefined)
 
     useEffect(() => {
-        let temas = Cookies.get('tema')
-        if(temas == undefined){
-            setTema("light")
-        }
-        let logged = Cookies.get('user')
-        
-        const status = false //Chama API para validação do Login
 
-        setLogged(status)
+        async function iniciarHeader(){
+            let temas = Cookies.get('tema')
+
+            if(temas == undefined){
+                setTema("light")
+            }
+
+            const user = Cookies.get('user')
+            const token = Cookies.get('token')
+
+            const response = await fetch('https://hubfunctions.com/api/sign-in/validate-token/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    user: user,
+                    token: token
+                }),
+            })
+
+            const resp = await response.json()
+            
+            const status = resp.success //Chama API para validação do Login
+
+            setLogged(status)
+        }
+
+        iniciarHeader();
 
     }, [])
 

@@ -1,6 +1,7 @@
 'use client'
 
 import styles from './page.module.css';
+import Cookies from 'js-cookie';
 
 export default function SignIn() {
 
@@ -10,7 +11,7 @@ export default function SignIn() {
     const username = event.target.username.value;
     const password = event.target.password.value;
 
-    const response = await fetch('http://localhost/hub/api/sign-in/', {
+    const response = await fetch('https://hubfunctions.com/api/sign-in/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -22,10 +23,19 @@ export default function SignIn() {
       });
 
     const data = await response.json();
-    
-    console.log(data)
 
-    localStorage.setItem('Usr', username);
+    if (data.success === true){
+      let resp = data.response;
+
+      alert(resp.message);
+
+      Cookies.set('user', username, {expires: 7});
+      Cookies.set('token', resp.token, {expires: 7});
+
+      location.href = '/'
+    } else {
+      alert('Invalid username or password');
+    }
   }
 
   return (

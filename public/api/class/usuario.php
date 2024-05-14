@@ -16,7 +16,7 @@ class Usuario {
 
     private function select($usuario){
 
-        $query = 'SELECT * FROM usuarios WHERE usuario = :usuario';
+        $query = 'SELECT * FROM users WHERE username = :usuario';
 
         $dadosParametros = array(
             ':usuario' => $usuario,
@@ -26,13 +26,13 @@ class Usuario {
 
         $response = $response['data'][0];
 
-        $this->usuario = $response['usuario'];
-        $this->senha = $response['senha'];
+        $this->usuario = $response['username'];
+        $this->senha = $response['password'];
     }
 
     public function gerarToken(){
 
-        $query = "UPDATE usuarios SET token = :token WHERE usuario = :usuario";
+        $query = "UPDATE users SET token = :token WHERE username = :usuario";
 
         $token = base64_encode(openssl_random_pseudo_bytes(16));
 
@@ -60,6 +60,23 @@ class Usuario {
         }
 
         return false;
+    }
+
+    public function validarToken($token){
+        $query = 'SELECT * FROM users WHERE token = :token AND username = :usuario';
+
+        $dadosParametros = array(
+            ':token' => $token,
+            ':usuario' => $this->usuario
+        );
+
+        $response = $this->db->query($query,$dadosParametros);
+
+        if($response['data'] == null){
+            return false;
+        }
+
+        return true;
     }
     
 }
