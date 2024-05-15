@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     setTema(Cookies.get("tema"))
 
-    if (Cookies.get("tema") === '') {
+    if (Cookies.get("tema") !== 'dark' && Cookies.get("tema") !== 'light'){
       setTema('light')
     }
   }, [])
