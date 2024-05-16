@@ -48,11 +48,7 @@ function Header(){
 
             const resp = await response.json()
             
-<<<<<<< HEAD
             const status = resp.success
-=======
-            const status = resp.success //Chama API para validação do Login
->>>>>>> 8510184dda8d8a710e8fa7928a89aa1c0ea54997
 
             setLogged(status)
         }
