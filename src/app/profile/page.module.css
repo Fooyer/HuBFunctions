@@ -1,24 +1,30 @@
 .main {
     display: flex;
     justify-content: space-around;
-    /* align-items: center; */
-    /* height: 85.5vh; */
+    align-items: center;
+    min-height: 85.5vh;
     width: 100%;
     max-width: 1100px;
     z-index: none;
     margin: auto;
     border-left: 1px solid var(--shadow);
     border-right: 1px solid var(--shadow);
-    padding: 40px;
+    color: var(--text);
+}
+
+.main h2{
+    margin-top: 20px;
 }
 
 .main .profile {
     width: 200px;
+    padding: 40px 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    height: 450px;
+    min-height: 89vh;
+    border-right: 1px solid var(--shadow);
 }
 
 .main .profile .button {
@@ -34,14 +40,12 @@
     font-size: 14px;
     transition: 0.3s;
     margin-left: 10px;
+    width: 85%;
+    margin-top: 7px;
 }
 
 .main .profile .button:hover {
     border-color: var(--textHold); /* Alterando a cor da borda ao focar */
-}
-
-.main .profile .person {
-
 }
 
 .main .profile img {
@@ -54,29 +58,120 @@
     color: var(--inverted);
 }
 
-.main .functions {
-    width: 700px;
-    height: auto;
-}
-
-.main .functions h2 {
-    color: var(--inverted);
-}
-
-
-.main .functions .function {
-    /* border: 1px solid white; */
+.sectionMain{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-
+    width: 100%;
+    min-height: 85.5vh;
 }
 
-.main .functions .function .codes {
-    background-color: var(--secondary);
-    color: var(--inverted);
-    margin: 10px 0;
+.formularioPersonal{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 85.5vh;
+}
+
+.formularioPersonal input {
     padding: 10px;
+    border: 1px solid var(--terciary); /* Usando a cor secundária como borda do input */
+    border-radius: 10px;
+    font-size: 16px;
+    width: auto; /* Defina o tamanho desejado */
+    height: 35px;
+    background-color: var(--inputPrimary); /* Usando a cor primária como fundo do input */
+    color: var(--text); /* Usando a cor de texto padrão */
+    transition: 0.3s;
+}
+
+.formularioPersonal input:focus {
+    outline: none;
+    border-color: var(--textHold); /* Alterando a cor da borda ao focar */
+}
+
+.formularioPersonal button{
+    width: 85%;
+    height: 30px;
+    margin-top: 10px;
+    border: 1px solid var(--shadow);
     border-radius: 5px;
+    padding: 5px;
+    background-color: var(--inputSecundary);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.formularioPersonal button:hover{
+    border-color: var(--textHold);
+}
+
+.chanchepassword{
+    gap: 10px;
+    padding: 50px 40px 0px 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.chanchepassword div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.basicInformation{
+    gap: 10px;
+    padding: 50px 40px 0px 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.basicInformation div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.saveButton{
+    width: 150px !important;
+    height: 30px;
+    border: 1px solid var(--shadow);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--inputSecundary);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.cancelButton{
+    width: 150px !important;
+    height: 30px;
+    border: 1px solid var(--shadow);
+    border-radius: 5px;
+    padding: 5px;
+    background-color: var(--inputSecundary);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-top: 50px !important;
+    margin-left: 80px;
 }

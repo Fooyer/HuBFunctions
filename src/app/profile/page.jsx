@@ -1,8 +1,32 @@
 'use client'
 
 import styles from "./page.module.css";
+import { useRouter } from "next/navigation";
 
 export default function Profile() {
+
+  const router = useRouter();
+
+  async function submit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+
+    const data = new FormData(form);
+
+    const response = await fetch("/api/alterarprofile/", {
+      method: "POST",
+      body: data
+    });
+
+    const result = await response.json();
+
+    console.log(result);
+  }
+
+  function SignOut() {
+    router.push("/sign-out");
+  }
 
   return (
     <main className={styles.main}>
@@ -11,20 +35,60 @@ export default function Profile() {
             <img src="https://files.tecnoblog.net/wp-content/uploads/2022/09/stable-diffusion-imagem.jpg" alt="" />
             <h3>Jonh Doe</h3>
           </div>
-          
+
+          <button className={styles.button} onClick={SignOut}>Sign out</button>
           <button className={styles.button}>Delete account</button>
         </div>
 
-        <div className={styles.functions}>
-          <h2>Your Functions</h2>
+        <section className={styles.sectionMain}>
 
-          <div className={styles.function}>
-            <div className={styles.codes}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-            <div className={styles.codes}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-            <div className={styles.codes}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing orem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-            <div className={styles.codes}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-          </div>
-        </div>
+          <h2>Personal Information:</h2>
+
+          <form className={styles.formularioPersonal} onSubmit={submit}>
+
+            <div className={styles.basicInformation}>
+
+              <div>
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" name="name" />
+              </div>
+
+              <div>
+                <label htmlFor="email">Email:</label>
+                <input type="email" id="email" name="email" />
+              </div>
+
+            </div>
+            
+            <div className={styles.chanchepassword}>
+              <div>
+                <label htmlFor="password">Password:</label>
+                <input type="password" id="password" name="password" />
+              </div>
+              
+              <div>
+                <label htmlFor="newpassword">New Password:</label>
+                <input type="password" id="newpassword" name="newpassword" />
+              </div>
+
+              <div>
+                <label htmlFor="confirmnewpassword">Confirm New Password:</label>
+                <input type="password" id="confirmnewpassword" name="confirmnewpassword" />
+              </div>
+            </div>
+
+            <div className={styles.buttons}>
+              <button className={styles.saveButton}>
+                Submit
+              </button>
+              <button className={styles.cancelButton}>
+                Cancel
+              </button>
+            </div>
+
+          </form>
+
+        </section>
     </main>
   );
 }

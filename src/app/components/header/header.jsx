@@ -94,6 +94,9 @@ function Header(){
                         <Link href="/profile" onClick={alterarHamburguer}>
                             Profile
                         </Link>
+                        <Link href="/my-functions" onClick={alterarHamburguer}>
+                            My functions
+                        </Link>
                         <Link href="/create-function" onClick={alterarHamburguer}>
                             Create function
                         </Link>
