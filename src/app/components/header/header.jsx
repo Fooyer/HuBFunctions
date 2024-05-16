@@ -6,9 +6,7 @@ import Cookies from 'js-cookie';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-import Image from 'next/image';
-import imgLua from '../../../../public/lua.svg';
-import imgSol from '../../../../public/sol.svg';
+import LightDarkMode from '../light-dark-mode/light-dark-mode';
 
 function Header(){
     const [matches, setMatches] = useState(
@@ -50,7 +48,11 @@ function Header(){
 
             const resp = await response.json()
             
+<<<<<<< HEAD
             const status = resp.success
+=======
+            const status = resp.success //Chama API para validação do Login
+>>>>>>> 8510184dda8d8a710e8fa7928a89aa1c0ea54997
 
             setLogged(status)
         }
@@ -126,12 +128,7 @@ function Header(){
                         <Link href="/contact">
                             Contact
                         </Link>
-                        <div onClick={alterarTema} className={tema === 'light' ? styles.lightBotao : styles.darkBotao}>
-                            <div className={styles.switchTema}>
-                                {tema == "light" && <Image className={styles.imageLight} src={imgLua} alt='Imagem lua' />}
-                                {tema == "dark" && <Image className={styles.imageDark} src={imgSol} alt='Imagem de sol' />}
-                            </div>
-                        </div>
+                        <LightDarkMode alterarTema={alterarTema} tema={tema} />
                     </>
                 )}
             </div>
@@ -149,12 +146,7 @@ function Header(){
                             Contact
                         </Link>
                     </nav>
-                    <div onClick={alterarTema} className={tema === 'light' ? styles.lightBotao : styles.darkBotao}>
-                        <div className={styles.switchTema}>
-                            {tema == "light" && <Image className={styles.imageLight} src={imgLua} alt='Imagem lua' />}
-                            {tema == "dark" && <Image className={styles.imageDark} src={imgSol} alt='Imagem de sol' />}
-                        </div>
-                    </div>
+                    <LightDarkMode alterarTema={alterarTema} tema={tema} />
                 </>
             )}
         </header>
