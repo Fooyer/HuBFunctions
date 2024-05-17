@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 85.5vh;
+    height: 85.5vh;
     width: 100%;
     max-width: 1100px;
     z-index: none;
@@ -18,12 +18,13 @@
 
 .main .profile {
     width: 200px;
-    padding: 40px 0;
+    padding: 40px 15px;
     display: flex;
+    width: 25%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-height: 89vh;
+    height: 100%;
     border-right: 1px solid var(--shadow);
 }
 
@@ -65,6 +66,7 @@
     align-items: center;
     width: 100%;
     min-height: 85.5vh;
+    padding-top: 60px;
 }
 
 .formularioPersonal{

@@ -9,16 +9,6 @@ import { useState, useEffect } from 'react';
 import LightDarkMode from '../light-dark-mode/light-dark-mode';
 
 function Header(){
-    const [matches, setMatches] = useState(
-        window.matchMedia("(min-width: 768px)").matches
-    )
-
-    useEffect(() => {
-        window
-        .matchMedia("(min-width: 768px)")
-        .addEventListener('change', e => setMatches( e.matches ));
-    }, []);
-
     const [tema, setTema] = useState(Cookies.get("tema"))
     const [hamburguer, setHamburguer] = useState(false)
     const [logged, setLogged] = useState(undefined)
@@ -113,23 +103,9 @@ function Header(){
                         </Link>
                     </>
                 }
-                {!matches && (
-                    <>
-                        <Link href="/">
-                            Home
-                        </Link>
-                        <Link href="/about">
-                            About
-                        </Link>
-                        <Link href="/contact">
-                            Contact
-                        </Link>
-                        <LightDarkMode alterarTema={alterarTema} tema={tema} />
-                    </>
-                )}
+                
             </div>
 
-            {matches && (
                 <>
                     <nav className={styles.nav}>
                         <Link href="/">
@@ -144,7 +120,6 @@ function Header(){
                     </nav>
                     <LightDarkMode alterarTema={alterarTema} tema={tema} />
                 </>
-            )}
         </header>
     )
 };
