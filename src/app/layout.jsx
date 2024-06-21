@@ -7,6 +7,7 @@ import Header from "./components/header/header";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import HeadComponent from "./components/head/head";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({ children }) {
 
@@ -30,6 +31,17 @@ export default function RootLayout({ children }) {
           
           <Footer />
       </body>
+      <Toaster
+       toastOptions={{
+          duration: 3000,
+          style: {
+            border: 'var(--shadow)',
+            padding: '5px',
+            color: 'var(--text)',
+            background: 'var(--secondary)',
+          },
+        }}
+      />
     </html>
   );
 }

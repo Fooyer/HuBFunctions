@@ -1,11 +1,43 @@
 'use client'
 
+import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
+import Cookies from 'js-cookie';
+import toast from "react-hot-toast";
 
 export default function Profile() {
 
   const router = useRouter();
+
+  const user = Cookies.get("user");
+  const token = Cookies.get("token");
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [repeatNewPassword, setRepeatNewPassword] = useState("")
+
+  useEffect(() => {
+    async function obterInfoUsuario() {
+
+      const response = await fetch("/api/obterprofile/?user=" + user + "&token=" + token);
+      const result = await response.json();
+
+      if (result.status === false) {
+        router.push("/sign-in");
+      } else {
+        setName(user);
+        setEmail(result.data.email);
+      }
+    }
+
+   // toast.success('Here is your toast.');
+
+    obterInfoUsuario();
+    
+  }, []);
 
   async function submit(event) {
     event.preventDefault();
@@ -32,7 +64,6 @@ export default function Profile() {
     <main className={styles.main}>
         <div className={styles.profile}>
           <div className={styles.person}>
-            <img src="https://files.tecnoblog.net/wp-content/uploads/2022/09/stable-diffusion-imagem.jpg" alt="" />
             <h3>Jonh Doe</h3>
           </div>
 
@@ -50,12 +81,12 @@ export default function Profile() {
 
               <div>
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" />
+                <input type="text" id="name" name="name" value={name} onChange={setName} />
               </div>
 
               <div>
                 <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" />
+                <input type="email" id="email" name="email" value={email} onChange={setEmail} />
               </div>
 
             </div>
@@ -63,17 +94,17 @@ export default function Profile() {
             <div className={styles.chanchepassword}>
               <div>
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" />
+                <input type="password" id="password" name="password" value={password} onChange={setPassword} />
               </div>
               
               <div>
                 <label htmlFor="newpassword">New Password:</label>
-                <input type="password" id="newpassword" name="newpassword" />
+                <input type="password" id="newpassword" name="newpassword" value={newPassword} onChange={setNewPassword} />
               </div>
 
               <div>
                 <label htmlFor="confirmnewpassword">Confirm New Password:</label>
-                <input type="password" id="confirmnewpassword" name="confirmnewpassword" />
+                <input type="password" id="confirmnewpassword" name="confirmnewpassword" value={repeatNewPassword} onChange={setRepeatNewPassword} />
               </div>
             </div>
 

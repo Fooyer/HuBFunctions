@@ -33,16 +33,17 @@
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     padding: 10px 20px;
-    background-color: var(--inputSecundary); /* Usando a cor primária como fundo do botão */
+    background-color: var(--inputPrimary); /* Usando a cor primária como fundo do botão */
     color: var(--text); /* Usando a cor de texto padrão */
-    border: 1px solid var(--inputSecundary); /* Usando a cor secundária como borda do botão */
-    border-radius: 5px;
+    border-top: 1px solid var(--inputSecundary); /* Usando a cor secundária como borda do botão */
+    border-bottom: 1px solid var(--inputSecundary); /* Usando a cor secundária como borda do botão */
     cursor: pointer;
     font-size: 14px;
     transition: 0.3s;
-    margin-left: 10px;
-    width: 85%;
-    margin-top: 7px;
+    width: 90%;
+    margin: 5px 0px;
+    border-left: 0;
+    border-right: 0;
 }
 
 .main .profile .button:hover {
