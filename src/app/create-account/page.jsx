@@ -3,6 +3,7 @@
 import styles from './page.module.css';
 
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 export default function CreateAccount() {
 
@@ -17,7 +18,7 @@ export default function CreateAccount() {
     const confirmPassword = event.target.confirmPassword.value;
 
     if (password !== confirmPassword) {
-      alert('Passwords do not match');
+      toast.error('Passwords do not match');
       return;
     }
 
@@ -32,10 +33,10 @@ export default function CreateAccount() {
     const resp = await response.json();
 
     if (resp.success === true) {
-      alert('Account created');
+      toast.success('Account created, please sign-in to continue');
       navigate.push('/sign-in');
     } else {
-      alert(resp.response);
+      toast.error(resp.response);
     }
 
   }

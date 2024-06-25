@@ -33,8 +33,6 @@ export default function Profile() {
       }
     }
 
-   // toast.success('Here is your toast.');
-
     obterInfoUsuario();
     
   }, []);
