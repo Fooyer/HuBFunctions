@@ -10,9 +10,6 @@ export default function Profile() {
 
   const router = useRouter();
 
-  const user = Cookies.get("user");
-  const token = Cookies.get("token");
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +18,9 @@ export default function Profile() {
 
   useEffect(() => {
     async function obterInfoUsuario() {
+
+      const user = Cookies.get("user");
+      const token = Cookies.get("token");
 
       const response = await fetch("/api/obterprofile/?user=" + user + "&token=" + token);
       const result = await response.json();
@@ -61,10 +61,6 @@ export default function Profile() {
   return (
     <main className={styles.main}>
         <div className={styles.profile}>
-          <div className={styles.person}>
-            <h3>Jonh Doe</h3>
-          </div>
-
           <button className={styles.button} onClick={SignOut}>Sign out</button>
           <button className={styles.button}>Delete account</button>
         </div>

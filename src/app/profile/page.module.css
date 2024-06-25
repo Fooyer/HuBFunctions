@@ -50,12 +50,6 @@
     border-color: var(--textHold); /* Alterando a cor da borda ao focar */
 }
 
-.main .profile img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50px;
-}
-
 .main .profile h3 {
     color: var(--inverted);
 }
