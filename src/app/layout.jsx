@@ -7,7 +7,7 @@ import Header from "./components/header/header";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import HeadComponent from "./components/head/head";
-import { Toaster } from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 
 export default function RootLayout({ children }) {
 
@@ -18,6 +18,13 @@ export default function RootLayout({ children }) {
 
     if (Cookies.get("tema") !== 'dark' && Cookies.get("tema") !== 'light'){
       setTema('light')
+    }
+
+    let msg = sessionStorage.getItem('msg');
+
+    if (msg !== null){
+      toast.success(msg);
+      sessionStorage.removeItem('msg');
     }
   }, [])
 

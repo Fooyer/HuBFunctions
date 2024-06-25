@@ -28,7 +28,7 @@ export default function SignIn() {
     if (data.success === true){
       let resp = data.response;
 
-      toast.success('You are now logged in');
+      sessionStorage.setItem('msg', "You are now logged in");
 
       Cookies.set('user', username, {expires: 7});
       Cookies.set('token', resp.token, {expires: 7});
