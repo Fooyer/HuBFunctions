@@ -146,7 +146,7 @@ class Usuario {
 
         if($response["data"] != null){
             $return['status'] = false;
-            $return['message'] = 'Usuário já existe';
+            $return['message'] = 'User already exists';
             return $return;
         }
 
@@ -176,7 +176,7 @@ class Usuario {
 
         if($response["data"] != null){
             $return['status'] = false;
-            $return['message'] = "Email já possui uma conta";
+            $return['message'] = "Email already linked to an account";
             return $return;
         }
 

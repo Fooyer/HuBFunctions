@@ -2,6 +2,7 @@
 
 import styles from './page.module.css';
 import Cookies from 'js-cookie';
+import toast from 'react-hot-toast';
 
 export default function SignIn() {
 
@@ -27,14 +28,14 @@ export default function SignIn() {
     if (data.success === true){
       let resp = data.response;
 
-      alert(resp.message);
+      sessionStorage.setItem('msg', "You are now logged in");
 
       Cookies.set('user', username, {expires: 7});
       Cookies.set('token', resp.token, {expires: 7});
 
       location.href = '/'
     } else {
-      alert('Invalid username or password');
+      toast.error('Invalid username or password');
     }
   }
 
