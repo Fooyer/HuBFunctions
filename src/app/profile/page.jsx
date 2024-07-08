@@ -1,11 +1,27 @@
 'use client'
 
+import { useEffect } from "react";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
 
 export default function Profile() {
 
   const router = useRouter();
+
+  useEffect(() => {
+    async function getProfile() {
+
+      const response = await fetch("/api/profile/get/");
+
+      const result = await response.json();
+
+      
+
+      
+    }
+
+    getProfile();
+  }, []);
 
   async function submit(event) {
     event.preventDefault();
