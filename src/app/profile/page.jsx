@@ -22,14 +22,16 @@ export default function Profile() {
       const user = Cookies.get("user");
       const token = Cookies.get("token");
 
-      const response = await fetch("/api/obterprofile/?user=" + user + "&token=" + token);
+      console.log("user: " + user);
+
+      const response = await fetch("https://hubfunctions.com/api/obterUsuario/?user=" + user + "&token=" + token);
       const result = await response.json();
 
       if (result.status === false) {
         router.push("/sign-in");
       } else {
         setName(user);
-        setEmail(result.data.email);
+        setEmail(result.data[0].email);
       }
     }
 
@@ -44,8 +46,8 @@ export default function Profile() {
 
     const data = new FormData(form);
 
-    const response = await fetch("/api/alterarprofile/", {
-      method: "POST",
+    const response = await fetch("https://hubfunctions.com/api/alterarProfile/", {
+      method: "PUT",
       body: data
     });
 
@@ -75,12 +77,12 @@ export default function Profile() {
 
               <div>
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" value={name} onChange={setName} />
+                <input type="text" id="name" name="name" value={name} onChange={e => setName(e.target.value)} />
               </div>
 
               <div>
                 <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" value={email} onChange={setEmail} />
+                <input type="email" id="email" name="email" value={email} onChange={e => setEmail(e.target.value)} />
               </div>
 
             </div>
