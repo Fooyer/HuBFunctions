@@ -11,6 +11,8 @@ $api->method('GET');
 $user = $api->obterParametro('user');
 $token = $api->obterParametro('token');
 
+$token = urldecode($token);
+
 $query = 'SELECT * FROM users WHERE username = :user AND token = :token';
 
 $params = array(

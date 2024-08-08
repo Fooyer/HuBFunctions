@@ -24,7 +24,7 @@ export default function Profile() {
 
       console.log("user: " + user);
 
-      const response = await fetch("https://hubfunctions.com/api/obterUsuario/?user=" + user + "&token=" + token);
+      const response = await fetch("https://hubfunctions.com/api/obterUsuario/?user=" + user + "&token=" + encodeURIComponent(token));
       const result = await response.json();
 
       if (result.status === false) {
