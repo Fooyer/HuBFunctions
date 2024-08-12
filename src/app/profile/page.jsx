@@ -22,8 +22,6 @@ export default function Profile() {
       const user = Cookies.get("user");
       const token = Cookies.get("token");
 
-      console.log("user: " + user);
-
       const response = await fetch("https://hubfunctions.com/api/obterUsuario/?user=" + user + "&token=" + encodeURIComponent(token));
       const result = await response.json();
 
@@ -44,20 +42,36 @@ export default function Profile() {
 
     const form = event.target;
 
-    const data = new FormData(form);
+    const data = {
+      user: form.name.value,
+      password: form.password.value,
+      newpassword: form.newpassword.value,
+    };
 
     const response = await fetch("https://hubfunctions.com/api/alterarProfile/", {
       method: "PUT",
-      body: data
+      body: JSON.stringify(data)
     });
 
     const result = await response.json();
 
-    console.log(result);
+    if (result.success === false) {
+      toast.error(result.message);
+    }
+    else {
+      toast.success(result.message);
+    }
+    clearFields();
   }
 
   function SignOut() {
     router.push("/sign-out");
+  }
+
+  function clearFields(){
+    setPassword("");
+    setNewPassword("");
+    setRepeatNewPassword("");
   }
 
   return (
@@ -77,12 +91,12 @@ export default function Profile() {
 
               <div>
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" value={name} onChange={e => setName(e.target.value)} />
+                <input type="text" id="name" name="name" value={name} disabled={true} onChange={e => setName(e.target.value)} />
               </div>
 
               <div>
                 <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" value={email} onChange={e => setEmail(e.target.value)} />
+                <input type="email" id="email" name="email" value={email} disabled={true} onChange={e => setEmail(e.target.value)} />
               </div>
 
             </div>
@@ -90,25 +104,25 @@ export default function Profile() {
             <div className={styles.chanchepassword}>
               <div>
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" value={password} onChange={setPassword} />
+                <input type="password" id="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
               </div>
               
               <div>
                 <label htmlFor="newpassword">New Password:</label>
-                <input type="password" id="newpassword" name="newpassword" value={newPassword} onChange={setNewPassword} />
+                <input type="password" id="newpassword" name="newpassword" value={newPassword} onChange={e => setNewPassword(e.target.value)} />
               </div>
 
               <div>
                 <label htmlFor="confirmnewpassword">Confirm New Password:</label>
-                <input type="password" id="confirmnewpassword" name="confirmnewpassword" value={repeatNewPassword} onChange={setRepeatNewPassword} />
+                <input type="password" id="confirmnewpassword" name="confirmnewpassword" value={repeatNewPassword} onChange={e => setRepeatNewPassword(e.target.value)} />
               </div>
             </div>
 
             <div className={styles.buttons}>
-              <button className={styles.saveButton}>
+              <button type={"submit"} className={styles.saveButton}>
                 Submit
               </button>
-              <button className={styles.cancelButton}>
+              <button type={"reset"} onClick={clearFields} className={styles.cancelButton}>
                 Cancel
               </button>
             </div>
